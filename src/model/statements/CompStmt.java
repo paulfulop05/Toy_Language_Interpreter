@@ -13,11 +13,10 @@ public class CompStmt implements Istmt {
         return "("+first.toString() + ";" + snd.toString()+")";
     }
 
-    PrgState execute(PrgState state) throws MyException {
+    public PrgState execute(PrgState state) throws MyException {
         MyIStack<Istmt> stk = state.getStk();
         stk.push(snd);
         stk.push(first);
         return state;
     }
-}
 }

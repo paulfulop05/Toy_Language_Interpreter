@@ -22,7 +22,7 @@ public class PrgState{
         stk.push(prg);
     }
 
-    MyIStack<Istmt> getStk(){
+    public MyIStack<Istmt> getStk(){
         return exeStack;
     }
 
@@ -34,13 +34,17 @@ public class PrgState{
         return out;
     }
 
-    // TODO THIS MAY NEED TO BE PUT IN A CONTROLLER
-    PrgState oneStep(PrgState state) throws MyException {
-        MyIStack<Istmt> stk=state.getStk();
-        if(stk.isEmpty()) throw new MyException("prgstate stack is empty");
-        Istmt crtStmt = stk.pop();
-        return crtStmt.execute(state);
+    public MyIDictionary<String, Value> getSymTable() {
+        return  symTable;
     }
+
+    // TODO THIS MAY NEED TO BE PUT IN A CONTROLLER
+//    PrgState oneStep(PrgState state) throws MyException {
+//        MyIStack<Istmt> stk=state.getStk();
+//        if(stk.isEmpty()) throw new MyException("prgstate stack is empty");
+//        Istmt crtStmt = stk.pop();
+//        return crtStmt.execute(state);
+//    }
 
 //TODO this also implemented in controller
 
