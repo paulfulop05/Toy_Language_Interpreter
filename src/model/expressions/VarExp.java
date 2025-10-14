@@ -1,7 +1,7 @@
 package model.expressions;
 
 import exceptions.MyException;
-import model.adt.MyIDictionary;
+import model.adts.MyIDictionary;
 import model.values.Value;
 
 class VarExp implements Exp{

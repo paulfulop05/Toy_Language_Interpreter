@@ -3,7 +3,7 @@ package model.expressions;
 import exceptions.MyException;
 import model.types.IntType;
 import model.values.IntValue;
-import model.adt.MyIDictionary;
+import model.adts.MyIDictionary;
 import model.values.Value;
 
 // TODO make it look better + add some other functions if needed
@@ -16,9 +16,9 @@ public class ArithExp implements Exp {
     public Value eval(MyIDictionary<String, Value> tbl) throws MyException {
         Value v1,v2;
         v1= e1.eval(tbl);
-        if (v1.getType().equals(new IntType())) {
+        if (v1.getType().equals(IntType.INSTANCE)) {
             v2 = e2.eval(tbl);
-            if (v2.getType().equals(new IntType())) {
+            if (v2.getType().equals(IntType.INSTANCE)) {
                 IntValue i1 = (IntValue)v1;
                 IntValue i2 = (IntValue)v2;
                 int n1,n2;

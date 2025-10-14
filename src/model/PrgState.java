@@ -1,12 +1,13 @@
 package model;
 
 
-import exceptions.MyException;
-import model.adt.MyIDictionary;
-import model.adt.MyIList;
-import model.adt.MyIStack;
+import model.adts.MyIDictionary;
+import model.adts.MyIList;
+import model.adts.MyIStack;
 import model.statements.Istmt;
 import model.values.Value;
+
+// TODO classes for execution stack, symbol table and out
 
 public class PrgState{
     MyIStack<Istmt> exeStack;
@@ -37,6 +38,8 @@ public class PrgState{
     public MyIDictionary<String, Value> getSymTable() {
         return  symTable;
     }
+
+    // get variable type ? see on teams
 
     // TODO THIS MAY NEED TO BE PUT IN A CONTROLLER
 //    PrgState oneStep(PrgState state) throws MyException {

@@ -2,7 +2,7 @@ package model.expressions;
 
 
 import exceptions.MyException;
-import model.adt.MyIDictionary;
+import model.adts.MyIDictionary;
 import model.values.Value;
 
 //TODO implement the functionalities for all expression classes

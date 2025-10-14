@@ -4,18 +4,23 @@ import model.PrgState;
 import model.expressions.Exp;
 import exceptions.MyException;
 import model.values.Value;
-import model.adt.MyIDictionary;
-import model.adt.MyIStack;
+import model.adts.MyIDictionary;
+import model.adts.MyIStack;
 import model.types.Type;
 
 public class AssignStmt implements Istmt {
-    String id;
-    Exp exp;
+    private final String name;
+    private final Exp exp;
+
+    public AssignStmt(String name, Exp exp) {
+        this.name = name;
+        this.exp = exp;
+    }
 
     //....
     @Override
     public String toString() {
-        return id + "=" + exp.toString();
+        return name + " = " + exp.toString();
     }
 
 
@@ -24,14 +29,14 @@ public class AssignStmt implements Istmt {
 
         MyIDictionary<String, Value> symTbl = state.getSymTable();
 
-        if (symTbl.isDefined(id)) {
+        if (symTbl.isDefined(name)) {
             Value val = exp.eval(symTbl);
-            Type typId = (symTbl.lookup(id)).getType();
+            Type typId = (symTbl.lookup(name)).getType();
             if (val.getType().equals(typId))
-                symTbl.update(id, val);
+                symTbl.update(name, val);
             else
-                throw new MyException("declared type of variable" + id + " and type of the assigned expression do not match");
-        } else throw new MyException("the used variable" + id + " was not declared before");
+                throw new MyException("declared type of variable " + name + " and type of the assigned expression do not match");
+        } else throw new MyException("the used variable " + name + " was not declared before");
         return state;
         //...
     }

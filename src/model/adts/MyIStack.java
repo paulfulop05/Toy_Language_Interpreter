@@ -1,4 +1,4 @@
-package model.adt;
+package model.adts;
 
 public interface MyIStack<T>{
     T pop();

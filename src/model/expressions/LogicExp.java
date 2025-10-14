@@ -1,7 +1,7 @@
 package model.expressions;
 
 import exceptions.MyException;
-import model.adt.MyIDictionary;
+import model.adts.MyIDictionary;
 import model.values.Value;
 
 public class LogicExp implements Exp {

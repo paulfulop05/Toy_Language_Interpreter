@@ -5,9 +5,11 @@ import model.types.Type;
 
 public class IntValue implements Value{
     int val;
-    IntValue(int v){val=v;}
+    public IntValue(int v){val=v;}
 
-    int getVal() {return val;}
+    public int getVal() {return val;}
+
+
 
     @Override
     public String toString() {
@@ -15,6 +17,6 @@ public class IntValue implements Value{
         return "";
     }
 
-    public Type getType() { return new IntType();}
+    public Type getType() { return IntType.INSTANCE; }
 }
 

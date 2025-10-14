@@ -1,4 +1,4 @@
-package model.adt;
+package model.adts;
 
 import java.util.List;
 

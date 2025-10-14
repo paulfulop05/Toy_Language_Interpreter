@@ -1,4 +1,4 @@
-package model.adt;
+package model.adts;
 
 
 // TODO design this as a ADT list
