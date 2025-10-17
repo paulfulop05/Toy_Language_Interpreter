@@ -5,12 +5,12 @@ import exceptions.MyException;
 import java.util.ArrayList;
 import java.util.List;
 
-class MyList<T> implements MyIList<T> {
+public class MyList<T> implements MyIList<T> {
     private int capacity;
     private int size;
     private final List<T> list;
 
-    MyList() {
+    public MyList() {
         capacity = 10;
         size = 0;
         list = new ArrayList<>(capacity);
