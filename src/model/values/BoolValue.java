@@ -3,15 +3,11 @@ package model.values;
 import model.types.BoolType;
 import model.types.Type;
 
-
-//TODO this might not be correct
 public class BoolValue implements Value
 {
-    public boolean value;
-    public BoolValue(boolean value)
-    {
-        this.value = value;
-    }
+    public boolean val;
+    public BoolValue(boolean val) { this.val = val; }
+    public boolean getVal() { return val; }
 
     @Override
     public Type getType() {

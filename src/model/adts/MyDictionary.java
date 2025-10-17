@@ -1,21 +1,40 @@
 package model.adts;
 
+import exceptions.MyException;
+
+import java.util.HashMap;
+import java.util.Map;
+
 class MyDictionary<K, V> implements MyIDictionary<K, V> {
-    @Override
-    public V lookup(K id) {
-        return null;
+    private final Map<K, V> map;
+
+    public MyDictionary() {
+        this.map = new HashMap<K, V>();
     }
 
     @Override
-    public boolean isDefined(K id) {
-        return false;
+    public V lookup(K key) throws MyException {
+        if (!isDefined(key)) throw new MyException("Key not found!");
+
+        var value = map.get(key);
+        if (value == null) throw new MyException("Value not found!");
+        return value;
     }
 
     @Override
-    public void update(K id, V val) {
-
+    public boolean isDefined(K key) {
+        return map.containsKey(key);
     }
-    //Dictionary<K, V> stack; //a field whose type CollectionType is an appropriate generic java library collection
 
-    //TODO implment the dict as follows
+    @Override
+    public void add(K key, V value) throws MyException {
+        if (isDefined(key)) throw new MyException("Key is already defined!");
+        map.put(key, value);
+    }
+
+    @Override
+    public V remove(K key) throws MyException {
+        if (!isDefined(key)) throw new MyException("Key not found!");
+        return map.remove(key);
+    }
 }

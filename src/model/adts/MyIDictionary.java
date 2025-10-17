@@ -1,11 +1,10 @@
 package model.adts;
 
+import exceptions.MyException;
 
-// TODO design this as a ADT dictionary
 public interface MyIDictionary<K, V>{
-    V lookup(K id);
-
-    boolean isDefined(K id);
-
-    void update(K id, V val);
+    V lookup(K key) throws MyException;
+    boolean isDefined(K key);
+    void add(K key, V value) throws MyException;
+    V remove(K key) throws MyException;
 }

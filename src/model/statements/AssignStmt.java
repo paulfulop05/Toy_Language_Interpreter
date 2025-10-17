@@ -17,27 +17,22 @@ public class AssignStmt implements Istmt {
         this.exp = exp;
     }
 
-    //....
     @Override
     public String toString() {
         return name + " = " + exp.toString();
     }
 
-
     public PrgState execute(PrgState state) throws MyException {
-        MyIStack<Istmt> stk = state.getStk();
+        var symTable = state.getSymTable();
 
-        MyIDictionary<String, Value> symTbl = state.getSymTable();
-
-        if (symTbl.isDefined(name)) {
-            Value val = exp.eval(symTbl);
-            Type typId = (symTbl.lookup(name)).getType();
-            if (val.getType().equals(typId))
-                symTbl.update(name, val);
+        if (symTable.isDefined(name)) {
+            Value val = exp.eval(symTable);
+            Type typeId = (symTable.lookup(name)).getType();
+            if (val.getType().equals(typeId))
+                symTable.update(name, val);
             else
                 throw new MyException("declared type of variable " + name + " and type of the assigned expression do not match");
         } else throw new MyException("the used variable " + name + " was not declared before");
         return state;
-        //...
     }
 }

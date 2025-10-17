@@ -4,17 +4,14 @@ import model.types.IntType;
 import model.types.Type;
 
 public class IntValue implements Value{
-    int val;
-    public IntValue(int v){val=v;}
+    private final int val;
 
-    public int getVal() {return val;}
-
-
+    public IntValue(int val){ this.val = val; }
+    public int getVal() { return val; }
 
     @Override
     public String toString() {
-        //TODO implement this
-        return "";
+        return Integer.toString(val);
     }
 
     public Type getType() { return IntType.INSTANCE; }
