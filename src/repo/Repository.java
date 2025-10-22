@@ -1,7 +1,8 @@
 package repo;
 
-import model.PrgState;
+import model.adts.ProgramState;
 
 public interface Repository {
-    PrgState getCurrentPrg();
+    void addProgramState(ProgramState program);
+    ProgramState getCurrentState();
 }

@@ -1,19 +1,20 @@
 package model.adts;
 
 import exceptions.MyException;
+import model.values.Value;
 
 import java.util.HashMap;
 import java.util.Map;
 
-class MyDictionary<K, V> implements MyIDictionary<K, V> {
-    private final Map<K, V> map;
+public class MapSymbolTable implements SymbolTableInterface {
+    private final Map<String, Value> map;
 
-    public MyDictionary() {
-        this.map = new HashMap<K, V>();
+    public MapSymbolTable() {
+        this.map = new HashMap<String, Value>();
     }
 
     @Override
-    public V lookup(K key) throws MyException {
+    public Value lookup(String key) throws MyException {
         if (!isDefined(key)) throw new MyException("Key not found!");
 
         var value = map.get(key);
@@ -22,19 +23,24 @@ class MyDictionary<K, V> implements MyIDictionary<K, V> {
     }
 
     @Override
-    public boolean isDefined(K key) {
+    public boolean isDefined(String key) {
         return map.containsKey(key);
     }
 
     @Override
-    public void add(K key, V value) throws MyException {
+    public void add(String key, Value value) throws MyException {
         if (isDefined(key)) throw new MyException("Key is already defined!");
         map.put(key, value);
     }
 
     @Override
-    public V remove(K key) throws MyException {
+    public Value remove(String key) throws MyException {
         if (!isDefined(key)) throw new MyException("Key not found!");
         return map.remove(key);
+    }
+    
+    @Override
+    public void update(String name, Value val) {
+        map.put(name, val);
     }
 }

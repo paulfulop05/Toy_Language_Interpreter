@@ -1,28 +1,43 @@
 package controller;
 
 import exceptions.MyException;
-import model.PrgState;
-import model.adts.MyIStack;
-import model.statements.Istmt;
-import repo.MemoryRepository;
+import model.adts.ProgramState;
+import model.adts.ExecutionStackInterface;
+import model.adts.LinkedListExecutionStack;
+import model.adts.ArrayListOut;
+import model.adts.MapSymbolTable;
+import model.statements.StatementInterface;
+import repo.ArrayListRepository;
 import repo.Repository;
 
 public class Controller {
-    private final Repository repo = new MemoryRepository(); // TODO probably not good like this but works for now
+    private final Repository repo = new ArrayListRepository();
 
-    public PrgState oneStep(PrgState state) throws MyException {
-        MyIStack<Istmt> stk= state.getExeStack();
-        if(stk.isEmpty()) throw new MyException("prgstate stack is empty");
-        Istmt crtStmt = stk.pop();
-        return crtStmt.execute(state);
+    public void addNewProgram(ProgramState program) throws MyException {
+        var executionStack = new LinkedListExecutionStack();
+        repo.addProgramState(new ProgramState(
+                executionStack,
+                new MapSymbolTable(),
+                new ArrayListOut()));
+    }
+
+    public ProgramState executeOneStep(ProgramState state) throws MyException {
+        ExecutionStackInterface executionStack = state.exeStack();
+        if(executionStack.isEmpty()) throw new MyException("state stack is empty");
+
+        StatementInterface nextStatement = executionStack.pop();
+        return nextStatement.execute(state);
     }
 
     public void allStep() throws MyException {
-        PrgState prg = repo.getCurrentPrg(); // repo is the controller field of type MyRepoInterface
-        //here you can display the prg state
-        while (!prg.getExeStack().isEmpty()){
-            oneStep(prg);
-            //here you can display the prg state
+        var programState = repo.getCurrentState();
+        while (!programState.exeStack().isEmpty()){
+            executeOneStep(programState);
+            displayCurrentState();
         }
+    }
+
+    public void displayCurrentState(){
+        IO.print(repo.getCurrentState());
     }
 }

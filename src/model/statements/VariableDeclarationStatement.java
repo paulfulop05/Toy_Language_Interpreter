@@ -1,7 +1,7 @@
 package model.statements;
 
 import exceptions.MyException;
-import model.PrgState;
+import model.adts.ProgramState;
 import model.types.BoolType;
 import model.types.IntType;
 import model.types.Type;
@@ -9,18 +9,11 @@ import model.values.BoolValue;
 import model.values.IntValue;
 import model.values.Value;
 
-public class VarDeclStmt implements Istmt {
-    private final String name;
-    private final Type type;
-
-    public VarDeclStmt(String name, Type type) {
-        this.name = name;
-        this.type = type;
-    }
+public record VariableDeclarationStatement(String name, Type type) implements StatementInterface {
 
     @Override
-    public PrgState execute(PrgState state) throws MyException {
-        var symTable = state.getSymTable();
+    public ProgramState execute(ProgramState state) throws MyException {
+        var symTable = state.symTable();
 
         Value defaultValue = null;
         if (!symTable.isDefined(name)) {
@@ -29,9 +22,8 @@ public class VarDeclStmt implements Istmt {
             else if (type.equals(IntType.INSTANCE))
                 defaultValue = new IntValue(0);
 
-            symTable.push(name, defaultValue);
-        }
-        else{
+            symTable.add(name, defaultValue);
+        } else {
             throw new MyException("This is already declared!");
         }
 

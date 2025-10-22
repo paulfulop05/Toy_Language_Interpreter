@@ -1,20 +1,21 @@
 package model.adts;
 
 import exceptions.MyException;
+import model.statements.StatementInterface;
 
 import java.util.Stack;
 
-class MyStack<T> implements MyIStack<T> {
-    Stack<T> stack;
+public class LinkedListExecutionStack implements ExecutionStackInterface {
+    Stack<StatementInterface> stack;
 
     @Override
-    public T pop() throws MyException {
+    public StatementInterface pop() throws MyException {
         if (isEmpty()) throw new MyException("The stack is already empty!");
         return stack.pop();
     }
 
     @Override
-    public void push(T v) {
+    public void push(StatementInterface v) {
         stack.push(v);
     }
 
