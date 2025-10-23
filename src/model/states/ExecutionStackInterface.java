@@ -1,4 +1,4 @@
-package model.adts;
+package model.states;
 
 import exceptions.MyException;
 import model.statements.StatementInterface;

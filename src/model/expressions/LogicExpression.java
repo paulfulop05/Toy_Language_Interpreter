@@ -1,7 +1,7 @@
 package model.expressions;
 
 import exceptions.MyException;
-import model.adts.SymbolTableInterface;
+import model.states.SymbolTableInterface;
 import model.types.BoolType;
 import model.values.BoolValue;
 import model.values.Value;

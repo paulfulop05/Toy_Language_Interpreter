@@ -1,7 +1,7 @@
 package model.statements;
 
 import exceptions.MyException;
-import model.adts.ProgramState;
+import model.states.ProgramState;
 import model.types.BoolType;
 import model.types.IntType;
 import model.types.Type;

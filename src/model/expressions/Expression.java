@@ -2,7 +2,7 @@ package model.expressions;
 
 
 import exceptions.MyException;
-import model.adts.SymbolTableInterface;
+import model.states.SymbolTableInterface;
 import model.values.Value;
 
 public interface Expression {

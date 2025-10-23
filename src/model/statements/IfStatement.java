@@ -1,6 +1,6 @@
 package model.statements;
 
-import model.adts.ProgramState;
+import model.states.ProgramState;
 import model.expressions.Expression;
 import exceptions.MyException;
 import model.types.BoolType;

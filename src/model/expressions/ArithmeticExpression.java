@@ -3,7 +3,7 @@ package model.expressions;
 import exceptions.MyException;
 import model.types.IntType;
 import model.values.IntValue;
-import model.adts.SymbolTableInterface;
+import model.states.SymbolTableInterface;
 import model.values.Value;
 
 /**

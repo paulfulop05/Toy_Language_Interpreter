@@ -1,11 +1,11 @@
 package controller;
 
 import exceptions.MyException;
-import model.adts.ProgramState;
-import model.adts.ExecutionStackInterface;
-import model.adts.LinkedListExecutionStack;
-import model.adts.ArrayListOut;
-import model.adts.MapSymbolTable;
+import model.states.ProgramState;
+import model.states.ExecutionStackInterface;
+import model.states.LinkedListExecutionStack;
+import model.states.ArrayListOut;
+import model.states.MapSymbolTable;
 import model.statements.StatementInterface;
 import repo.ArrayListRepository;
 import repo.Repository;

@@ -1,6 +1,6 @@
 package model.expressions;
 
-import model.adts.SymbolTableInterface;
+import model.states.SymbolTableInterface;
 import model.values.Value;
 
 public record ValueExpression(Value e) implements Expression {

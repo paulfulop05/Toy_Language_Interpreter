@@ -1,6 +1,6 @@
 package model.statements;
 
-import model.adts.ProgramState;
+import model.states.ProgramState;
 
 public class NoOperationStatement implements StatementInterface {
     @Override

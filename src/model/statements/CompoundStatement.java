@@ -1,7 +1,7 @@
 package model.statements;
 
 import exceptions.MyException;
-import model.adts.ProgramState;
+import model.states.ProgramState;
 
 public record CompoundStatement(StatementInterface second, StatementInterface first) implements StatementInterface {
 

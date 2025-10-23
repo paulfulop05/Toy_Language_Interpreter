@@ -1,6 +1,6 @@
 package repo;
 
-import model.adts.ProgramState;
+import model.states.ProgramState;
 
 public interface Repository {
     void addProgramState(ProgramState program);

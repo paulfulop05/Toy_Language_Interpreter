@@ -1,4 +1,4 @@
-package model.adts;
+package model.states;
 
 
 public record ProgramState(
