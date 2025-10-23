@@ -6,6 +6,11 @@ import model.types.Type;
 public record BoolValue(boolean val) implements Value {
 
     @Override
+    public String toString() {
+        return val ? "true" : "false";
+    }
+
+    @Override
     public Type getType() {
         return BoolType.INSTANCE;
     }

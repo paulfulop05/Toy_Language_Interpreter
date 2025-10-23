@@ -34,4 +34,14 @@ public class ArrayListOut implements OutInterface {
     public boolean isEmpty() {
         return list.isEmpty();
     }
+
+    public String toString() {
+        String text = "{ ";
+        for (var val  : list) {
+            text += val.toString() + ' ';
+        }
+
+        text += " }";
+        return text;
+    }
 }

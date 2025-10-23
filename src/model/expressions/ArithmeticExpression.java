@@ -6,11 +6,9 @@ import model.values.IntValue;
 import model.states.SymbolTableInterface;
 import model.values.Value;
 
-/**
- * @param op 1-plus, 2-minus, 3-star, 4-divide
- */
+import java.util.Objects;
 
-public record ArithmeticExpression(Expression e1, Expression e2, int op) implements Expression {
+public record ArithmeticExpression(String op, Expression e1, Expression e2) implements Expression {
 
     public Value evaluate(SymbolTableInterface symTable) throws MyException {
         Value v1, v2;
@@ -27,14 +25,19 @@ public record ArithmeticExpression(Expression e1, Expression e2, int op) impleme
         n1 = i1.val();
         n2 = i2.val();
 
-        if (n2 == 0 && op == 4) throw new MyException("division by zero");
+        if (n2 == 0 && op.equals("/")) throw new MyException("division by zero");
 
         return switch (op) {
-            case 1 -> new IntValue(n1 + n2);
-            case 2 -> new IntValue(n1 - n2);
-            case 3 -> new IntValue(n1 * n2);
-            case 4 -> new IntValue(n1 / n2);
+            case "+" -> new IntValue(n1 + n2);
+            case "-" -> new IntValue(n1 - n2);
+            case "*" -> new IntValue(n1 * n2);
+            case "/" -> new IntValue(n1 / n2);
             default -> throw new MyException("ArithExp: invalid operation");
         };
+    }
+
+    @Override
+    public String toString() {
+        return "( " + e1.toString() + ' ' + op + ' ' + e2.toString() + " )";
     }
 }

@@ -7,5 +7,10 @@ public class NoOperationStatement implements StatementInterface {
     public ProgramState execute(ProgramState state) {
         return state;
     }
+
+    @Override
+    public String toString() {
+        return "NOP";
+    }
 }
 

@@ -1,6 +1,7 @@
 package model.states;
 
 import exceptions.MyException;
+import model.statements.StatementInterface;
 import model.values.Value;
 
 import java.util.HashMap;
@@ -42,5 +43,16 @@ public class MapSymbolTable implements SymbolTableInterface {
     @Override
     public void update(String name, Value val) {
         map.put(name, val);
+    }
+
+    @Override
+    public String toString() {
+        String text = "{ ";
+        for (var key  : map.keySet()) {
+            text += "( " + key + " : " + map.get(key) + " )";
+        }
+
+        text += " }";
+        return text;
     }
 }

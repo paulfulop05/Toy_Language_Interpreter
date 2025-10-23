@@ -29,4 +29,9 @@ public record VariableDeclarationStatement(String name, Type type) implements St
 
         return state;
     }
+
+    @Override
+    public String toString() {
+        return type.toString() + ' ' + name;
+    }
 }

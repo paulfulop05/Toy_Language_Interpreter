@@ -6,13 +6,7 @@ import exceptions.MyException;
 import model.types.BoolType;
 import model.values.BoolValue;
 
-record IfStatement(Expression expression, StatementInterface thenS, StatementInterface elseS) implements StatementInterface {
-
-    @Override
-    public String toString() {
-        return "(IF(" + expression.toString() + ") THEN(" + thenS.toString()
-                + ")ELSE(" + elseS.toString() + "))";
-    }
+public record IfStatement(Expression expression, StatementInterface thenS, StatementInterface elseS) implements StatementInterface {
 
     public ProgramState execute(ProgramState state) throws MyException {
         var exeStack = state.exeStack();
@@ -25,5 +19,11 @@ record IfStatement(Expression expression, StatementInterface thenS, StatementInt
         } else throw new MyException("Condition is not boolean");
 
         return state;
+    }
+
+    @Override
+    public String toString() {
+        return "(IF(" + expression.toString() + ") THEN(" + thenS.toString()
+                + ")ELSE(" + elseS.toString() + "))";
     }
 }

@@ -8,16 +8,11 @@ import model.types.Type;
 
 public record AssignStatement(String name, Expression expression) implements StatementInterface {
 
-    @Override
-    public String toString() {
-        return name + " = " + expression.toString();
-    }
-
     public ProgramState execute(ProgramState state) throws MyException {
         var symTable = state.symTable();
 
         if (symTable.isDefined(name)) {
-            Value val = expression.evaluate(symTable);
+            var val = expression.evaluate(symTable);
             Type typeId = (symTable.lookup(name)).getType();
             if (val.getType().equals(typeId))
                 symTable.update(name, val);
@@ -25,5 +20,10 @@ public record AssignStatement(String name, Expression expression) implements Sta
                 throw new MyException("declared type of variable " + name + " and type of the assigned expression do not match");
         } else throw new MyException("the used variable " + name + " was not declared before");
         return state;
+    }
+
+    @Override
+    public String toString() {
+        return name + " = " + expression.toString();
     }
 }

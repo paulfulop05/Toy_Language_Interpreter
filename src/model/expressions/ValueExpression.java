@@ -8,4 +8,9 @@ public record ValueExpression(Value e) implements Expression {
     public Value evaluate(SymbolTableInterface symTable) {
         return e;
     }
+
+    @Override
+    public String toString() {
+        return e.toString();
+    }
 }
