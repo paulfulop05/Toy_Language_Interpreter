@@ -16,8 +16,6 @@ void main() {
     // TODO make the custom exceptions and throw them when needed accordingly
     // TODO remove unused functions
 
-    IO.println("Works!");
-
     // int v; v = 2; Print(v)
     StatementInterface ex1 = new CompoundStatement(
             new VariableDeclarationStatement("v", IntType.INSTANCE),
