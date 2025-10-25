@@ -62,7 +62,7 @@ The interpreter follows a modular design with clear separation of concerns:
 
 ## License
 
-This project is part of the Advanced Programming Methods course assignments.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
