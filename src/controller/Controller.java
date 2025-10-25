@@ -33,7 +33,15 @@ public record Controller(Repository repo) {
         return nextStatement.execute(state);
     }
 
-    public void executeAllSteps() throws MyException {
+    public void executeProgram(int pos) throws MyException {
+        var programState = repo.getProgramState(pos);
+        while (!programState.exeStack().isEmpty()) {
+            executeOneStep(programState);
+            displayCurrentState();
+        }
+    }
+
+    public void executeCurrentProgram() throws MyException {
         var programState = repo.getCurrentState();
         while (!programState.exeStack().isEmpty()) {
             executeOneStep(programState);

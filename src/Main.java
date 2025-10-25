@@ -86,7 +86,7 @@ void main() {
     controller.addNewProgram(ex2);
     controller.addNewProgram(ex3);
     try {
-        controller.executeAllSteps(); // this prints the messages as well, might change later
+        controller.executeProgram(0); // this prints the messages as well, might change later
     } catch (MyException e) {
         IO.println(e.getMessage());
     }

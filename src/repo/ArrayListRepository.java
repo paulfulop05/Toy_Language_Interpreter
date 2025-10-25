@@ -16,4 +16,9 @@ public class ArrayListRepository implements Repository {
     public ProgramState getCurrentState() {
         return programStates.getFirst();
     }
+
+    @Override
+    public ProgramState getProgramState(int pos) {
+        return programStates.get(pos);
+    }
 }
