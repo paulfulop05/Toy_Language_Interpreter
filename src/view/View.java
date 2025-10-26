@@ -3,7 +3,9 @@ package view;
 import controller.Controller;
 import exceptions.MyException;
 
-public record View(Controller controller) {
+import java.util.ArrayList;
+
+public record View(Controller controller, ArrayList<String> input) {
 
     public void printCommands(){
         IO.print("Commands:\n\n" +
@@ -11,11 +13,11 @@ public record View(Controller controller) {
                 "exit -> Quit\n\n");
     }
 
-    public void printPrograms(){
-        IO.print("1 -> int v; v = 2; Print(v)\n" +
-                 "2 -> int a; int b; a = 2 + 3 * 5; b = a + 1; Print(b)\n" +
-                 "3 -> bool a; int v; a = true; (If a Then v = 2 Else v = 3); Print(v)\n" +
-                 "4 -> exit this page\n");
+    public void printPrograms() {
+        for (int i = 0; i < input.size(); i++) {
+            IO.print(i + 1 + " -> " + input.get(i) + '\n');
+        }
+        IO.print("0 -> qui this section\n\n");
     }
 
     public void start() throws MyException {
@@ -24,20 +26,20 @@ public record View(Controller controller) {
             String command = IO.readln("> ").toLowerCase();
             switch (command){
                 case "exec" -> {
-                    printCommands();
-
                     while (true) {
-                        int pos = Integer.getInteger(IO.readln(">> "));
-                        if (pos == 4) break;
+                        printPrograms();
+                        int pos = Integer.parseInt(IO.readln(">> ")) - 1;
+                        if (pos == -1) break;
 
                         controller.executeProgram(pos);
                     }
 
                 }
                 case "exit" -> {
-                    IO.print("Bye!\n\n");
+                    IO.print("Bye!\n");
                     System.exit(0);
                 }
+                default -> IO.print("Unknown command\n");
             }
         }
     }

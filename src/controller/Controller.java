@@ -33,11 +33,12 @@ public record Controller(Repository repo) {
         return nextStatement.execute(state);
     }
 
+    // executes a certain program from the repository
     public void executeProgram(int pos) throws MyException {
         var programState = repo.getProgramState(pos);
         while (!programState.exeStack().isEmpty()) {
             executeOneStep(programState);
-            displayCurrentState();
+            displayProgramState(pos);
         }
     }
 
@@ -47,6 +48,10 @@ public record Controller(Repository repo) {
             executeOneStep(programState);
             displayCurrentState();
         }
+    }
+
+    public void displayProgramState(int pos) {
+        IO.print(repo.getProgramState(pos).toString());
     }
 
     public void displayCurrentState() {

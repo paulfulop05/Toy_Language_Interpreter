@@ -10,11 +10,10 @@ import model.values.BoolValue;
 import model.values.IntValue;
 import repo.ArrayListRepository;
 import repo.Repository;
+import view.View;
 
-void main() {
-    // *optional -> types can be made with enum in the future
+void main() throws MyException {
     // TODO make the custom exceptions and throw them when needed accordingly
-    // TODO remove unused functions
 
     // int v; v = 2; Print(v)
     StatementInterface ex1 = new CompoundStatement(
@@ -80,14 +79,15 @@ void main() {
 
     Repository repository = new ArrayListRepository();
     Controller controller = new Controller(repository);
+    ArrayList<String> input = new  ArrayList<>();
+    input.add("int v; v = 2; Print(v)");
+    input.add("int a; int b; a = 2 + 3 * 5; b = a + 1; Print(b)");
+    input.add("bool a; int v; a = true; (If a Then v = 2 Else v = 3); Print(v)");
 
     // all of them work
     controller.addNewProgram(ex1);
     controller.addNewProgram(ex2);
     controller.addNewProgram(ex3);
-    try {
-        controller.executeProgram(0); // this prints the messages as well, might change later
-    } catch (MyException e) {
-        IO.println(e.getMessage());
-    }
+    View view = new View(controller, input);
+    view.start();
 }
