@@ -1,5 +1,6 @@
 package model.statements;
 
+import exceptions.DefinedIdException;
 import exceptions.MyException;
 import model.states.ProgramState;
 import model.types.BoolType;
@@ -12,20 +13,17 @@ import model.values.Value;
 public record VariableDeclarationStatement(String name, Type type) implements StatementInterface {
 
     @Override
-    public ProgramState execute(ProgramState state) throws MyException {
+    public ProgramState execute(ProgramState state) {
         var symTable = state.symTable();
 
         Value defaultValue = null;
-        if (!symTable.isDefined(name)) {
-            if (type.equals(BoolType.INSTANCE))
-                defaultValue = new BoolValue(false);
-            else if (type.equals(IntType.INSTANCE))
-                defaultValue = new IntValue(0);
 
-            symTable.add(name, defaultValue);
-        } else {
-            throw new MyException("This is already declared!");
-        }
+        if (type.equals(BoolType.INSTANCE))
+            defaultValue = new BoolValue(false);
+        else if (type.equals(IntType.INSTANCE))
+            defaultValue = new IntValue(0);
+
+        symTable.add(name, defaultValue);
 
         return state;
     }

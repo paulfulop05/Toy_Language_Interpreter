@@ -1,6 +1,9 @@
 package model.states;
 
+import exceptions.DefinedIdException;
 import exceptions.MyException;
+import exceptions.UndefinedIdException;
+import exceptions.ValueNotFoundException;
 import model.statements.StatementInterface;
 import model.values.Value;
 
@@ -15,11 +18,11 @@ public class MapSymbolTable implements SymbolTableInterface {
     }
 
     @Override
-    public Value lookup(String key) throws MyException {
-        if (!isDefined(key)) throw new MyException("Key not found!");
+    public Value lookup(String key) throws UndefinedIdException, ValueNotFoundException {
+        if (!isDefined(key)) throw new UndefinedIdException(key);
 
         var value = map.get(key);
-        if (value == null) throw new MyException("Value not found!");
+        if (value == null) throw new ValueNotFoundException();
         return value;
     }
 
@@ -29,29 +32,32 @@ public class MapSymbolTable implements SymbolTableInterface {
     }
 
     @Override
-    public void add(String key, Value value) throws MyException {
-        if (isDefined(key)) throw new MyException("Key is already defined!");
+    public void add(String key, Value value) throws DefinedIdException {
+        if (isDefined(key)) throw new DefinedIdException(key);
         map.put(key, value);
     }
 
     @Override
-    public Value remove(String key) throws MyException {
-        if (!isDefined(key)) throw new MyException("Key not found!");
+    public Value remove(String key) throws UndefinedIdException {
+        if (!isDefined(key)) throw new UndefinedIdException(key);
         return map.remove(key);
     }
     
     @Override
-    public void update(String name, Value val) {
-        map.put(name, val);
+    public void update(String key, Value val) throws UndefinedIdException {
+        if (!isDefined(key)) throw new UndefinedIdException(key);
+        map.put(key, val);
     }
 
     @Override
     public String toString() {
         String text = "{ ";
         for (var key  : map.keySet()) {
-            text += "( " + key + " : " + map.get(key) + " )";
+            text += '(' + key + " : " + map.get(key) + "), ";
         }
 
+        if (text.length() > 2)
+            text = text.substring(0, text.length() - 2);
         text += " }";
         return text;
     }

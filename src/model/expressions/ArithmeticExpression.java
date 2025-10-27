@@ -1,5 +1,6 @@
 package model.expressions;
 
+import exceptions.ExpressionEvalException;
 import exceptions.MyException;
 import model.types.IntType;
 import model.values.IntValue;
@@ -10,13 +11,13 @@ import java.util.Objects;
 
 public record ArithmeticExpression(String op, Expression e1, Expression e2) implements Expression {
 
-    public Value evaluate(SymbolTableInterface symTable) throws MyException {
+    public Value evaluate(SymbolTableInterface symTable) throws ExpressionEvalException {
         Value v1, v2;
         v1 = e1.evaluate(symTable);
         v2 = e2.evaluate(symTable);
 
         if (!v1.getType().equals(IntType.INSTANCE) || !v2.getType().equals(IntType.INSTANCE)) {
-            throw new MyException("ArithExp: invalid operation");
+            throw new ExpressionEvalException("ArithmeticExpression: invalid operation");
         }
 
         IntValue i1 = (IntValue) v1;
@@ -25,14 +26,14 @@ public record ArithmeticExpression(String op, Expression e1, Expression e2) impl
         n1 = i1.val();
         n2 = i2.val();
 
-        if (n2 == 0 && op.equals("/")) throw new MyException("division by zero");
+        if (n2 == 0 && op.equals("/")) throw new ExpressionEvalException("division by zero");
 
         return switch (op) {
             case "+" -> new IntValue(n1 + n2);
             case "-" -> new IntValue(n1 - n2);
             case "*" -> new IntValue(n1 * n2);
             case "/" -> new IntValue(n1 / n2);
-            default -> throw new MyException("ArithExp: invalid operation");
+            default -> throw new ExpressionEvalException("ArithmeticExpression: invalid operation");
         };
     }
 

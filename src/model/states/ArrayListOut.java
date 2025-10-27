@@ -1,5 +1,7 @@
 package model.states;
 
+import exceptions.EmptyCollectionException;
+import exceptions.InvalidPositionException;
 import exceptions.MyException;
 import model.values.Value;
 
@@ -19,14 +21,14 @@ public class ArrayListOut implements OutInterface {
     }
 
     @Override
-    public Value getFirst() throws MyException {
-        if (isEmpty()) throw new MyException("List is empty!");
+    public Value getFirst() throws EmptyCollectionException {
+        if (isEmpty()) throw new EmptyCollectionException();
         return list.getFirst();
     }
 
     @Override
-    public void removeElementAt(int pos) throws MyException {
-        if (isEmpty()) throw new MyException("List is empty!");
+    public void removeElementAt(int pos) throws InvalidPositionException {
+        if (isEmpty() || pos < 0 || pos >= list.size()) throw new InvalidPositionException(pos);
         list.remove(pos);
     }
 
@@ -38,9 +40,11 @@ public class ArrayListOut implements OutInterface {
     public String toString() {
         String text = "{ ";
         for (var val  : list) {
-            text += val.toString() + ' ';
+            text += val.toString() + ", ";
         }
 
+        if (text.length() > 2)
+            text = text.substring(0, text.length() - 2);
         text += " }";
         return text;
     }

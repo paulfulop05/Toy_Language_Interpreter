@@ -6,7 +6,7 @@ import exceptions.MyException;
 
 public record PrintStatement(Expression expression) implements StatementInterface {
 
-    public ProgramState execute(ProgramState state) throws MyException {
+    public ProgramState execute(ProgramState state) {
         var out = state.out();
         out.add(expression.evaluate(state.symTable()));
 

@@ -5,7 +5,7 @@ import model.states.ProgramState;
 
 public record CompoundStatement(StatementInterface first, StatementInterface second) implements StatementInterface {
 
-    public ProgramState execute(ProgramState state) throws MyException {
+    public ProgramState execute(ProgramState state) {
         var exeStack = state.exeStack();
         exeStack.push(second);
         exeStack.push(first);

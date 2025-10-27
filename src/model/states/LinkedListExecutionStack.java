@@ -1,5 +1,6 @@
 package model.states;
 
+import exceptions.EmptyCollectionException;
 import exceptions.MyException;
 import model.statements.StatementInterface;
 
@@ -13,8 +14,8 @@ public class LinkedListExecutionStack implements ExecutionStackInterface {
     }
 
     @Override
-    public StatementInterface pop() throws MyException {
-        if (isEmpty()) throw new MyException("The stack is already empty!");
+    public StatementInterface pop() throws EmptyCollectionException {
+        if (isEmpty()) throw new EmptyCollectionException();
         return stack.pop();
     }
 
@@ -35,6 +36,8 @@ public class LinkedListExecutionStack implements ExecutionStackInterface {
             text += statement.toString() + ", ";
         }
 
+        if (text.length() > 2)
+            text = text.substring(0, text.length() - 2);
         text += " }";
         return text;
     }

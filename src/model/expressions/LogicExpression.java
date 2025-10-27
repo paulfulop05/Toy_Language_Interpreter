@@ -1,5 +1,6 @@
 package model.expressions;
 
+import exceptions.ExpressionEvalException;
 import exceptions.MyException;
 import model.states.SymbolTableInterface;
 import model.types.BoolType;
@@ -8,13 +9,13 @@ import model.values.Value;
 
 public record LogicExpression(String op, Expression e1, Expression e2) implements Expression {
 
-    public Value evaluate(SymbolTableInterface symTable) throws MyException {
+    public Value evaluate(SymbolTableInterface symTable) throws ExpressionEvalException {
         Value v1, v2;
         v1 = e1.evaluate(symTable);
         v2 = e2.evaluate(symTable);
 
         if (!v1.getType().equals(BoolType.INSTANCE) || !v2.getType().equals(BoolType.INSTANCE)) {
-            throw new MyException("LogicExp: invalid operation");
+            throw new ExpressionEvalException("LogicExpression: invalid operation");
         }
 
         BoolValue b1 = (BoolValue) v1;
@@ -26,7 +27,7 @@ public record LogicExpression(String op, Expression e1, Expression e2) implement
         return switch (op) {
             case "&&" -> new BoolValue(n1 && n2);
             case "||" -> new BoolValue(n1 || n2);
-            default -> throw new MyException("LogicExp: invalid operation");
+            default -> throw new ExpressionEvalException("LogicExpression: invalid operation");
         };
     }
 

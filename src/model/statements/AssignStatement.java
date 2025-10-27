@@ -1,5 +1,6 @@
 package model.statements;
 
+import exceptions.StatementException;
 import model.states.ProgramState;
 import model.expressions.Expression;
 import exceptions.MyException;
@@ -8,17 +9,17 @@ import model.types.Type;
 
 public record AssignStatement(String name, Expression expression) implements StatementInterface {
 
-    public ProgramState execute(ProgramState state) throws MyException {
+    public ProgramState execute(ProgramState state) throws StatementException {
         var symTable = state.symTable();
 
-        if (symTable.isDefined(name)) {
-            var val = expression.evaluate(symTable);
-            Type typeId = (symTable.lookup(name)).getType();
-            if (val.getType().equals(typeId))
-                symTable.update(name, val);
-            else
-                throw new MyException("declared type of variable " + name + " and type of the assigned expression do not match");
-        } else throw new MyException("the used variable " + name + " was not declared before");
+        var val = expression.evaluate(symTable);
+        Type typeId = (symTable.lookup(name)).getType();
+        if (val.getType().equals(typeId))
+            symTable.update(name, val);
+        else
+            throw new StatementException("declared type of variable " + name +
+                    " and type of the assigned expression do not match");
+
         return state;
     }
 

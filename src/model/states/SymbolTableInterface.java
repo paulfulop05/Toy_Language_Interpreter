@@ -1,12 +1,15 @@
 package model.states;
 
+import exceptions.DefinedIdException;
 import exceptions.MyException;
+import exceptions.UndefinedIdException;
+import exceptions.ValueNotFoundException;
 import model.values.Value;
 
 public interface SymbolTableInterface{
-    Value lookup(String key) throws MyException;
+    Value lookup(String key) throws UndefinedIdException, ValueNotFoundException;
     boolean isDefined(String key);
-    void add(String key, Value value) throws MyException;
-    Value remove(String key) throws MyException;
-    void update(String name, Value val);
+    void add(String key, Value value) throws DefinedIdException;
+    Value remove(String key) throws UndefinedIdException;
+    void update(String name, Value val) throws UndefinedIdException;
 }

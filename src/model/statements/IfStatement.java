@@ -1,5 +1,6 @@
 package model.statements;
 
+import exceptions.StatementException;
 import model.states.ProgramState;
 import model.expressions.Expression;
 import exceptions.MyException;
@@ -8,7 +9,7 @@ import model.values.BoolValue;
 
 public record IfStatement(Expression expression, StatementInterface thenS, StatementInterface elseS) implements StatementInterface {
 
-    public ProgramState execute(ProgramState state) throws MyException {
+    public ProgramState execute(ProgramState state) throws StatementException {
         var exeStack = state.exeStack();
         var cond = expression.evaluate(state.symTable());
         if (cond.getType() == BoolType.INSTANCE) {
@@ -16,7 +17,7 @@ public record IfStatement(Expression expression, StatementInterface thenS, State
                 exeStack.push(thenS);
             else
                 exeStack.push(elseS);
-        } else throw new MyException("Condition is not boolean");
+        } else throw new StatementException("Condition is not boolean");
 
         return state;
     }

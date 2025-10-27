@@ -25,27 +25,31 @@ public record Controller(Repository repo) {
                 new ArrayListOut()));
     }
 
-    public ProgramState executeOneStep(ProgramState state) throws MyException {
+    public ProgramState executeOneStep(ProgramState state) {
         ExecutionStackInterface executionStack = state.exeStack();
-        if (executionStack.isEmpty()) throw new MyException("state stack is empty");
-
         StatementInterface nextStatement = executionStack.pop();
         return nextStatement.execute(state);
     }
 
     // executes a certain program from the repository
-    public void executeProgram(int pos) throws MyException {
+    public void executeProgram(int pos) {
         var programState = repo.getProgramState(pos);
+        int count = 0;
         while (!programState.exeStack().isEmpty()) {
+            ++count;
             executeOneStep(programState);
+            IO.print(count);
             displayProgramState(pos);
         }
     }
 
-    public void executeCurrentProgram() throws MyException {
+    public void executeCurrentProgram() {
         var programState = repo.getCurrentState();
+        int count = 0;
         while (!programState.exeStack().isEmpty()) {
+            ++count;
             executeOneStep(programState);
+            IO.print(count);
             displayCurrentState();
         }
     }

@@ -6,8 +6,7 @@ public record ProgramState(
 
     @Override
     public String toString() {
-        return "PROGRAM STATE:" +
-                "\n\nEXECUTION STACK:" + exeStack.toString() +
+        return "\nEXECUTION STACK:" + exeStack.toString() +
                 "\nSYMBOL TABLE:" + symTable.toString() +
                 "\nOUT:" + out.toString() + "\n\n";
     }

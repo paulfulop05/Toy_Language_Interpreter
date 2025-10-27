@@ -17,10 +17,10 @@ public record View(Controller controller, ArrayList<String> input) {
         for (int i = 0; i < input.size(); i++) {
             IO.print(i + 1 + " -> " + input.get(i) + '\n');
         }
-        IO.print("0 -> qui this section\n\n");
+        IO.print("0 -> quit this section\n\n");
     }
 
-    public void start() throws MyException {
+    public void start() {
         printCommands();
         while(true){
             String command = IO.readln("> ").toLowerCase();
@@ -28,12 +28,21 @@ public record View(Controller controller, ArrayList<String> input) {
                 case "exec" -> {
                     while (true) {
                         printPrograms();
-                        int pos = Integer.parseInt(IO.readln(">> ")) - 1;
-                        if (pos == -1) break;
 
-                        controller.executeProgram(pos);
+                        try{
+                            int pos = Integer.parseInt(IO.readln(">> ")) - 1;
+                            if (pos == -1) {
+                                IO.println("Exiting this section...\n");
+                                break;
+                            }
+                            IO.println();
+
+                            controller.executeProgram(pos);
+                        }
+                        catch (Exception e) {
+                            IO.println(e.getMessage());
+                        }
                     }
-
                 }
                 case "exit" -> {
                     IO.print("Bye!\n");
