@@ -1,6 +1,7 @@
 package model.values;
 
 import model.types.BoolType;
+import model.types.StringType;
 import model.types.Type;
 
 public record BoolValue(boolean val) implements Value {
@@ -13,5 +14,10 @@ public record BoolValue(boolean val) implements Value {
     @Override
     public Type getType() {
         return BoolType.INSTANCE;
+    }
+
+    @Override
+    public boolean equals(Object another){
+        return another instanceof BoolValue;
     }
 }

@@ -1,11 +1,10 @@
 package view;
 
 import controller.Controller;
-import exceptions.MyException;
 
 import java.util.ArrayList;
 
-public record View(Controller controller, ArrayList<String> input) {
+public record TextMenu(Controller controller, ArrayList<String> input) {
 
     public void printCommands(){
         IO.print("Commands:\n\n" +

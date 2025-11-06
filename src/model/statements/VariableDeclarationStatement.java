@@ -19,9 +19,9 @@ public record VariableDeclarationStatement(String name, Type type) implements St
         Value defaultValue = null;
 
         if (type.equals(BoolType.INSTANCE))
-            defaultValue = new BoolValue(false);
+            defaultValue = BoolType.INSTANCE.getDefaultValue();
         else if (type.equals(IntType.INSTANCE))
-            defaultValue = new IntValue(0);
+            defaultValue = IntType.INSTANCE.getDefaultValue();
 
         symTable.add(name, defaultValue);
 

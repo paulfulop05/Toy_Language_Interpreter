@@ -1,14 +1,12 @@
 package model.states;
 
 import exceptions.DefinedIdException;
-import exceptions.MyException;
 import exceptions.UndefinedIdException;
 import exceptions.ValueNotFoundException;
 import model.values.Value;
 
-
-// TODO maybe make this generic so that i can use it for file table as well
-public interface SymbolTableInterface{
+// not good, i need to change this
+public interface FileTableInterface {
     Value lookup(String key) throws UndefinedIdException, ValueNotFoundException;
     boolean isDefined(String key);
     void add(String key, Value value) throws DefinedIdException;

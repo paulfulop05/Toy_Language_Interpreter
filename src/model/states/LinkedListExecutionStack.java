@@ -6,6 +6,9 @@ import model.statements.StatementInterface;
 
 import java.util.Stack;
 
+//Note that each stack position must be saved as a
+//string that contains the statement which is on that position of the stack.
+
 public class LinkedListExecutionStack implements ExecutionStackInterface {
     Stack<StatementInterface> stack;
 

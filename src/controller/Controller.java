@@ -12,7 +12,7 @@ import repo.Repository;
 
 public record Controller(Repository repo) {
     public Controller() {
-        this(new ArrayListRepository());
+        this(new ArrayListRepository(""));
     }
 
 
@@ -32,11 +32,13 @@ public record Controller(Repository repo) {
     }
 
     // executes a certain program from the repository
-    public void executeProgram(int pos) {
+    public void executeProgram(int pos) throws MyException {
         var programState = repo.getProgramState(pos);
         int count = 0;
+
         while (!programState.exeStack().isEmpty()) {
             ++count;
+            repo.logProgramStateExecution();
             executeOneStep(programState);
             IO.print(count);
             displayProgramState(pos);

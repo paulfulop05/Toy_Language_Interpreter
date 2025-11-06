@@ -10,10 +10,15 @@ import model.values.BoolValue;
 import model.values.IntValue;
 import repo.ArrayListRepository;
 import repo.Repository;
-import view.View;
+import view.TextMenu;
 
 void main() throws MyException {
-    // TODO make the custom exceptions and throw them when needed accordingly
+    // TODO change from MyException to the actual exception i want.
+    // TODO file statements (2.6, 2.7, 2.8, *2.9)
+    // TODO FileTable
+    // TODO change from TextMenu to TextMenu (with private Map<String, Command> commands;)
+    // TODO add Command class -> which has to be abstract apparently, and it does have subclasses (e.g. ExitCommand etc)
+    // TODO maybe change to Scanner class for reading from console everywhere
 
     // int v; v = 2; Print(v)
     StatementInterface ex1 = new CompoundStatement(
@@ -77,7 +82,7 @@ void main() throws MyException {
     );
 
 
-    Repository repository = new ArrayListRepository();
+    Repository repository = new ArrayListRepository("");
     Controller controller = new Controller(repository);
     ArrayList<String> input = new  ArrayList<>();
     input.add("int v; v = 2; Print(v)");
@@ -88,6 +93,6 @@ void main() throws MyException {
     controller.addNewProgram(ex1);
     controller.addNewProgram(ex2);
     controller.addNewProgram(ex3);
-    View view = new View(controller, input);
+    TextMenu view = new TextMenu(controller, input);
     view.start();
 }
