@@ -33,7 +33,7 @@ public record LogicExpression(String op, Expression e1, Expression e2) implement
 
     @Override
     public String toString() {
-        return "( " + e1.toString() + ' ' + op + ' ' + e2.toString() + " )";
+        return e1.toString() + ' ' + op + ' ' + e2.toString();
     }
 }
 

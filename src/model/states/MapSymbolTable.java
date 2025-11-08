@@ -14,7 +14,7 @@ public class MapSymbolTable implements SymbolTableInterface {
     private final Map<String, Value> map;
 
     public MapSymbolTable() {
-        this.map = new HashMap<String, Value>();
+        this.map = new HashMap<>();
     }
 
     @Override
@@ -51,14 +51,11 @@ public class MapSymbolTable implements SymbolTableInterface {
 
     @Override
     public String toString() {
-        String text = "{ ";
+        String text = "";
         for (var key  : map.keySet()) {
-            text += '(' + key + " : " + map.get(key) + "), ";
+            text += key + " --> " + map.get(key) + '\n';
         }
 
-        if (text.length() > 2)
-            text = text.substring(0, text.length() - 2);
-        text += " }";
         return text;
     }
 }

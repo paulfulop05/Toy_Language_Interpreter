@@ -7,5 +7,6 @@ public interface Repository {
     void addProgramState(ProgramState program);
     ProgramState getCurrentState();
     ProgramState getProgramState(int pos);
-    void logProgramStateExecution() throws MyException;
+    void logProgramStateExecution(int pos) throws MyException;
+    void logCurrentProgramStateExecution() throws MyException;
 }

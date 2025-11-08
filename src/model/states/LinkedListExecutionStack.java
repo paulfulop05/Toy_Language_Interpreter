@@ -34,14 +34,11 @@ public class LinkedListExecutionStack implements ExecutionStackInterface {
 
     @Override
     public String toString() {
-        String text = "{ ";
+        String text = "";
         for (StatementInterface statement : stack) {
-            text += statement.toString() + ", ";
+            text += statement.toString() + '\n';
         }
 
-        if (text.length() > 2)
-            text = text.substring(0, text.length() - 2);
-        text += " }";
         return text;
     }
 }

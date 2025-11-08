@@ -38,14 +38,11 @@ public class ArrayListOut implements OutInterface {
     }
 
     public String toString() {
-        String text = "{ ";
+        String text = "";
         for (var val  : list) {
-            text += val.toString() + ", ";
+            text += val.toString() + '\n';
         }
 
-        if (text.length() > 2)
-            text = text.substring(0, text.length() - 2);
-        text += " }";
         return text;
     }
 }

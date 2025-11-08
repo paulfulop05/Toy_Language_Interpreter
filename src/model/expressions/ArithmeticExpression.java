@@ -39,6 +39,6 @@ public record ArithmeticExpression(String op, Expression e1, Expression e2) impl
 
     @Override
     public String toString() {
-        return "( " + e1.toString() + ' ' + op + ' ' + e2.toString() + " )";
+        return e1.toString() + ' ' + op + ' ' + e2.toString();
     }
 }

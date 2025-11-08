@@ -24,7 +24,6 @@ public record IfStatement(Expression expression, StatementInterface thenS, State
 
     @Override
     public String toString() {
-        return "(IF(" + expression.toString() + ") THEN(" + thenS.toString()
-                + ")ELSE(" + elseS.toString() + "))";
+        return "IF (" + expression.toString() + ") THEN (" + thenS.toString() + ") ELSE (" + elseS.toString() + ")";
     }
 }

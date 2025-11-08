@@ -18,6 +18,8 @@ public class ArrayListRepository implements Repository {
         this.logFilePath = logFilePath; //initialized by a string read from the keyboard using Scanner class.
     }
 
+
+
     @Override
     public void addProgramState(ProgramState program) {
         programStates.add(program);
@@ -34,11 +36,28 @@ public class ArrayListRepository implements Repository {
     }
 
     @Override
-    public void logProgramStateExecution() throws MyException {
+    public void logProgramStateExecution(int pos) throws MyException {
         try {
-            // TODO understand what this line means
+            // print writer -> convenient because it has a lot of functions
+            // buffered writer -> good for performance if we re using a lot of write() functions
+            // file writer -> low level but we can write into a file
+            // append = true => new text will be appended to the end of the file not the beginning
+            //nesting theese => improved performance overall
+
             var logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)));
-            logFile.write(getCurrentState().toString());
+            logFile.println(getProgramState(pos).toString());
+            logFile.close();
+        } catch (IOException e) {
+            throw new MyException(e.getMessage());
+        }
+    }
+
+    @Override
+    public void logCurrentProgramStateExecution() throws MyException {
+        try {
+            var logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)));
+            logFile.println(getCurrentState().toString());
+            logFile.close();
         } catch (IOException e) {
             throw new MyException(e.getMessage());
         }

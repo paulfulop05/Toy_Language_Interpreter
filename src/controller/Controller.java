@@ -1,28 +1,22 @@
 package controller;
 
 import exceptions.MyException;
-import model.states.ProgramState;
-import model.states.ExecutionStackInterface;
-import model.states.LinkedListExecutionStack;
-import model.states.ArrayListOut;
-import model.states.MapSymbolTable;
+import model.states.*;
 import model.statements.StatementInterface;
 import repo.ArrayListRepository;
 import repo.Repository;
 
+import java.io.PrintWriter;
+
 public record Controller(Repository repo) {
-    public Controller() {
-        this(new ArrayListRepository(""));
-    }
-
-
     public void addNewProgram(StatementInterface program) {
         var executionStack = new LinkedListExecutionStack();
         executionStack.push(program);
         repo.addProgramState(new ProgramState(
                 executionStack,
                 new MapSymbolTable(),
-                new ArrayListOut()));
+                new ArrayListOut(),
+                new MapFileTable()));
     }
 
     public ProgramState executeOneStep(ProgramState state) {
@@ -34,33 +28,24 @@ public record Controller(Repository repo) {
     // executes a certain program from the repository
     public void executeProgram(int pos) throws MyException {
         var programState = repo.getProgramState(pos);
-        int count = 0;
-
+        repo.logProgramStateExecution(pos);
         while (!programState.exeStack().isEmpty()) {
-            ++count;
-            repo.logProgramStateExecution();
             executeOneStep(programState);
-            IO.print(count);
-            displayProgramState(pos);
+            repo.logProgramStateExecution(pos);
         }
     }
 
-    public void executeCurrentProgram() {
+    public void executeCurrentProgram() throws MyException {
         var programState = repo.getCurrentState();
-        int count = 0;
+        repo.logCurrentProgramStateExecution();
         while (!programState.exeStack().isEmpty()) {
-            ++count;
             executeOneStep(programState);
-            IO.print(count);
-            displayCurrentState();
+            repo.logCurrentProgramStateExecution();
         }
     }
 
     public void displayProgramState(int pos) {
         IO.print(repo.getProgramState(pos).toString());
     }
-
-    public void displayCurrentState() {
-        IO.print(repo.getCurrentState().toString());
-    }
+    public void displayCurrentState() { IO.print(repo.getCurrentState().toString()); }
 }

@@ -2,13 +2,14 @@ package model.states;
 
 
 public record ProgramState(
-        ExecutionStackInterface exeStack, SymbolTableInterface symTable, OutInterface out) {
+        ExecutionStackInterface exeStack, SymbolTableInterface symTable, OutInterface out, FileTableInterface fileTable) {
 
     @Override
     public String toString() {
-        return "\nEXECUTION STACK:" + exeStack.toString() +
-                "\nSYMBOL TABLE:" + symTable.toString() +
-                "\nOUT:" + out.toString() + "\n\n";
+        return "\nEXECUTION STACK:\n" + exeStack.toString() +
+                "\nSYMBOL TABLE:\n" + symTable.toString() +
+                "\nOUT:\n" + out.toString() +
+                "\nFILE TABLE\n" + fileTable.toString() + "\n\n"; // TODO override toString to all tables so it look better
     }
 }
 

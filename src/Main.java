@@ -11,6 +11,7 @@ import model.values.IntValue;
 import repo.ArrayListRepository;
 import repo.Repository;
 import view.TextMenu;
+import java.util.Scanner;
 
 void main() throws MyException {
     // TODO change from MyException to the actual exception i want.
@@ -81,8 +82,11 @@ void main() throws MyException {
             )
     );
 
+//    Scanner scanner = new Scanner(System.in);
+//    IO.print("\nInsert the name of the file you want to save the logs into: ");
+//    String fileName = "src/" + scanner.nextLine();
 
-    Repository repository = new ArrayListRepository("");
+    Repository repository = new ArrayListRepository("src/logfile.txt");
     Controller controller = new Controller(repository);
     ArrayList<String> input = new  ArrayList<>();
     input.add("int v; v = 2; Print(v)");
