@@ -26,8 +26,6 @@ public record VariableDeclarationStatement(String name, Type type) implements St
         else if (type.equals(StringType.INSTANCE))
             defaultValue = StringType.INSTANCE.getDefaultValue();
 
-        // TODO maybe make this more elegant somehow
-
         symTable.add(name, defaultValue);
 
         return state;
