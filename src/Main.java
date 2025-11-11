@@ -6,20 +6,18 @@ import model.expressions.VariableExpression;
 import model.statements.*;
 import model.types.BoolType;
 import model.types.IntType;
+import model.types.StringType;
 import model.values.BoolValue;
 import model.values.IntValue;
+import model.values.StringValue;
 import repo.ArrayListRepository;
 import repo.Repository;
 import view.TextMenu;
 import java.util.Scanner;
 
-void main() throws MyException {
-    // TODO change from MyException to the actual exception i want.
-    // TODO file statements (2.6, 2.7, 2.8, *2.9)
-    // TODO FileTable
-    // TODO change from TextMenu to TextMenu (with private Map<String, Command> commands;)
-    // TODO add Command class -> which has to be abstract apparently, and it does have subclasses (e.g. ExitCommand etc)
-    // TODO maybe change to Scanner class for reading from console everywhere
+void main() {
+    // TODO change from MyException to the actual exception i want. (in array list repository)
+    // TODO text menu
 
     // int v; v = 2; Print(v)
     StatementInterface ex1 = new CompoundStatement(
@@ -82,9 +80,47 @@ void main() throws MyException {
             )
     );
 
-//    Scanner scanner = new Scanner(System.in);
-//    IO.print("\nInsert the name of the file you want to save the logs into: ");
-//    String fileName = "src/" + scanner.nextLine();
+
+//    string varf; varf="test.in"; openRFile(varf); int varc; readFile(varf,varc);print(varc);readFile(varf,varc);print(varc);closeRFile(varf)
+    StatementInterface ex4 =
+            new CompoundStatement(
+                    new VariableDeclarationStatement("varf", StringType.INSTANCE),
+                    new CompoundStatement(
+                            new AssignStatement("varf", new ValueExpression(new StringValue("src/test.in"))),
+                            new CompoundStatement(
+                                    new OpenFileStatement(new VariableExpression("varf")),
+                                    new CompoundStatement(
+                                            new VariableDeclarationStatement("varc", IntType.INSTANCE),
+                                            new CompoundStatement(
+                                                    new ReadFileStatement(
+                                                            new VariableExpression("varf"),
+                                                            new VariableExpression("varc").toString()
+                                                    ),
+                                                    new CompoundStatement(
+                                                            new PrintStatement(new VariableExpression("varc")),
+                                                            new CompoundStatement(
+                                                                    new ReadFileStatement(
+                                                                            new VariableExpression("varf"),
+                                                                            new VariableExpression("varc").toString()
+                                                                    ),
+                                                                    new CompoundStatement(
+                                                                            new PrintStatement(new VariableExpression("varc")),
+                                                                            new CloseFileStatement(new VariableExpression("varf"))
+                                                                    )
+                                                            )
+                                                    )
+                                            )
+                                    )
+                            )
+                    )
+            );
+
+    // VALUE NOT FOUND -> possibly because theres nothing in the symbol table?? -> when updating varf variable
+
+
+    Scanner scanner = new Scanner(System.in);
+    IO.print("\nInsert the name of the file you want to save the logs into: ");
+    String fileName = "src/" + scanner.nextLine();
 
     Repository repository = new ArrayListRepository("src/logfile.txt");
     Controller controller = new Controller(repository);
@@ -92,11 +128,13 @@ void main() throws MyException {
     input.add("int v; v = 2; Print(v)");
     input.add("int a; int b; a = 2 + 3 * 5; b = a + 1; Print(b)");
     input.add("bool a; int v; a = true; (If a Then v = 2 Else v = 3); Print(v)");
+    input.add("string varf; varf=\"test.in\";openRFile(varf);int varc;readFile(varf,varc);print(varc);readFile(varf,varc);print(varc);closeRFile(varf)");
 
     // all of them work
     controller.addNewProgram(ex1);
     controller.addNewProgram(ex2);
     controller.addNewProgram(ex3);
+    controller.addNewProgram(ex4);
     TextMenu view = new TextMenu(controller, input);
     view.start();
 }

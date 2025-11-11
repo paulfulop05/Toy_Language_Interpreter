@@ -1,0 +1,268 @@
+
+EXECUTION STACK:
+(string varf;(varf = src/test.in;(open (varf);(int varc;(read (varf, varc);(print(varc);(read (varf, varc);(print(varc);close (varf)))))))))
+
+SYMBOL TABLE:
+
+OUT:
+
+FILE TABLE
+
+
+
+
+EXECUTION STACK:
+(varf = src/test.in;(open (varf);(int varc;(read (varf, varc);(print(varc);(read (varf, varc);(print(varc);close (varf))))))))
+string varf
+
+SYMBOL TABLE:
+
+OUT:
+
+FILE TABLE
+
+
+
+
+EXECUTION STACK:
+(varf = src/test.in;(open (varf);(int varc;(read (varf, varc);(print(varc);(read (varf, varc);(print(varc);close (varf))))))))
+
+SYMBOL TABLE:
+varf --> nil
+
+OUT:
+
+FILE TABLE
+
+
+
+
+EXECUTION STACK:
+(open (varf);(int varc;(read (varf, varc);(print(varc);(read (varf, varc);(print(varc);close (varf)))))))
+varf = src/test.in
+
+SYMBOL TABLE:
+varf --> nil
+
+OUT:
+
+FILE TABLE
+
+
+
+
+EXECUTION STACK:
+(open (varf);(int varc;(read (varf, varc);(print(varc);(read (varf, varc);(print(varc);close (varf)))))))
+
+SYMBOL TABLE:
+varf --> src/test.in
+
+OUT:
+
+FILE TABLE
+
+
+
+
+EXECUTION STACK:
+(int varc;(read (varf, varc);(print(varc);(read (varf, varc);(print(varc);close (varf))))))
+open (varf)
+
+SYMBOL TABLE:
+varf --> src/test.in
+
+OUT:
+
+FILE TABLE
+
+
+
+
+EXECUTION STACK:
+(int varc;(read (varf, varc);(print(varc);(read (varf, varc);(print(varc);close (varf))))))
+
+SYMBOL TABLE:
+varf --> src/test.in
+
+OUT:
+
+FILE TABLE
+src/test.in --> java.io.BufferedReader@15aeb7ab
+
+
+
+
+EXECUTION STACK:
+(read (varf, varc);(print(varc);(read (varf, varc);(print(varc);close (varf)))))
+int varc
+
+SYMBOL TABLE:
+varf --> src/test.in
+
+OUT:
+
+FILE TABLE
+src/test.in --> java.io.BufferedReader@15aeb7ab
+
+
+
+
+EXECUTION STACK:
+(read (varf, varc);(print(varc);(read (varf, varc);(print(varc);close (varf)))))
+
+SYMBOL TABLE:
+varf --> src/test.in
+varc --> 0
+
+OUT:
+
+FILE TABLE
+src/test.in --> java.io.BufferedReader@15aeb7ab
+
+
+
+
+EXECUTION STACK:
+(print(varc);(read (varf, varc);(print(varc);close (varf))))
+read (varf, varc)
+
+SYMBOL TABLE:
+varf --> src/test.in
+varc --> 0
+
+OUT:
+
+FILE TABLE
+src/test.in --> java.io.BufferedReader@15aeb7ab
+
+
+
+
+EXECUTION STACK:
+(print(varc);(read (varf, varc);(print(varc);close (varf))))
+
+SYMBOL TABLE:
+varf --> src/test.in
+varc --> 15
+
+OUT:
+
+FILE TABLE
+src/test.in --> java.io.BufferedReader@15aeb7ab
+
+
+
+
+EXECUTION STACK:
+(read (varf, varc);(print(varc);close (varf)))
+print(varc)
+
+SYMBOL TABLE:
+varf --> src/test.in
+varc --> 15
+
+OUT:
+
+FILE TABLE
+src/test.in --> java.io.BufferedReader@15aeb7ab
+
+
+
+
+EXECUTION STACK:
+(read (varf, varc);(print(varc);close (varf)))
+
+SYMBOL TABLE:
+varf --> src/test.in
+varc --> 15
+
+OUT:
+15
+
+FILE TABLE
+src/test.in --> java.io.BufferedReader@15aeb7ab
+
+
+
+
+EXECUTION STACK:
+(print(varc);close (varf))
+read (varf, varc)
+
+SYMBOL TABLE:
+varf --> src/test.in
+varc --> 15
+
+OUT:
+15
+
+FILE TABLE
+src/test.in --> java.io.BufferedReader@15aeb7ab
+
+
+
+
+EXECUTION STACK:
+(print(varc);close (varf))
+
+SYMBOL TABLE:
+varf --> src/test.in
+varc --> 50
+
+OUT:
+15
+
+FILE TABLE
+src/test.in --> java.io.BufferedReader@15aeb7ab
+
+
+
+
+EXECUTION STACK:
+close (varf)
+print(varc)
+
+SYMBOL TABLE:
+varf --> src/test.in
+varc --> 50
+
+OUT:
+15
+
+FILE TABLE
+src/test.in --> java.io.BufferedReader@15aeb7ab
+
+
+
+
+EXECUTION STACK:
+close (varf)
+
+SYMBOL TABLE:
+varf --> src/test.in
+varc --> 50
+
+OUT:
+15
+50
+
+FILE TABLE
+src/test.in --> java.io.BufferedReader@15aeb7ab
+
+
+
+
+EXECUTION STACK:
+
+SYMBOL TABLE:
+varf --> src/test.in
+varc --> 50
+
+OUT:
+15
+50
+
+FILE TABLE
+
+
+

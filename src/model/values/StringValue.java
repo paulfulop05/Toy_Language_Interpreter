@@ -4,6 +4,10 @@ import model.types.StringType;
 import model.types.Type;
 
 public record StringValue(String val) implements Value {
+    @Override
+    public String toString() {
+        return val;
+    }
 
     public String getValue() {
         return val;
@@ -13,8 +17,7 @@ public record StringValue(String val) implements Value {
     public Type getType() {
         return StringType.INSTANCE;
     }
-
-    // i guess like this? not sure
+    
     @Override
     public boolean equals(Object another){
         return another instanceof StringValue;

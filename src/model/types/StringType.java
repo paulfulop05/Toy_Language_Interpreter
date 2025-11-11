@@ -1,5 +1,6 @@
 package model.types;
 
+import model.values.StringValue;
 import model.values.Value;
 
 public class StringType implements Type {
@@ -17,6 +18,6 @@ public class StringType implements Type {
 
     @Override
     public Value getDefaultValue() {
-        return null;
+        return new StringValue("nil");
     }
 }
