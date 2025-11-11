@@ -9,7 +9,7 @@ public record ProgramState(
         return "\nEXECUTION STACK:\n" + exeStack.toString() +
                 "\nSYMBOL TABLE:\n" + symTable.toString() +
                 "\nOUT:\n" + out.toString() +
-                "\nFILE TABLE\n" + fileTable.toString() + "\n\n"; // TODO override toString to all tables so it look better
+                "\nFILE TABLE\n" + fileTable.toString() + "\n\n";
     }
 }
 

@@ -1,5 +1,6 @@
 package repo;
 
+import exceptions.LogProgramStateException;
 import exceptions.MyException;
 import model.states.ProgramState;
 
@@ -48,7 +49,7 @@ public class ArrayListRepository implements Repository {
             logFile.println(getProgramState(pos).toString());
             logFile.close();
         } catch (IOException e) {
-            throw new MyException(e.getMessage());
+            throw new LogProgramStateException();
         }
     }
 
@@ -59,7 +60,7 @@ public class ArrayListRepository implements Repository {
             logFile.println(getCurrentState().toString());
             logFile.close();
         } catch (IOException e) {
-            throw new MyException(e.getMessage());
+            throw new LogProgramStateException();
         }
     }
 }

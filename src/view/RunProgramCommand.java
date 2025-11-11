@@ -12,8 +12,10 @@ public class RunProgramCommand extends Command {
     @Override
     public void execute() {
         try{
-            controller.executeCurrentProgram(); // all step execution... to be seen
+            controller.executeCurrentProgram();
         }
-        catch(Exception e){}
+        catch(Exception e){
+            IO.println(e.getMessage());
+        }
     }
 }

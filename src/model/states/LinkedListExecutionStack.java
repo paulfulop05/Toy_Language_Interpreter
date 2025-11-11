@@ -1,5 +1,7 @@
 package model.states;
 
+import com.sun.source.tree.BinaryTree;
+import com.sun.source.tree.ExpressionTree;
 import exceptions.EmptyCollectionException;
 import exceptions.MyException;
 import model.statements.StatementInterface;
@@ -35,8 +37,8 @@ public class LinkedListExecutionStack implements ExecutionStackInterface {
     @Override
     public String toString() {
         String text = "";
-        for (StatementInterface statement : stack) {
-            text += statement.toString() + '\n';
+        for (int i = stack.size() - 1; i >= 0; i--) {
+            text += stack.get(i).toString() + '\n';
         }
 
         return text;
