@@ -3,53 +3,75 @@ package view;
 import controller.Controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
-public record TextMenu(Controller controller, ArrayList<String> input) {
+public class TextMenu {
+    private final Map<String, Command> commands;
+    public TextMenu(){
+        commands = new HashMap<>();
+    }
+
+    public void addCommand(Command command){
+        commands.put(command.getKey(), command);
+    }
 
     public void printCommands(){
-        IO.print("Commands:\n\n" +
-                "exec -> Choose from a list of programs and execute it\n" +
-                "exit -> Quit\n\n");
-    }
-
-    public void printPrograms() {
-        for (int i = 0; i < input.size(); i++) {
-            IO.print(i + 1 + " -> " + input.get(i) + '\n');
+        IO.println("Commands:\n");
+        for (var command : commands.values()){
+            String line = String.format("%4s : %s", command.getKey(), command.getDescription());
+            IO.println(line);
         }
-        IO.print("0 -> quit this section\n\n");
     }
 
-    public void start() {
-        printCommands();
+    public void show(){
+
+        Scanner scanner = new Scanner(System.in);
         while(true){
-            String command = IO.readln("> ").toLowerCase();
-            switch (command){
-                case "exec" -> {
-                    while (true) {
-                        printPrograms();
+            printCommands();
+            IO.print("Input the option: ");
+            String key = scanner.nextLine();
+            Command com = commands.get(key);
 
-                        try{
-                            int pos = Integer.parseInt(IO.readln(">> ")) - 1;
-                            if (pos == -1) {
-                                IO.println("Exiting this section...\n");
-                                break;
-                            }
-                            IO.println();
-
-                            controller.executeProgram(pos);
-                        }
-                        catch (Exception e) {
-                            IO.println(e.getMessage());
-                        }
-                    }
-                }
-                case "exit" -> {
-                    IO.print("Bye!\n");
-                    System.exit(0);
-                }
-                default -> IO.print("Unknown command\n");
+            if (com == null){
+                System.out.println("Invalid Option");
+                continue;
             }
+            com.execute();
         }
     }
-
 }
+
+//    public void start() {
+//        printCommands();
+//        while(true){
+//            String command = IO.readln("> ").toLowerCase();
+//            switch (command){
+//                case "exec" -> {
+//                    while (true) {
+//                        printPrograms();
+//
+//                        try{
+//                            int pos = Integer.parseInt(IO.readln(">> ")) - 1;
+//                            if (pos == -1) {
+//                                IO.println("Exiting this section...\n");
+//                                break;
+//                            }
+//                            IO.println();
+//
+//                            controller.executeProgram(pos);
+//                        }
+//                        catch (Exception e) {
+//                            IO.println(e.getMessage());
+//                        }
+//                    }
+//                }
+//                case "exit" -> {
+//                    IO.print("Bye!\n");
+//                    System.exit(0);
+//                }
+//                default -> IO.print("Unknown command\n");
+//            }
+//        }
+//    }
