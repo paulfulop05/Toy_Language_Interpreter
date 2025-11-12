@@ -1,6 +1,7 @@
 import controller.Controller;
 import exceptions.MyException;
 import model.expressions.ArithmeticExpression;
+import model.expressions.RelationalExpression;
 import model.expressions.ValueExpression;
 import model.expressions.VariableExpression;
 import model.statements.*;
@@ -116,6 +117,25 @@ void main() {
                     )
             );
 
+    // int v; string str; v = 5; (If v < 10 Then str = "less" Else v = "greater"); Print(str)
+    StatementInterface ex5 = new CompoundStatement(
+            new VariableDeclarationStatement("v", IntType.INSTANCE),
+            new CompoundStatement(
+                    new VariableDeclarationStatement("str", StringType.INSTANCE),
+                    new CompoundStatement(
+                            new AssignStatement("v", new ValueExpression(new IntValue(5))),
+                            new CompoundStatement(
+                                    new IfStatement(
+                                            new RelationalExpression("<", new VariableExpression("v"), new ValueExpression(new IntValue(10))),
+                                            new AssignStatement("str", new ValueExpression(new StringValue("less"))),
+                                            new AssignStatement("str", new ValueExpression(new StringValue("greater")))
+                                    ),
+                                    new PrintStatement(new VariableExpression("str"))
+                            )
+                    )
+            )
+    );
+
 //      just in case
 //    Scanner scanner = new Scanner(System.in);
 //    IO.print("\nInsert the name of the file you want to save the logs into: ");
@@ -138,12 +158,17 @@ void main() {
     Controller controller4 = new Controller(repository4);
     controller4.addNewProgram(ex4);
 
+    Repository repository5 = new ArrayListRepository("src/log5.txt");
+    Controller controller5 = new Controller(repository5);
+    controller5.addNewProgram(ex5);
+
     TextMenu textMenu = new TextMenu();
     textMenu.addCommand(new ExitCommand("0", "exit"));
     textMenu.addCommand(new RunProgramCommand("1", ex1.toString(), controller1));
     textMenu.addCommand(new RunProgramCommand("2", ex2.toString(), controller2));
     textMenu.addCommand(new RunProgramCommand("3", ex3.toString(), controller3));
     textMenu.addCommand(new RunProgramCommand("4", ex4.toString(), controller4));
+    textMenu.addCommand(new RunProgramCommand("5", ex5.toString(), controller5));
     textMenu.show();
 
 }
