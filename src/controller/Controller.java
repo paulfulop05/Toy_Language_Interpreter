@@ -20,10 +20,9 @@ public final class Controller {
     private final GarbageCollector garbageCollector;
     private ExecutorService executor;
 
-    public Controller(Repository repo, GarbageCollector garbageCollector, ExecutorService executor) {
+    public Controller(Repository repo, GarbageCollector garbageCollector) {
         this.repo = repo;
         this.garbageCollector = garbageCollector;
-        this.executor = executor;
     }
 
     public void addNewProgram(StatementInterface program) {
@@ -80,6 +79,9 @@ public final class Controller {
         List<ProgramState> programStates = removeCompletedPrograms(repo.getProgramStates());
 
         while (!programStates.isEmpty()) {
+            // garbage collector here (move call if doesn't work correctly)
+            // TODO -> this run function might not be correct at all
+            garbageCollector.run(programStates.getFirst().symTable(), programStates.getFirst().heapTable());
             executeOneStepForAllPrograms(programStates);
             //remove the completed programs
             programStates = removeCompletedPrograms(repo.getProgramStates());
