@@ -355,6 +355,34 @@ void main() {
     //int v; Ref int a; v=10;new(a,22);
     //fork(wH(a,30);v=32;print(v);print(rH(a)));
     //print(v);print(rH(a))
+    StatementInterface ex12 =
+            new CompoundStatement(
+                    new VariableDeclarationStatement("v", IntType.INSTANCE),
+                    new CompoundStatement(
+                            new AssignStatement("v", new ValueExpression(new IntValue(4))),
+                            new CompoundStatement(
+                                    new WhileStatement(
+                                            new RelationalExpression(
+                                                    ">",
+                                                    new VariableExpression("v"),
+                                                    new ValueExpression(new IntValue(0))
+                                            ),
+                                            new CompoundStatement(
+                                                    new PrintStatement(new VariableExpression("v")),
+                                                    new AssignStatement(
+                                                            "v",
+                                                            new ArithmeticExpression(
+                                                                    "-",
+                                                                    new VariableExpression("v"),
+                                                                    new ValueExpression(new IntValue(1))
+                                                            )
+                                                    )
+                                            )
+                                    ),
+                                    new PrintStatement(new VariableExpression("v"))
+                            )
+                    )
+            );
 
 
     Repository repository1 = new ArrayListRepository("src/logs/log1.txt");
