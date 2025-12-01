@@ -352,6 +352,10 @@ void main() {
                     )
             );
 
+    //int v; Ref int a; v=10;new(a,22);
+    //fork(wH(a,30);v=32;print(v);print(rH(a)));
+    //print(v);print(rH(a))
+
 
     Repository repository1 = new ArrayListRepository("src/logs/log1.txt");
     Controller controller1 = new Controller(repository1, new GarbageCollector());
