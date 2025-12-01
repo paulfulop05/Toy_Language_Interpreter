@@ -102,18 +102,6 @@ public final class Controller {
                 .collect(Collectors.toList());
     }
 
-    public Repository repo() {
-        return repo;
-    }
-
-    public GarbageCollector garbageCollector() {
-        return garbageCollector;
-    }
-
-    public ExecutorService executor() {
-        return executor;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (obj == this) return true;
