@@ -75,15 +75,13 @@ public final class Controller {
     public void executeMainProgram() throws ProgramException, InterruptedException {
         executor = Executors.newFixedThreadPool(2);
 
-        //remove the completed programs
         List<ProgramState> programStates = removeCompletedPrograms(repo.getProgramStates());
+        List<SymbolTableInterface> allSymbolTables = programStates.stream()
+                .map(ProgramState::symTable).toList();
 
         while (!programStates.isEmpty()) {
-            // garbage collector here (move call if doesn't work correctly)
-            // TODO -> this run function might not be correct at all
-            garbageCollector.run(programStates.getFirst().symTable(), programStates.getFirst().heapTable());
+            garbageCollector.run(allSymbolTables, programStates.getFirst().heapTable());
             executeOneStepForAllPrograms(programStates);
-            //remove the completed programs
             programStates = removeCompletedPrograms(repo.getProgramStates());
         }
 
