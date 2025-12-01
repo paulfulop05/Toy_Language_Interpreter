@@ -76,10 +76,11 @@ public final class Controller {
         executor = Executors.newFixedThreadPool(2);
 
         List<ProgramState> programStates = removeCompletedPrograms(repo.getProgramStates());
-        List<SymbolTableInterface> allSymbolTables = programStates.stream()
-                .map(ProgramState::symTable).toList();
-
         while (!programStates.isEmpty()) {
+            var allSymbolTables = programStates.stream()
+                    .map(ProgramState::symTable)
+                    .toList();
+
             garbageCollector.run(allSymbolTables, programStates.getFirst().heapTable());
             executeOneStepForAllPrograms(programStates);
             programStates = removeCompletedPrograms(repo.getProgramStates());
