@@ -39,7 +39,7 @@ public final class Controller {
 
     public void executeOneStepForAllPrograms(List<ProgramState> programStates) throws InterruptedException, ProgramException {
         // log the execution of a program and also for it's threads
-        programStates.forEach(repo::logProgramStateExecution);
+        //programStates.forEach(repo::logProgramStateExecution);
 
         //RUN concurrently one step for each of the existing PrgStates
         //-----------------------------------------------------------------------
@@ -65,7 +65,7 @@ public final class Controller {
         programStates.addAll(newProgramStatesList);
 
         //after the execution, print the Program State List into the log file
-        //programStates.forEach(repo::logProgramStateExecution); -> don't think this has to be done again
+        programStates.forEach(repo::logProgramStateExecution);
 
         //Save the current programs in the repository
         repo.setProgramStates(programStates);
