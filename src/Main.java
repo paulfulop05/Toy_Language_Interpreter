@@ -359,27 +359,53 @@ void main() {
             new CompoundStatement(
                     new VariableDeclarationStatement("v", IntType.INSTANCE),
                     new CompoundStatement(
-                            new AssignStatement("v", new ValueExpression(new IntValue(4))),
+                            new VariableDeclarationStatement(
+                                    "a",
+                                    new RefType(IntType.INSTANCE)
+                            ),
                             new CompoundStatement(
-                                    new WhileStatement(
-                                            new RelationalExpression(
-                                                    ">",
-                                                    new VariableExpression("v"),
-                                                    new ValueExpression(new IntValue(0))
+                                    new AssignStatement(
+                                            "v",
+                                            new ValueExpression(new IntValue(10))
+                                    ),
+                                    new CompoundStatement(
+                                            new HeapAllocationStatement(
+                                                    "a",
+                                                    new ValueExpression(new IntValue(22))
                                             ),
                                             new CompoundStatement(
-                                                    new PrintStatement(new VariableExpression("v")),
-                                                    new AssignStatement(
-                                                            "v",
-                                                            new ArithmeticExpression(
-                                                                    "-",
-                                                                    new VariableExpression("v"),
-                                                                    new ValueExpression(new IntValue(1))
+                                                    new ForkStatement(
+                                                            new CompoundStatement(
+                                                                    new HeapWritingStatement(
+                                                                            "a",
+                                                                            new ValueExpression(new IntValue(30))
+                                                                    ),
+                                                                    new CompoundStatement(
+                                                                            new AssignStatement(
+                                                                                    "v",
+                                                                                    new ValueExpression(new IntValue(32))
+                                                                            ),
+                                                                            new CompoundStatement(
+                                                                                    new PrintStatement(new VariableExpression("v")),
+                                                                                    new PrintStatement(
+                                                                                            new HeapReadingExpression(
+                                                                                                    new VariableExpression("a")
+                                                                                            )
+                                                                                    )
+                                                                            )
+                                                                    )
+                                                            )
+                                                    ),
+                                                    new CompoundStatement(
+                                                            new PrintStatement(new VariableExpression("v")),
+                                                            new PrintStatement(
+                                                                    new HeapReadingExpression(
+                                                                            new VariableExpression("a")
+                                                                    )
                                                             )
                                                     )
                                             )
-                                    ),
-                                    new PrintStatement(new VariableExpression("v"))
+                                    )
                             )
                     )
             );
@@ -434,6 +460,11 @@ void main() {
     Controller controller11 = new Controller(repository11, new GarbageCollector());
     controller11.addNewProgram(ex11);
 
+
+    Repository repository12 = new ArrayListRepository("src/logs/log12.txt");
+    Controller controller12 = new Controller(repository12, new GarbageCollector());
+    controller12.addNewProgram(ex12);
+
     TextMenu textMenu = new TextMenu();
     textMenu.addCommand(new ExitCommand("0", "exit"));
     textMenu.addCommand(new RunProgramCommand("1", ex1.toString(), controller1));
@@ -447,6 +478,7 @@ void main() {
     textMenu.addCommand(new RunProgramCommand("9", ex9.toString(), controller9));
     textMenu.addCommand(new RunProgramCommand("10", ex10.toString(), controller10));
     textMenu.addCommand(new RunProgramCommand("11", ex11.toString(), controller11));
+    textMenu.addCommand(new RunProgramCommand("12", ex12.toString(), controller12));
     textMenu.show();
 
 }
