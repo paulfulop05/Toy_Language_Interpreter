@@ -1,5 +1,5 @@
 
- PROGRAM ID: 0
+ PROGRAM ID: 11
 EXECUTION STACK:
 int v
 (RefType(int) a;(v = 10;(new (a,22);(fork( (HeapWritingStatement[name=a, expression=30];(v = 32;(print(v);print(a)))) );(print(v);print(a))))))
@@ -15,7 +15,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 0
+ PROGRAM ID: 11
 EXECUTION STACK:
 (RefType(int) a;(v = 10;(new (a,22);(fork( (HeapWritingStatement[name=a, expression=30];(v = 32;(print(v);print(a)))) );(print(v);print(a))))))
 
@@ -31,7 +31,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 0
+ PROGRAM ID: 11
 EXECUTION STACK:
 RefType(int) a
 (v = 10;(new (a,22);(fork( (HeapWritingStatement[name=a, expression=30];(v = 32;(print(v);print(a)))) );(print(v);print(a)))))
@@ -48,7 +48,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 0
+ PROGRAM ID: 11
 EXECUTION STACK:
 (v = 10;(new (a,22);(fork( (HeapWritingStatement[name=a, expression=30];(v = 32;(print(v);print(a)))) );(print(v);print(a)))))
 
@@ -65,7 +65,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 0
+ PROGRAM ID: 11
 EXECUTION STACK:
 v = 10
 (new (a,22);(fork( (HeapWritingStatement[name=a, expression=30];(v = 32;(print(v);print(a)))) );(print(v);print(a))))
@@ -83,7 +83,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 0
+ PROGRAM ID: 11
 EXECUTION STACK:
 (new (a,22);(fork( (HeapWritingStatement[name=a, expression=30];(v = 32;(print(v);print(a)))) );(print(v);print(a))))
 
@@ -100,7 +100,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 0
+ PROGRAM ID: 11
 EXECUTION STACK:
 new (a,22)
 (fork( (HeapWritingStatement[name=a, expression=30];(v = 32;(print(v);print(a)))) );(print(v);print(a)))
@@ -118,7 +118,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 0
+ PROGRAM ID: 11
 EXECUTION STACK:
 (fork( (HeapWritingStatement[name=a, expression=30];(v = 32;(print(v);print(a)))) );(print(v);print(a)))
 
@@ -136,7 +136,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 0
+ PROGRAM ID: 11
 EXECUTION STACK:
 fork( (HeapWritingStatement[name=a, expression=30];(v = 32;(print(v);print(a)))) )
 (print(v);print(a))
@@ -155,7 +155,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 0
+ PROGRAM ID: 11
 EXECUTION STACK:
 (print(v);print(a))
 
@@ -173,7 +173,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 1
+ PROGRAM ID: 12
 EXECUTION STACK:
 (HeapWritingStatement[name=a, expression=30];(v = 32;(print(v);print(a))))
 
@@ -191,7 +191,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 0
+ PROGRAM ID: 11
 EXECUTION STACK:
 print(v)
 print(a)
@@ -210,7 +210,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 1
+ PROGRAM ID: 12
 EXECUTION STACK:
 HeapWritingStatement[name=a, expression=30]
 (v = 32;(print(v);print(a)))
@@ -229,7 +229,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 0
+ PROGRAM ID: 11
 EXECUTION STACK:
 print(a)
 
@@ -248,7 +248,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 1
+ PROGRAM ID: 12
 EXECUTION STACK:
 (v = 32;(print(v);print(a)))
 
@@ -267,7 +267,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 0
+ PROGRAM ID: 11
 EXECUTION STACK:
 
 SYMBOL TABLE:
@@ -286,7 +286,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 1
+ PROGRAM ID: 12
 EXECUTION STACK:
 v = 32
 (print(v);print(a))
@@ -307,7 +307,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 1
+ PROGRAM ID: 12
 EXECUTION STACK:
 (print(v);print(a))
 
@@ -327,7 +327,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 1
+ PROGRAM ID: 12
 EXECUTION STACK:
 print(v)
 print(a)
@@ -348,7 +348,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 1
+ PROGRAM ID: 12
 EXECUTION STACK:
 print(a)
 
@@ -369,7 +369,7 @@ HEAP TABLE:
 
 
 
- PROGRAM ID: 1
+ PROGRAM ID: 12
 EXECUTION STACK:
 
 SYMBOL TABLE:

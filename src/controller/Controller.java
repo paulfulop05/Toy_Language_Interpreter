@@ -29,7 +29,6 @@ public final class Controller {
         var executionStack = new LinkedListExecutionStack();
         executionStack.push(program);
         repo.addProgramState(new ProgramState(
-                0,
                 executionStack,
                 new MapSymbolTable(),
                 new ArrayListOut(),

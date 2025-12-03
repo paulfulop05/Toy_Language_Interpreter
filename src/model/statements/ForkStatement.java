@@ -13,7 +13,6 @@ public record ForkStatement(StatementInterface statement) implements StatementIn
         executionStack.push(statement);
 
         return new ProgramState(
-                state.programId() + 1,
                 executionStack,
                 new MapSymbolTable(state.symTable().getMap()), // -> a copy of it, not reference
                 state.out(),
