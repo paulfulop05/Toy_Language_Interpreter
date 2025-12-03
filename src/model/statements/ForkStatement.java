@@ -20,4 +20,9 @@ public record ForkStatement(StatementInterface statement) implements StatementIn
                 state.fileTable(),
                 state.heapTable());
     }
+
+    @Override
+    public String toString() {
+        return "fork( " + statement.toString() + " )";
+    }
 }
