@@ -28,7 +28,12 @@ public record AssignStatement(String name, Expression expression) implements Sta
 
     @Override
     public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        Type typeVariable = typeTable.lookup(name);
+        Type typeExpression = expression.typecheck(typeTable);
+        if (typeVariable.equals(typeExpression))
+            return typeTable;
+        else
+            throw new TypecheckException("Assignment: right hand side and left hand side have different types ");
     }
 
     @Override

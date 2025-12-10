@@ -23,7 +23,14 @@ public record ForkStatement(StatementInterface statement) implements StatementIn
 
     @Override
     public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        // WHY DO I NEED TO CLONE THE TYPE TABLE?
+        // If the child process after fork contains variable declarations
+        //int temp = 5;  -> temp added to typeTable in some program
+        //fork(string temp = "hi"); -> creating a child process which creates a new variable inside it
+        //                          -> different temp, should be in separate scope
+
+        statement.typecheck(new MyMap<>(typeTable.getMap()));
+        return typeTable;
     }
 
     @Override

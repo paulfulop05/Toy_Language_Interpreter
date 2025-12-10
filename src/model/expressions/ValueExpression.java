@@ -14,7 +14,7 @@ public record ValueExpression(Value e) implements Expression {
 
     @Override
     public Type typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        return e.getType();
     }
 
     @Override

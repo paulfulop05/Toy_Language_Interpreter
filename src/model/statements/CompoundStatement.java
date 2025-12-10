@@ -17,7 +17,7 @@ public record CompoundStatement(StatementInterface first, StatementInterface sec
 
     @Override
     public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        return second.typecheck(first.typecheck(typeTable));
     }
 
     @Override

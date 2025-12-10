@@ -20,7 +20,7 @@ public record VariableExpression(String id) implements Expression {
 
     @Override
     public Type typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        return typeTable.lookup(id);
     }
 
     @Override

@@ -39,7 +39,12 @@ public record OpenFileStatement(Expression expression) implements StatementInter
 
     @Override
     public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        Type typeExpression = expression.typecheck(typeTable);
+
+        if (typeExpression instanceof StringType)
+            return typeTable;
+
+        throw new TypecheckException("OpenFileStatemen: error opening file, type of expression was not correct");
     }
 
     @Override

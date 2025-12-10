@@ -10,6 +10,8 @@ import model.types.BoolType;
 import model.types.Type;
 import model.values.BoolValue;
 
+import java.util.Map;
+
 public record IfStatement(Expression expression, StatementInterface thenS, StatementInterface elseS) implements StatementInterface {
 
     public ProgramState execute(ProgramState state) throws StatementException {
@@ -27,7 +29,22 @@ public record IfStatement(Expression expression, StatementInterface thenS, State
 
     @Override
     public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+
+        // WHY DO I NEED TO CLONE THE TYPE TABLE?
+        // If thenS or elseS contain variable declarations:
+        //if (x > 0) then
+        //int temp = 5;  -> temp added to typeTable
+        //else
+        //string temp = "hi"; -> Different temp, should be in separate scope
+
+        Type typeExpression = expression.typecheck(typeTable);
+        if (typeExpression.equals(BoolType.INSTANCE)) {
+            thenS.typecheck(new MyMap<>(typeTable.getMap()));
+            elseS.typecheck(new MyMap<>(typeTable.getMap()));
+            return typeTable;
+        }
+        else
+            throw new TypecheckException("The condition of IF has not the type bool");
     }
 
     @Override

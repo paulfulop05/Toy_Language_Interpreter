@@ -39,7 +39,19 @@ public record RelationalExpression(String op, Expression e1, Expression e2) impl
 
     @Override
     public Type typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        Type type1, type2;
+        type1=e1.typecheck(typeTable);
+        type2=e2.typecheck(typeTable);
+
+        if (type1.equals(IntType.INSTANCE)){
+            if (type2.equals(IntType.INSTANCE)) {
+                return IntType.INSTANCE;
+            }
+            else
+                throw new TypecheckException("second operand is not an integer");
+        }
+        else
+            throw new TypecheckException("first operand is not an integer");
     }
 
     @Override

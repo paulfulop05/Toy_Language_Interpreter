@@ -13,7 +13,7 @@ public class NoOperationStatement implements StatementInterface {
 
     @Override
     public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        return typeTable;
     }
 
     @Override

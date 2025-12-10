@@ -32,14 +32,17 @@ public record CloseFileStatement(Expression expression) implements StatementInte
         catch(IOException e){
             throw new StatementException(e.getMessage());
         }
-
-
         return null;
     }
 
     @Override
     public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        Type typeExpression = expression.typecheck(typeTable);
+
+        if (typeExpression instanceof StringType)
+            return typeTable;
+
+        throw new TypecheckException("CloseFileStatement: error closing file, type of expression was not correct");
     }
 
     @Override

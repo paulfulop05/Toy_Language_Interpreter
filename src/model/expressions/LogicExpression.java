@@ -5,6 +5,7 @@ import exceptions.TypecheckException;
 import model.states.MyHeap;
 import model.states.MyMap;
 import model.types.BoolType;
+import model.types.IntType;
 import model.types.Type;
 import model.values.BoolValue;
 import model.values.Value;
@@ -35,7 +36,19 @@ public record LogicExpression(String op, Expression e1, Expression e2) implement
 
     @Override
     public Type typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        Type type1, type2;
+        type1=e1.typecheck(typeTable);
+        type2=e2.typecheck(typeTable);
+
+        if (type1.equals(BoolType.INSTANCE)){
+            if (type2.equals(BoolType.INSTANCE)) {
+                return BoolType.INSTANCE;
+            }
+            else
+                throw new TypecheckException("second operand is not a boolean");
+        }
+        else
+            throw new TypecheckException("first operand is not a boolean");
     }
 
     @Override

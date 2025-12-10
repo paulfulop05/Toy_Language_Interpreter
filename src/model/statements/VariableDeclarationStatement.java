@@ -22,7 +22,8 @@ public record VariableDeclarationStatement(String name, Type type) implements St
 
     @Override
     public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        typeTable.add(name, type);
+        return typeTable;
     }
 
     @Override

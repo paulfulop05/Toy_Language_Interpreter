@@ -35,7 +35,12 @@ public record HeapAllocationStatement(String name, Expression expression) implem
 
     @Override
     public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        Type typeVariable = typeTable.lookup(name);
+        Type typeExpression = expression.typecheck(typeTable);
+        if (typeVariable.equals(new RefType(typeExpression)))
+            return typeTable;
+        else
+            throw new TypecheckException("HeapAllocationStatement: right hand side and left hand side have different types ");
     }
 
     @Override

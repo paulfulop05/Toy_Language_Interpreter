@@ -30,7 +30,17 @@ public record WhileStatement(Expression expression, StatementInterface statement
 
     @Override
     public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+
+        // here if I don't clone the type table, the declarations inside the while body will "leak"
+        // into the main program
+
+        Type typeExpression = expression.typecheck(typeTable);
+        if (!typeExpression.equals(BoolType.INSTANCE)) {
+            throw new TypecheckException("WhileStatement: While condition must be bool type");
+        }
+
+        statement.typecheck(new MyMap<>(typeTable.getMap()));
+        return typeTable;
     }
 
     @Override

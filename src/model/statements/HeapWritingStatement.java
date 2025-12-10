@@ -36,6 +36,11 @@ public record HeapWritingStatement(String name, Expression expression) implement
 
     @Override
     public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        Type typeVariable = typeTable.lookup(name);
+        Type typeExpression = expression.typecheck(typeTable);
+        if (typeVariable.equals(new RefType(typeExpression)))
+            return typeTable;
+        else
+            throw new TypecheckException("HeapWritingStatement: right hand side and left hand side have different types ");
     }
 }

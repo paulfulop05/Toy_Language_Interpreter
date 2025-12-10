@@ -4,6 +4,7 @@ import exceptions.ExpressionEvalException;
 import exceptions.TypecheckException;
 import model.states.MyHeap;
 import model.states.MyMap;
+import model.types.RefType;
 import model.types.Type;
 import model.values.IntValue;
 import model.values.RefValue;
@@ -21,7 +22,11 @@ public record HeapReadingExpression(Expression expression) implements Expression
 
     @Override
     public Type typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        Type type = expression.typecheck(typeTable);
+        if (type instanceof RefType) {
+            return ((RefType) type).getInnerType();
+        } else
+            throw new TypecheckException("the HeapReadingExpression argument is not a RefType");
     }
 
     @Override

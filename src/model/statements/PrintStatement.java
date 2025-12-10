@@ -18,7 +18,8 @@ public record PrintStatement(Expression expression) implements StatementInterfac
 
     @Override
     public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        expression.typecheck(typeTable);
+        return typeTable;
     }
 
     @Override

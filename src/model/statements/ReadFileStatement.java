@@ -27,7 +27,7 @@ public record ReadFileStatement(Expression expression, String variableName) impl
             throw new StatementException("Expected a string, got " + exp.getType());
         }
 
-        try{
+        try {
             var bufferedReader = fileTable.lookup((StringValue) exp);
             var line =  bufferedReader.readLine();
             IntValue newValue = (IntValue) IntType.INSTANCE.getDefaultValue();
@@ -46,7 +46,13 @@ public record ReadFileStatement(Expression expression, String variableName) impl
 
     @Override
     public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
-        return null;
+        Type typeExpression = expression.typecheck(typeTable);
+        Type typeVariable = typeTable.lookup(variableName);
+
+        if (typeExpression instanceof StringType && typeVariable instanceof IntType)
+            return typeTable;
+
+        throw new TypecheckException("ReadFileStatement: error reading file, the types were not correct");
     }
 
     @Override
