@@ -1,10 +1,7 @@
 package model.expressions;
 
 import exceptions.ExpressionEvalException;
-import exceptions.MyException;
-import model.states.Heap;
 import model.states.HeapInterface;
-import model.states.SymbolTableInterface;
 import model.types.BoolType;
 import model.values.BoolValue;
 import model.values.Value;

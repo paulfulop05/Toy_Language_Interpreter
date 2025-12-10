@@ -1,9 +1,7 @@
 package model.expressions;
 
 import exceptions.ExpressionEvalException;
-import model.states.Heap;
 import model.states.HeapInterface;
-import model.states.SymbolTableInterface;
 import model.values.RefValue;
 import model.values.Value;
 

@@ -2,27 +2,26 @@ package model.states;
 
 import exceptions.EmptyCollectionException;
 import exceptions.InvalidPositionException;
-import exceptions.MyException;
 import model.values.Value;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class ArrayListOut implements OutInterface {
-    private final List<Value> list;
+public class MyList<T> implements ListInterface<T> {
+    private final List<T> list;
 
-    public ArrayListOut() {
-        list = new CopyOnWriteArrayList<>();
+    public MyList() {
+        this.list = new CopyOnWriteArrayList<>();
     }
 
     @Override
-    public void add(Value value) {
+    public void add(T value) {
         list.add(value);
     }
 
     @Override
-    public Value getFirst() throws EmptyCollectionException {
+    public T getFirst() throws EmptyCollectionException {
         if (isEmpty()) throw new EmptyCollectionException();
         return list.getFirst();
     }

@@ -4,8 +4,6 @@ package model.expressions;
 import exceptions.ExpressionEvalException;
 import exceptions.TypecheckException;
 import model.states.HeapInterface;
-import model.states.SymbolTableInterface;
-import model.states.TypeTableInterface;
 import model.types.Type;
 import model.values.Value;
 

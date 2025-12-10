@@ -3,14 +3,9 @@ package model.statements;
 import exceptions.ExpressionEvalException;
 import exceptions.StatementException;
 import model.expressions.Expression;
-import model.states.Heap;
 import model.states.ProgramState;
-import model.states.SymbolTableInterface;
 import model.types.RefType;
 import model.values.RefValue;
-import model.values.Value;
-
-import java.sql.Statement;
 
 public record HeapWritingStatement(String name, Expression expression) implements StatementInterface {
     @Override

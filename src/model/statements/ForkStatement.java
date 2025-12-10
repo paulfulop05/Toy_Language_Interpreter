@@ -1,15 +1,14 @@
 package model.statements;
 
 import exceptions.StatementException;
+import exceptions.TypecheckException;
 import model.states.*;
-
-import javax.print.attribute.standard.Copies;
 
 public record ForkStatement(StatementInterface statement) implements StatementInterface {
 
     @Override
     public ProgramState execute(ProgramState state) throws StatementException {
-        var executionStack = new LinkedListExecutionStack();
+        var executionStack = new MyStack<StatementInterface>();
         executionStack.push(statement);
 
         return new ProgramState(
@@ -18,6 +17,11 @@ public record ForkStatement(StatementInterface statement) implements StatementIn
                 state.out(),
                 state.fileTable(),
                 state.heapTable());
+    }
+
+    @Override
+    public TypeTableInterface typecheck(TypeTableInterface typeTable) throws TypecheckException {
+        return null;
     }
 
     @Override

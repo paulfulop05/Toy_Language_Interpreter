@@ -1,15 +1,10 @@
 package model.expressions;
 
 import exceptions.ExpressionEvalException;
-import exceptions.MyException;
-import model.states.Heap;
 import model.states.HeapInterface;
 import model.types.IntType;
 import model.values.IntValue;
-import model.states.SymbolTableInterface;
 import model.values.Value;
-
-import java.util.Objects;
 
 public record ArithmeticExpression(String op, Expression e1, Expression e2) implements Expression {
 

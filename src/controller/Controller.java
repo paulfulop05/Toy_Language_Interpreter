@@ -1,15 +1,14 @@
 package controller;
 
-import exceptions.MyException;
 import exceptions.ProgramException;
 import model.states.*;
 import model.statements.StatementInterface;
+import model.values.Value;
 import repo.Repository;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
@@ -26,12 +25,12 @@ public final class Controller {
     }
 
     public void addNewProgram(StatementInterface program) {
-        var executionStack = new LinkedListExecutionStack();
+        var executionStack = new MyStack<StatementInterface>();
         executionStack.push(program);
         repo.addProgramState(new ProgramState(
                 executionStack,
                 new MapSymbolTable(),
-                new ArrayListOut(),
+                new MyList<Value>(),
                 new MapFileTable(),
                 new Heap()));
     }

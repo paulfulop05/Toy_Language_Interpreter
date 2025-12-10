@@ -6,9 +6,10 @@ import exceptions.ValueNotFoundException;
 import model.values.IntValue;
 import model.values.Value;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
+// TODO change to MyHeap, use MyMap generic class for this and extend
 
 public class Heap implements HeapInterface {
     private final Map<IntValue, Value> map;

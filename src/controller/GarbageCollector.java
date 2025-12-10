@@ -1,7 +1,6 @@
 package controller;
 
 import model.states.HeapInterface;
-import model.states.SymbolTableInterface;
 import model.values.IntValue;
 import model.values.RefValue;
 import java.util.*;
