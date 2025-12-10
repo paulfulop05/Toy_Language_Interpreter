@@ -3,12 +3,13 @@ package model.expressions;
 
 import exceptions.ExpressionEvalException;
 import exceptions.TypecheckException;
-import model.states.HeapInterface;
+import model.states.MyHeap;
+import model.states.MyMap;
 import model.types.Type;
 import model.values.Value;
 
 public interface Expression {
-    Value evaluate(SymbolTableInterface symTable, HeapInterface heapTable) throws ExpressionEvalException;
-    Type typecheck(TypeTableInterface typeTable) throws TypecheckException;
+    Value evaluate(MyMap<String, Value> symTable, MyHeap heapTable) throws ExpressionEvalException;
+    Type typecheck(MyMap<String, Type> typeTable) throws TypecheckException;
 }
 

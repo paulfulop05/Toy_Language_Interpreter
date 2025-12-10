@@ -12,6 +12,10 @@ public class MyMap<K, V> implements MapInterface<K, V> {
 
     public MyMap() {this.map = new ConcurrentHashMap<K, V>();}
 
+    public MyMap(Map<K, V> map) {
+        this.map = map;
+    }
+
     @Override
     public V lookup(K key) throws UndefinedIdException, ValueNotFoundException {
         if (!isDefined(key)) throw new UndefinedIdException(String.valueOf(key));

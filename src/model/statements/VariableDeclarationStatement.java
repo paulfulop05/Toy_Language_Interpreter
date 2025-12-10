@@ -2,6 +2,8 @@ package model.statements;
 
 import exceptions.DefinedIdException;
 import exceptions.MyException;
+import exceptions.TypecheckException;
+import model.states.MyMap;
 import model.states.ProgramState;
 import model.types.*;
 import model.values.BoolValue;
@@ -15,6 +17,11 @@ public record VariableDeclarationStatement(String name, Type type) implements St
     public ProgramState execute(ProgramState state) {
         var symTable = state.symTable();
         symTable.add(name, type.getDefaultValue());
+        return null;
+    }
+
+    @Override
+    public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
         return null;
     }
 

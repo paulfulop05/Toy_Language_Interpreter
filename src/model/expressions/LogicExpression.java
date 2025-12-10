@@ -1,14 +1,17 @@
 package model.expressions;
 
 import exceptions.ExpressionEvalException;
-import model.states.HeapInterface;
+import exceptions.TypecheckException;
+import model.states.MyHeap;
+import model.states.MyMap;
 import model.types.BoolType;
+import model.types.Type;
 import model.values.BoolValue;
 import model.values.Value;
 
 public record LogicExpression(String op, Expression e1, Expression e2) implements Expression {
 
-    public Value evaluate(SymbolTableInterface symTable, HeapInterface heapTable) throws ExpressionEvalException {
+    public Value evaluate(MyMap<String, Value> symTable, MyHeap heapTable) throws ExpressionEvalException {
         Value v1, v2;
         v1 = e1.evaluate(symTable, heapTable);
         v2 = e2.evaluate(symTable, heapTable);
@@ -28,6 +31,11 @@ public record LogicExpression(String op, Expression e1, Expression e2) implement
             case "||" -> new BoolValue(n1 || n2);
             default -> throw new ExpressionEvalException("LogicExpression: invalid operation");
         };
+    }
+
+    @Override
+    public Type typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
+        return null;
     }
 
     @Override

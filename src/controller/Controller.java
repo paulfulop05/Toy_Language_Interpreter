@@ -3,9 +3,11 @@ package controller;
 import exceptions.ProgramException;
 import model.states.*;
 import model.statements.StatementInterface;
+import model.values.StringValue;
 import model.values.Value;
 import repo.Repository;
 
+import java.io.BufferedReader;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.Callable;
@@ -29,9 +31,9 @@ public final class Controller {
         executionStack.push(program);
         repo.addProgramState(new ProgramState(
                 executionStack,
-                new MapSymbolTable(),
+                new MyMap<String, Value>(),
                 new MyList<Value>(),
-                new MapFileTable(),
+                new MyMap<StringValue, BufferedReader>(),
                 new MyHeap()));
     }
 

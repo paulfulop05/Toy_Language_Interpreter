@@ -1,9 +1,12 @@
 package model.statements;
 
 import exceptions.StatementException;
+import exceptions.TypecheckException;
 import model.expressions.Expression;
+import model.states.MyMap;
 import model.states.ProgramState;
 import model.types.BoolType;
+import model.types.Type;
 import model.values.BoolValue;
 
 public record WhileStatement(Expression expression, StatementInterface statement) implements StatementInterface {
@@ -22,6 +25,11 @@ public record WhileStatement(Expression expression, StatementInterface statement
 
         state.exeStack().push(this);
         state.exeStack().push(statement);
+        return null;
+    }
+
+    @Override
+    public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
         return null;
     }
 

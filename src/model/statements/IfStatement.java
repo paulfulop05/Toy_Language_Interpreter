@@ -1,10 +1,13 @@
 package model.statements;
 
 import exceptions.StatementException;
+import exceptions.TypecheckException;
+import model.states.MyMap;
 import model.states.ProgramState;
 import model.expressions.Expression;
 import exceptions.MyException;
 import model.types.BoolType;
+import model.types.Type;
 import model.values.BoolValue;
 
 public record IfStatement(Expression expression, StatementInterface thenS, StatementInterface elseS) implements StatementInterface {
@@ -19,6 +22,11 @@ public record IfStatement(Expression expression, StatementInterface thenS, State
                 exeStack.push(elseS);
         } else throw new StatementException("Condition is not boolean");
 
+        return null;
+    }
+
+    @Override
+    public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
         return null;
     }
 

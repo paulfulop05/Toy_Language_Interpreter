@@ -1,10 +1,13 @@
 package model.statements;
 
 import exceptions.StatementException;
+import exceptions.TypecheckException;
 import model.expressions.Expression;
+import model.states.MyMap;
 import model.states.ProgramState;
 import model.types.IntType;
 import model.types.StringType;
+import model.types.Type;
 import model.values.IntValue;
 import model.values.StringValue;
 
@@ -38,6 +41,11 @@ public record ReadFileStatement(Expression expression, String variableName) impl
             throw new StatementException(e.getMessage());
         }
 
+        return null;
+    }
+
+    @Override
+    public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
         return null;
     }
 

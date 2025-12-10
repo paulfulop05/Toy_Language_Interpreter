@@ -1,8 +1,4 @@
 package model.states;
-
-
-import exceptions.UndefinedIdException;
-import exceptions.ValueNotFoundException;
 import model.values.IntValue;
 import model.values.Value;
 
@@ -26,7 +22,7 @@ public class MyHeap extends MyMap<IntValue, Value> {
     private void updateFreeLocation() {
         int i;
         for (i = 1; i <= map.size(); i++) {
-            if (!isDefined(new  IntValue(i))) {
+            if (!isDefined(new IntValue(i))) {
                 freeLocation = i;
                 return;
             }

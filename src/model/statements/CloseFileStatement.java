@@ -1,9 +1,12 @@
 package model.statements;
 
 import exceptions.StatementException;
+import exceptions.TypecheckException;
 import model.expressions.Expression;
+import model.states.MyMap;
 import model.states.ProgramState;
 import model.types.StringType;
+import model.types.Type;
 import model.values.StringValue;
 
 import java.io.IOException;
@@ -31,6 +34,11 @@ public record CloseFileStatement(Expression expression) implements StatementInte
         }
 
 
+        return null;
+    }
+
+    @Override
+    public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
         return null;
     }
 

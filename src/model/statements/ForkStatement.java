@@ -3,6 +3,8 @@ package model.statements;
 import exceptions.StatementException;
 import exceptions.TypecheckException;
 import model.states.*;
+import model.types.Type;
+import model.values.Value;
 
 public record ForkStatement(StatementInterface statement) implements StatementInterface {
 
@@ -13,14 +15,14 @@ public record ForkStatement(StatementInterface statement) implements StatementIn
 
         return new ProgramState(
                 executionStack,
-                new MapSymbolTable(state.symTable().getMap()), // -> a copy of it, not reference
+                new MyMap<String, Value>(state.symTable().getMap()), // -> a copy of it, not reference
                 state.out(),
                 state.fileTable(),
                 state.heapTable());
     }
 
     @Override
-    public TypeTableInterface typecheck(TypeTableInterface typeTable) throws TypecheckException {
+    public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
         return null;
     }
 
