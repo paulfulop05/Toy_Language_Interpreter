@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class MyMap<K, V> implements MapInterface<K, V> {
-    private final Map<K, V> map;
+    protected final Map<K, V> map;
 
     public MyMap() {this.map = new ConcurrentHashMap<K, V>();}
 

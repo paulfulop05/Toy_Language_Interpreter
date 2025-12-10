@@ -32,7 +32,7 @@ public final class Controller {
                 new MapSymbolTable(),
                 new MyList<Value>(),
                 new MapFileTable(),
-                new Heap()));
+                new MyHeap()));
     }
 
     public void executeOneStepForAllPrograms(List<ProgramState> programStates) throws InterruptedException, ProgramException {

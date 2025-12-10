@@ -15,9 +15,9 @@ public final class ProgramState {
     private final MyMap<String, Value> symTable;
     private final MyList<Value> out;
     private final MyMap<StringValue, BufferedReader> fileTable;
-    private final Heap heapTable;
+    private final MyHeap heapTable;
 
-    public ProgramState(MyStack<StatementInterface> exeStack, MyMap<String, Value> symTable, MyList<Value> out, MyMap<StringValue, BufferedReader> fileTable, Heap heapTable) {
+    public ProgramState(MyStack<StatementInterface> exeStack, MyMap<String, Value> symTable, MyList<Value> out, MyMap<StringValue, BufferedReader> fileTable, MyHeap heapTable) {
         this.programId = generateId();
         this.exeStack = exeStack;
         this.symTable = symTable;
@@ -69,7 +69,7 @@ public final class ProgramState {
         return fileTable;
     }
 
-    public Heap heapTable() {
+    public MyHeap heapTable() {
         return heapTable;
     }
 

@@ -1,10 +1,7 @@
 import controller.Controller;
 import controller.GarbageCollector;
-import exceptions.MyException;
 import model.expressions.*;
 import model.statements.*;
-import model.states.Heap;
-import model.states.ProgramState;
 import model.types.BoolType;
 import model.types.IntType;
 import model.types.RefType;
@@ -17,7 +14,6 @@ import repo.Repository;
 import view.ExitCommand;
 import view.RunProgramCommand;
 import view.TextMenu;
-import java.util.Scanner;
 
 void main() {
 
