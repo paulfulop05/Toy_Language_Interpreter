@@ -4,6 +4,7 @@ import exceptions.ExpressionEvalException;
 import exceptions.TypecheckException;
 import model.states.MyHeap;
 import model.states.MyMap;
+import model.types.BoolType;
 import model.types.IntType;
 import model.types.Type;
 import model.values.BoolValue;
@@ -45,7 +46,7 @@ public record RelationalExpression(String op, Expression e1, Expression e2) impl
 
         if (type1.equals(IntType.INSTANCE)){
             if (type2.equals(IntType.INSTANCE)) {
-                return IntType.INSTANCE;
+                return BoolType.INSTANCE;
             }
             else
                 throw new TypecheckException("second operand is not an integer");

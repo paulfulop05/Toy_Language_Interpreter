@@ -1,8 +1,10 @@
 package controller;
 
 import exceptions.ProgramException;
+import exceptions.TypecheckException;
 import model.states.*;
 import model.statements.StatementInterface;
+import model.types.Type;
 import model.values.StringValue;
 import model.values.Value;
 import repo.Repository;
@@ -27,14 +29,24 @@ public final class Controller {
     }
 
     public void addNewProgram(StatementInterface program) {
-        var executionStack = new MyStack<StatementInterface>();
-        executionStack.push(program);
-        repo.addProgramState(new ProgramState(
-                executionStack,
-                new MyMap<String, Value>(),
-                new MyList<Value>(),
-                new MyMap<StringValue, BufferedReader>(),
-                new MyHeap()));
+        try{
+            // typechecking before being able to even run the program / execute thread after fork
+            MyMap<String, Type> initialTypeTable = new MyMap<>();
+            program.typecheck(initialTypeTable);
+
+            var executionStack = new MyStack<StatementInterface>();
+            executionStack.push(program);
+            repo.addProgramState(new ProgramState(
+                    executionStack,
+                    new MyMap<>(),
+                    new MyList<>(),
+                    new MyMap<>(),
+                    new MyHeap()));
+        }
+        catch (TypecheckException e){
+            IO.print(e.getMessage());
+            System.exit(1);
+        }
     }
 
     public void executeOneStepForAllPrograms(List<ProgramState> programStates) throws InterruptedException, ProgramException {

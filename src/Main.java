@@ -17,12 +17,6 @@ import view.TextMenu;
 
 void main() {
 
-    // TODO make the whole interpreter thread-safe
-    // TODO conservativeGarbageCollector -> i'll see about this.
-    // When you prepare the arguments of the conservativeGarbageCollector call you must take into
-    //account the fact that now there is one HEAP shared by multiple PrgStates and multiple
-    //SymbolTables(one for each PrgState).
-
     // int v; v = 2; Print(v)
     StatementInterface ex1 = new CompoundStatement(
             new VariableDeclarationStatement("v", IntType.INSTANCE),
