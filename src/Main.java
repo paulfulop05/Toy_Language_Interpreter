@@ -14,6 +14,8 @@ import repo.Repository;
 import view.ExitCommand;
 import view.RunProgramCommand;
 import view.TextMenu;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
 void main() {
 
