@@ -53,6 +53,10 @@ public final class ProgramState {
         return nextStatement.execute(this);
     }
 
+    public int getProgramId(){
+        return programId;
+    }
+
     public MyStack<StatementInterface> exeStack() {
         return exeStack;
     }
@@ -72,7 +76,5 @@ public final class ProgramState {
     public MyHeap heapTable() {
         return heapTable;
     }
-
-
 }
 

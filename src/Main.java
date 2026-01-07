@@ -402,73 +402,73 @@ void main() {
 
 
     Repository repository1 = new ArrayListRepository("src/logs/log1.txt");
-    ProgramService controller1 = new ProgramService(repository1);
-    controller1.addNewProgram(ex1);
+    ProgramService programServ1 = new ProgramService(repository1);
+    programServ1.addNewProgram(ex1);
 
     Repository repository2 = new ArrayListRepository("src/logs/log2.txt");
-    ProgramService controller2 = new ProgramService(repository2);
-    controller2.addNewProgram(ex2);
+    ProgramService programServ2 = new ProgramService(repository2);
+    programServ2.addNewProgram(ex2);
 
 
     Repository repository3 = new ArrayListRepository("src/logs/log3.txt");
-    ProgramService controller3 = new ProgramService(repository3);
-    controller3.addNewProgram(ex3);
+    ProgramService programServ3 = new ProgramService(repository3);
+    programServ3.addNewProgram(ex3);
 
     Repository repository4 = new ArrayListRepository("src/logs/log4.txt");
-    ProgramService controller4 = new ProgramService(repository4);
-    controller4.addNewProgram(ex4);
+    ProgramService programServ4 = new ProgramService(repository4);
+    programServ4.addNewProgram(ex4);
 
     Repository repository5 = new ArrayListRepository("src/logs/log5.txt");
-    ProgramService controller5 = new ProgramService(repository5);
-    controller5.addNewProgram(ex5);
+    ProgramService programServ5 = new ProgramService(repository5);
+    programServ5.addNewProgram(ex5);
 
     Repository repository6 = new ArrayListRepository("src/logs/log6.txt");
-    ProgramService controller6 = new ProgramService(repository6);
-    controller6.addNewProgram(ex6);
+    ProgramService programServ6 = new ProgramService(repository6);
+    programServ6.addNewProgram(ex6);
 
 
     Repository repository7 = new ArrayListRepository("src/logs/log7.txt");
-    ProgramService controller7 = new ProgramService(repository7);
-    controller7.addNewProgram(ex7);
+    ProgramService programServ7 = new ProgramService(repository7);
+    programServ7.addNewProgram(ex7);
 
 
     Repository repository8 = new ArrayListRepository("src/logs/log8.txt");
-    ProgramService controller8 = new ProgramService(repository8);
-    controller8.addNewProgram(ex8);
+    ProgramService programServ8 = new ProgramService(repository8);
+    programServ8.addNewProgram(ex8);
 
     Repository repository9 = new ArrayListRepository("src/logs/log9.txt");
-    ProgramService controller9 = new ProgramService(repository9);
-    controller9.addNewProgram(ex9);
+    ProgramService programServ9 = new ProgramService(repository9);
+    programServ9.addNewProgram(ex9);
 
 
     Repository repository10 = new ArrayListRepository("src/logs/log10.txt");
-    ProgramService controller10 = new ProgramService(repository10);
-    controller10.addNewProgram(ex10);
+    ProgramService programServ10 = new ProgramService(repository10);
+    programServ10.addNewProgram(ex10);
 
 
     Repository repository11 = new ArrayListRepository("src/logs/log11.txt");
-    ProgramService controller11 = new ProgramService(repository11);
-    controller11.addNewProgram(ex11);
+    ProgramService programServ11 = new ProgramService(repository11);
+    programServ11.addNewProgram(ex11);
 
 
     Repository repository12 = new ArrayListRepository("src/logs/log12.txt");
-    ProgramService controller12 = new ProgramService(repository12);
-    controller12.addNewProgram(ex12);
+    ProgramService programServ12 = new ProgramService(repository12);
+    programServ12.addNewProgram(ex12);
 
     TextMenu textMenu = new TextMenu();
     textMenu.addCommand(new ExitCommand("0", "exit"));
-    textMenu.addCommand(new RunProgramCommand("1", ex1.toString(), controller1));
-    textMenu.addCommand(new RunProgramCommand("2", ex2.toString(), controller2));
-    textMenu.addCommand(new RunProgramCommand("3", ex3.toString(), controller3));
-    textMenu.addCommand(new RunProgramCommand("4", ex4.toString(), controller4));
-    textMenu.addCommand(new RunProgramCommand("5", ex5.toString(), controller5));
-    textMenu.addCommand(new RunProgramCommand("6", ex6.toString(), controller6));
-    textMenu.addCommand(new RunProgramCommand("7", ex7.toString(), controller7));
-    textMenu.addCommand(new RunProgramCommand("8", ex8.toString(), controller8));
-    textMenu.addCommand(new RunProgramCommand("9", ex9.toString(), controller9));
-    textMenu.addCommand(new RunProgramCommand("10", ex10.toString(), controller10));
-    textMenu.addCommand(new RunProgramCommand("11", ex11.toString(), controller11));
-    textMenu.addCommand(new RunProgramCommand("12", ex12.toString(), controller12));
+    textMenu.addCommand(new RunProgramCommand("1", ex1.toString(), programServ1));
+    textMenu.addCommand(new RunProgramCommand("2", ex2.toString(), programServ2));
+    textMenu.addCommand(new RunProgramCommand("3", ex3.toString(), programServ3));
+    textMenu.addCommand(new RunProgramCommand("4", ex4.toString(), programServ4));
+    textMenu.addCommand(new RunProgramCommand("5", ex5.toString(), programServ5));
+    textMenu.addCommand(new RunProgramCommand("6", ex6.toString(), programServ6));
+    textMenu.addCommand(new RunProgramCommand("7", ex7.toString(), programServ7));
+    textMenu.addCommand(new RunProgramCommand("8", ex8.toString(), programServ8));
+    textMenu.addCommand(new RunProgramCommand("9", ex9.toString(), programServ9));
+    textMenu.addCommand(new RunProgramCommand("10", ex10.toString(), programServ10));
+    textMenu.addCommand(new RunProgramCommand("11", ex11.toString(), programServ11));
+    textMenu.addCommand(new RunProgramCommand("12", ex12.toString(), programServ12));
     textMenu.show();
 
 }

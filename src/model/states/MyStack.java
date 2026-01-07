@@ -16,6 +16,16 @@ public class MyStack<T> implements StackInterface<T> {
         return stack.pop();
     }
 
+    public T get(int index) throws EmptyStackException {
+        if (isEmpty()) throw new EmptyStackException();
+        return stack.get(index);
+    }
+
+    @Override
+    public int size() {
+        return stack.size();
+    }
+
     @Override
     public void push(T v) {
         stack.push(v);

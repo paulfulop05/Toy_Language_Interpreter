@@ -1,5 +1,7 @@
 import controller.GarbageCollector;
 import controller.ProgramService;
+import controller.javafx_controller.MainController;
+import controller.javafx_controller.ProgramsController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -22,30 +24,32 @@ import view.TextMenu;
 import java.util.ArrayList;
 import java.util.List;
 
-// main windo needs a list of program services
-// the programs view will hold a list of strings, and the main one the list of actual program states. i will look at the position
 // TODO: ill have to communicate between 2 controllers (see more on that)
 public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // get hard-coded data
-        var programServList = programServiceList();
-        var programStrings = programsToString(programServList);
-
-
-        // open main window
+        // load views
         FXMLLoader primaryLoader = new FXMLLoader(getClass().getResource("view/javafx_view/MainView.fxml"));
+        FXMLLoader secondaryLoader = new FXMLLoader(getClass().getResource("view/javafx_view/ProgramsView.fxml"));
+
         Scene primaryScene = new Scene(primaryLoader.load(), 600, 400);
         primaryStage.setScene(primaryScene);
         primaryStage.setTitle("My Interpreter");
-        primaryStage.show();
 
-        // open programs window
-        Stage secondaryStage = new Stage();
-        FXMLLoader secondaryLoader = new FXMLLoader(getClass().getResource("view/javafx_view/ProgramsView.fxml"));
+
         Scene secondaryScene = new Scene(secondaryLoader.load(), 600, 400);
+        Stage secondaryStage = new Stage();
         secondaryStage.setScene(secondaryScene);
         secondaryStage.setTitle("All Programs");
+
+        // initialize controllers with the hard-coded data
+        MainController mainController = primaryLoader.getController();
+        ProgramsController programsController = secondaryLoader.getController();
+        populateControllers(mainController, programsController);
+        programsController.setMainController(mainController);
+
+        // show the stages
+        primaryStage.show();
         secondaryStage.show();
     }
 
@@ -53,7 +57,7 @@ public class MainFX extends Application {
         launch(args);
     }
 
-    private List<ProgramService> programServiceList(){
+    private void populateControllers(MainController mainController, ProgramsController programsController) {
         List<ProgramService> programs = new ArrayList<>();
 
         // int v; v = 2; Print(v)
@@ -443,80 +447,78 @@ public class MainFX extends Application {
         Repository repository1 = new ArrayListRepository("src/logs/log1.txt");
         ProgramService programServ1 = new ProgramService(repository1);
         programServ1.addNewProgram(ex1);
+        programsController.addProgramTxt(ex1.toString());
+        mainController.addProgramService(programServ1);
 
         Repository repository2 = new ArrayListRepository("src/logs/log2.txt");
         ProgramService programServ2 = new ProgramService(repository2);
         programServ2.addNewProgram(ex2);
+        programsController.addProgramTxt(ex2.toString());
+        mainController.addProgramService(programServ2);
 
 
         Repository repository3 = new ArrayListRepository("src/logs/log3.txt");
         ProgramService programServ3 = new ProgramService(repository3);
         programServ3.addNewProgram(ex3);
+        programsController.addProgramTxt(ex3.toString());
+        mainController.addProgramService(programServ3);
 
         Repository repository4 = new ArrayListRepository("src/logs/log4.txt");
         ProgramService programServ4 = new ProgramService(repository4);
         programServ4.addNewProgram(ex4);
+        programsController.addProgramTxt(ex4.toString());
+        mainController.addProgramService(programServ4);
 
         Repository repository5 = new ArrayListRepository("src/logs/log5.txt");
         ProgramService programServ5 = new ProgramService(repository5);
         programServ5.addNewProgram(ex5);
+        programsController.addProgramTxt(ex5.toString());
+        mainController.addProgramService(programServ5);
 
         Repository repository6 = new ArrayListRepository("src/logs/log6.txt");
         ProgramService programServ6 = new ProgramService(repository6);
         programServ6.addNewProgram(ex6);
+        programsController.addProgramTxt(ex6.toString());
+        mainController.addProgramService(programServ6);
 
 
         Repository repository7 = new ArrayListRepository("src/logs/log7.txt");
         ProgramService programServ7 = new ProgramService(repository7);
         programServ7.addNewProgram(ex7);
+        programsController.addProgramTxt(ex7.toString());
+        mainController.addProgramService(programServ7);
 
 
         Repository repository8 = new ArrayListRepository("src/logs/log8.txt");
         ProgramService programServ8 = new ProgramService(repository8);
         programServ8.addNewProgram(ex8);
+        programsController.addProgramTxt(ex8.toString());
+        mainController.addProgramService(programServ8);
 
         Repository repository9 = new ArrayListRepository("src/logs/log9.txt");
         ProgramService programServ9 = new ProgramService(repository9);
         programServ9.addNewProgram(ex9);
+        programsController.addProgramTxt(ex9.toString());
+        mainController.addProgramService(programServ9);
 
 
         Repository repository10 = new ArrayListRepository("src/logs/log10.txt");
         ProgramService programServ10 = new ProgramService(repository10);
         programServ10.addNewProgram(ex10);
-
+        programsController.addProgramTxt(ex10.toString());
+        mainController.addProgramService(programServ10);
 
         Repository repository11 = new ArrayListRepository("src/logs/log11.txt");
         ProgramService programServ11 = new ProgramService(repository11);
         programServ11.addNewProgram(ex11);
+        programsController.addProgramTxt(ex11.toString());
+        mainController.addProgramService(programServ11);
 
 
         Repository repository12 = new ArrayListRepository("src/logs/log12.txt");
         ProgramService programServ12 = new ProgramService(repository12);
         programServ12.addNewProgram(ex12);
-
-        programs.add(programServ1);
-        programs.add(programServ2);
-        programs.add(programServ3);
-        programs.add(programServ4);
-        programs.add(programServ5);
-        programs.add(programServ6);
-        programs.add(programServ7);
-        programs.add(programServ8);
-        programs.add(programServ9);
-        programs.add(programServ10);
-        programs.add(programServ11);
-        programs.add(programServ12);
-
-        return programs;
-    }
-
-    private List<String> programsToString(List<ProgramService> programServList) {
-        List<String> programs = new ArrayList<>();
-
-        for (ProgramService programServ : programServList) {
-            programs.add(programServ.getRepo().getMainProgramState().toString());
-        }
-
-        return programs;
+        programsController.addProgramTxt(ex12.toString());
+        mainController.addProgramService(programServ12);
     }
 }

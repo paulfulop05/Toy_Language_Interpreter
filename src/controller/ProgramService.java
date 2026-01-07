@@ -25,6 +25,10 @@ public final class ProgramService {
         this.garbageCollector = new GarbageCollector();
     }
 
+    public Repository getRepo() {
+        return repo;
+    }
+
     public void addNewProgram(StatementInterface program) {
         try{
             // typechecking before being able to even run the program / execute thread after fork

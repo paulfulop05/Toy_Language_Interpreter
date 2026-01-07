@@ -20,7 +20,7 @@
       </TableView>
       <ListView fx:id="OutListView" layoutX="69.0" layoutY="410.0" prefHeight="234.0" prefWidth="207.0" />
       <ListView fx:id="FileTableListView" layoutX="297.0" layoutY="410.0" prefHeight="234.0" prefWidth="207.0" />
-      <ListView fx:id="ProgramIDsListView" layoutX="527.0" layoutY="410.0" prefHeight="234.0" prefWidth="207.0" />
+      <ListView fx:id="ProgramIDsListView" layoutX="527.0" layoutY="410.0" onMouseClicked="#onProgramIDListViewClicked" prefHeight="234.0" prefWidth="207.0" />
       <TableView fx:id="SymTableView" layoutX="295.0" layoutY="122.0" prefHeight="234.0" prefWidth="215.0">
         <columns>
           <TableColumn prefWidth="101.0" text="Name" />
