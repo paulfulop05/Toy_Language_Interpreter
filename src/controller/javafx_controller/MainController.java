@@ -101,9 +101,15 @@ public class MainController {
     }
 
     public void onProgramIDListViewClicked() {
-        programId = ProgramIDsListView.getSelectionModel().getSelectedItem();
-        populateExeStackListView(programId);
-        populateSymTableView(programId);
+        try{
+            programId = ProgramIDsListView.getSelectionModel().getSelectedItem();
+            populateExeStackListView(programId);
+            populateSymTableView(programId);
+        }
+        catch (Exception e){
+            IO.print("Choose a program first!");
+        }
+
     }
 
     public void populateProgramIDListView() {
@@ -172,28 +178,39 @@ public class MainController {
 
     // similar to executeMainProgram() but for the gui
     public void clickOneStep() throws ProgramException, InterruptedException {
-        if (programStates.isEmpty()) {
-            mainProgramService.getExecutor().shutdownNow();
-            mainProgramService.getRepo().setProgramStates(programStates);
-            IO.print("Program has been terminated!");
-            return;
+        try{
+            if (programStates.isEmpty()) {
+                mainProgramService.getExecutor().shutdownNow();
+                mainProgramService.getRepo().setProgramStates(programStates);
+                IO.print("Program has been terminated!");
+                return;
+            }
+        }
+        catch (Exception e){
+            IO.print("Choose a program first!");
         }
 
-        programStates = mainProgramService.removeCompletedPrograms(mainProgramService.getRepo().getProgramStates());
-        var allSymbolTables = programStates.stream()
-                .map(ProgramState::symTable)
-                .toList();
-        mainProgramService.getGarbageCollector().run(allSymbolTables, programStates.getFirst().heapTable());
-        mainProgramService.executeOneStepForAllPrograms(programStates);
-        programStates = mainProgramService.removeCompletedPrograms(mainProgramService.getRepo().getProgramStates());
+        try{
+            programStates = mainProgramService.removeCompletedPrograms(mainProgramService.getRepo().getProgramStates());
+            var allSymbolTables = programStates.stream()
+                    .map(ProgramState::symTable)
+                    .toList();
+            mainProgramService.getGarbageCollector().run(allSymbolTables, programStates.getFirst().heapTable());
+            mainProgramService.executeOneStepForAllPrograms(programStates);
+            programStates = mainProgramService.removeCompletedPrograms(mainProgramService.getRepo().getProgramStates());
 
-        PrgStatesTextField.setText(String.valueOf(getNumOfPrograms()));
-        populateProgramIDListView();
-        populateFileTableView();
-        populateOutListView();
-        populateHeapTableView();
-        populateExeStackListView(programId);
-        populateSymTableView(programId);
+            PrgStatesTextField.setText(String.valueOf(getNumOfPrograms()));
+            populateProgramIDListView();
+            populateFileTableView();
+            populateOutListView();
+            populateHeapTableView();
+            populateExeStackListView(programId);
+            populateSymTableView(programId);
+        }
+        catch (Exception e){
+            IO.print("Unexpected error:\n" + e.getMessage());
+        }
+
     }
 
     public void clearView(){

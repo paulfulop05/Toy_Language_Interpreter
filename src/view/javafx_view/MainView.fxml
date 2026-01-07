@@ -9,64 +9,70 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="711.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.javafx_controller.MainController">
+<AnchorPane prefHeight="653.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.javafx_controller.MainController">
    <children>
-      <TextField fx:id="PrgStatesTextField" disable="true" layoutX="299.0" layoutY="53.0" prefHeight="25.0" prefWidth="207.0" />
-      <TableView fx:id="HeapTableView" layoutX="67.0" layoutY="122.0" prefHeight="234.0" prefWidth="207.0">
+      <TextField fx:id="PrgStatesTextField" alignment="CENTER" disable="true" layoutX="458.0" layoutY="369.0" prefHeight="166.0" prefWidth="168.0">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font></TextField>
+      <TableView fx:id="HeapTableView" layoutX="64.0" layoutY="79.0" prefHeight="234.0" prefWidth="168.0">
         <columns>
-          <TableColumn fx:id="HeapAddressCol" prefWidth="102.0" text="Address" />
-          <TableColumn fx:id="HeapValueCol" prefWidth="104.0" text="Value" />
+          <TableColumn fx:id="HeapAddressCol" prefWidth="77.0" text="Address" />
+          <TableColumn fx:id="HeapValueCol" prefWidth="90.0" text="Value" />
         </columns>
       </TableView>
-      <ListView fx:id="OutListView" layoutX="69.0" layoutY="410.0" prefHeight="234.0" prefWidth="207.0" />
-      <ListView fx:id="ProgramIDsListView" layoutX="527.0" layoutY="410.0" onMouseClicked="#onProgramIDListViewClicked" prefHeight="234.0" prefWidth="207.0" />
-      <TableView fx:id="SymTableView" layoutX="295.0" layoutY="122.0" prefHeight="234.0" prefWidth="215.0">
+      <ListView fx:id="OutListView" layoutX="66.0" layoutY="367.0" prefHeight="234.0" prefWidth="168.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="66.0" AnchorPane.topAnchor="367.0" />
+      <ListView fx:id="ProgramIDsListView" layoutX="264.0" layoutY="367.0" onMouseClicked="#onProgramIDListViewClicked" prefHeight="234.0" prefWidth="168.0" />
+      <TableView fx:id="SymTableView" layoutX="253.0" layoutY="79.0" prefHeight="234.0" prefWidth="168.0">
         <columns>
-          <TableColumn fx:id="SymtableNameCol" prefWidth="101.0" text="Name" />
-          <TableColumn fx:id="SymtableValueCol" prefWidth="113.0" text="Value" />
+          <TableColumn fx:id="SymtableNameCol" prefWidth="76.0" text="Name" />
+          <TableColumn fx:id="SymtableValueCol" prefWidth="91.0" text="Value" />
         </columns>
       </TableView>
-      <ListView fx:id="ExeStackListView" layoutX="529.0" layoutY="122.0" prefHeight="234.0" prefWidth="207.0" />
-      <Button fx:id="OneStepButton" layoutX="299.0" layoutY="673.0" mnemonicParsing="false" onAction="#clickOneStep" prefHeight="25.0" prefWidth="207.0" text="Run one step" />
-      <Label alignment="TOP_CENTER" layoutX="67.0" layoutY="96.0" opacity="0.56" prefHeight="17.0" prefWidth="200.0" text="Heap Table" textAlignment="CENTER">
+      <ListView fx:id="ExeStackListView" layoutX="651.0" layoutY="79.0" prefHeight="522.0" prefWidth="432.0" />
+      <Button fx:id="OneStepButton" layoutX="458.0" layoutY="548.0" mnemonicParsing="false" onAction="#clickOneStep" prefHeight="53.0" prefWidth="168.0" text="Run one step">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Label alignment="TOP_CENTER" layoutX="64.0" layoutY="53.0" opacity="0.56" prefHeight="21.0" prefWidth="168.0" text="Heap Table" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" layoutX="302.0" layoutY="96.0" opacity="0.56" prefHeight="17.0" prefWidth="200.0" text="Symbol Table" textAlignment="CENTER">
+      <Label alignment="TOP_CENTER" layoutX="264.0" layoutY="53.0" opacity="0.56" prefHeight="21.0" prefWidth="168.0" text="Symbol Table" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" layoutX="532.0" layoutY="96.0" opacity="0.56" prefHeight="17.0" prefWidth="200.0" text="Execution Stack" textAlignment="CENTER">
+      <Label alignment="TOP_CENTER" layoutX="767.0" layoutY="53.0" opacity="0.56" prefHeight="17.0" prefWidth="200.0" text="Execution Stack" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" layoutX="73.0" layoutY="380.0" opacity="0.56" prefHeight="17.0" prefWidth="200.0" text="Output" textAlignment="CENTER">
+      <Label alignment="TOP_CENTER" layoutX="53.0" layoutY="337.0" opacity="0.56" prefHeight="17.0" prefWidth="200.0" text="Output" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" layoutX="301.0" layoutY="380.0" opacity="0.56" prefHeight="17.0" prefWidth="200.0" text="File Table" textAlignment="CENTER">
+      <Label alignment="TOP_CENTER" layoutX="445.0" layoutY="53.0" opacity="0.56" prefHeight="21.0" prefWidth="168.0" text="File Table" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" layoutX="531.0" layoutY="380.0" opacity="0.56" prefHeight="17.0" prefWidth="200.0" text="Program ID's" textAlignment="CENTER">
+      <Label alignment="TOP_CENTER" layoutX="248.0" layoutY="337.0" opacity="0.56" prefHeight="17.0" prefWidth="200.0" text="Program ID's" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" layoutX="302.0" layoutY="21.0" opacity="0.56" prefHeight="17.0" prefWidth="200.0" text="Number of programs " textAlignment="CENTER">
+      <Label alignment="TOP_CENTER" layoutX="461.0" layoutY="337.0" opacity="0.56" prefHeight="21.0" prefWidth="168.0" text="Number of programs " textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TableView fx:id="FileTableView" layoutX="294.0" layoutY="410.0" prefHeight="234.0" prefWidth="215.0">
+      <TableView fx:id="FileTableView" layoutX="445.0" layoutY="79.0" prefHeight="234.0" prefWidth="168.0">
          <columns>
-            <TableColumn fx:id="FiletableNameCol" prefWidth="101.0" text="Name" />
-            <TableColumn fx:id="FiletableBufCol" prefWidth="113.0" text="Buffered Reader" />
+            <TableColumn fx:id="FiletableNameCol" prefWidth="68.0" text="Name" />
+            <TableColumn fx:id="FiletableBufCol" prefWidth="99.0" text="Buffered Reader" />
          </columns>
       </TableView>
    </children>

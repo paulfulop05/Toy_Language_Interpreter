@@ -31,12 +31,12 @@ public class MainFX extends Application {
         FXMLLoader primaryLoader = new FXMLLoader(getClass().getResource("view/javafx_view/MainView.fxml"));
         FXMLLoader secondaryLoader = new FXMLLoader(getClass().getResource("view/javafx_view/ProgramsView.fxml"));
 
-        Scene primaryScene = new Scene(primaryLoader.load(), 600, 400);
+        Scene primaryScene = new Scene(primaryLoader.load());
         primaryStage.setScene(primaryScene);
         primaryStage.setTitle("My Interpreter");
 
 
-        Scene secondaryScene = new Scene(secondaryLoader.load(), 600, 400);
+        Scene secondaryScene = new Scene(secondaryLoader.load());
         Stage secondaryStage = new Stage();
         secondaryStage.setScene(secondaryScene);
         secondaryStage.setTitle("All Programs");
