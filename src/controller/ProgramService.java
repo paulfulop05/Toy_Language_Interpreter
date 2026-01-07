@@ -20,9 +20,9 @@ public final class ProgramService {
     private final GarbageCollector garbageCollector;
     private ExecutorService executor;
 
-    public ProgramService(Repository repo, GarbageCollector garbageCollector) {
+    public ProgramService(Repository repo) {
         this.repo = repo;
-        this.garbageCollector = garbageCollector;
+        this.garbageCollector = new GarbageCollector();
     }
 
     public void addNewProgram(StatementInterface program) {

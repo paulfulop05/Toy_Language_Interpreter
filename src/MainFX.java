@@ -436,58 +436,71 @@ public class MainFX extends Application {
 
 
         Repository repository1 = new ArrayListRepository("src/logs/log1.txt");
-        ProgramService controller1 = new ProgramService(repository1, new GarbageCollector());
-        controller1.addNewProgram(ex1);
+        ProgramService programServ1 = new ProgramService(repository1);
+        programServ1.addNewProgram(ex1);
 
         Repository repository2 = new ArrayListRepository("src/logs/log2.txt");
-        ProgramService controller2 = new ProgramService(repository2, new GarbageCollector());
-        controller2.addNewProgram(ex2);
+        ProgramService programServ2 = new ProgramService(repository2);
+        programServ2.addNewProgram(ex2);
 
 
         Repository repository3 = new ArrayListRepository("src/logs/log3.txt");
-        ProgramService controller3 = new ProgramService(repository3, new GarbageCollector());
-        controller3.addNewProgram(ex3);
+        ProgramService programServ3 = new ProgramService(repository3);
+        programServ3.addNewProgram(ex3);
 
         Repository repository4 = new ArrayListRepository("src/logs/log4.txt");
-        ProgramService controller4 = new ProgramService(repository4, new GarbageCollector());
-        controller4.addNewProgram(ex4);
+        ProgramService programServ4 = new ProgramService(repository4);
+        programServ4.addNewProgram(ex4);
 
         Repository repository5 = new ArrayListRepository("src/logs/log5.txt");
-        ProgramService controller5 = new ProgramService(repository5, new GarbageCollector());
-        controller5.addNewProgram(ex5);
+        ProgramService programServ5 = new ProgramService(repository5);
+        programServ5.addNewProgram(ex5);
 
         Repository repository6 = new ArrayListRepository("src/logs/log6.txt");
-        ProgramService controller6 = new ProgramService(repository6, new GarbageCollector());
-        controller6.addNewProgram(ex6);
+        ProgramService programServ6 = new ProgramService(repository6);
+        programServ6.addNewProgram(ex6);
 
 
         Repository repository7 = new ArrayListRepository("src/logs/log7.txt");
-        ProgramService controller7 = new ProgramService(repository7,new GarbageCollector());
-        controller7.addNewProgram(ex7);
+        ProgramService programServ7 = new ProgramService(repository7);
+        programServ7.addNewProgram(ex7);
 
 
         Repository repository8 = new ArrayListRepository("src/logs/log8.txt");
-        ProgramService controller8 = new ProgramService(repository8, new GarbageCollector());
-        controller8.addNewProgram(ex8);
+        ProgramService programServ8 = new ProgramService(repository8);
+        programServ8.addNewProgram(ex8);
 
         Repository repository9 = new ArrayListRepository("src/logs/log9.txt");
-        ProgramService controller9 = new ProgramService(repository9, new GarbageCollector());
-        controller9.addNewProgram(ex9);
+        ProgramService programServ9 = new ProgramService(repository9);
+        programServ9.addNewProgram(ex9);
 
 
         Repository repository10 = new ArrayListRepository("src/logs/log10.txt");
-        ProgramService controller10 = new ProgramService(repository10, new GarbageCollector());
-        controller10.addNewProgram(ex10);
+        ProgramService programServ10 = new ProgramService(repository10);
+        programServ10.addNewProgram(ex10);
 
 
         Repository repository11 = new ArrayListRepository("src/logs/log11.txt");
-        ProgramService controller11 = new ProgramService(repository11, new GarbageCollector());
-        controller11.addNewProgram(ex11);
+        ProgramService programServ11 = new ProgramService(repository11);
+        programServ11.addNewProgram(ex11);
 
 
         Repository repository12 = new ArrayListRepository("src/logs/log12.txt");
-        ProgramService controller12 = new ProgramService(repository12, new GarbageCollector());
-        controller12.addNewProgram(ex12);
+        ProgramService programServ12 = new ProgramService(repository12);
+        programServ12.addNewProgram(ex12);
+
+        programs.add(programServ1);
+        programs.add(programServ2);
+        programs.add(programServ3);
+        programs.add(programServ4);
+        programs.add(programServ5);
+        programs.add(programServ6);
+        programs.add(programServ7);
+        programs.add(programServ8);
+        programs.add(programServ9);
+        programs.add(programServ10);
+        programs.add(programServ11);
+        programs.add(programServ12);
 
         return programs;
     }
