@@ -11,4 +11,5 @@ public interface Repository {
     List<ProgramState> getProgramStates();
     void setProgramStates(List<ProgramState> programStates);
     void logProgramStateExecution(ProgramState programState) throws LogProgramStateException;
+    ProgramState getMainProgramState();
 }

@@ -53,4 +53,9 @@ public class ArrayListRepository implements Repository {
             throw new LogProgramStateException();
         }
     }
+
+    @Override
+    public ProgramState getMainProgramState() {
+        return programStates.getFirst();
+    }
 }

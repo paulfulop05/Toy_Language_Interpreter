@@ -48,7 +48,7 @@ public class MainFX extends Application {
         launch(args);
     }
 
-    private List<ProgramService> populateWithPrograms(){
+    private List<ProgramService> programServiceList(){
         List<ProgramService> programs = new ArrayList<>();
 
         // int v; v = 2; Print(v)
@@ -501,6 +501,16 @@ public class MainFX extends Application {
         programs.add(programServ10);
         programs.add(programServ11);
         programs.add(programServ12);
+
+        return programs;
+    }
+
+    private List<String> programsToString(List<ProgramService> programServList) {
+        List<String> programs = new ArrayList<>();
+
+        for (ProgramService programServ : programServList) {
+            programs.add(programServ.getRepo().getMainProgramState().toString());
+        }
 
         return programs;
     }
