@@ -117,7 +117,7 @@ public class MainController {
         ExeStackListView.getItems().clear();
         var exeStack = mainProgramService.getRepo().getProgram(programID).exeStack();
 
-        for(int i = 0; i < exeStack.size(); i++){
+        for(int i = exeStack.size() - 1; i > -1; --i){
             ExeStackListView.getItems().add(exeStack.get(i).toString());
         }
     }
