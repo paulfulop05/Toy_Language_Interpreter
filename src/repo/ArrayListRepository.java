@@ -59,7 +59,7 @@ public class ArrayListRepository implements Repository {
 
     @Override
     public ProgramState getProgram(int id) {
-        return programStates.stream().filter(v -> v.getProgramId() == id).findFirst().orElse(null);
+        return programStates.stream().filter(v -> v.getProgramId() == id).findFirst().orElseThrow();
     }
 
     @Override

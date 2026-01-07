@@ -91,7 +91,6 @@ public final class ProgramService {
 
         //Save the current programs in the repository
         repo.setProgramStates(programStates);
-
     }
 
     public void executeMainProgram() throws ProgramException, InterruptedException {

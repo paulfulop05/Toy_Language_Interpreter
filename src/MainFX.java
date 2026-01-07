@@ -24,7 +24,6 @@ import view.TextMenu;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO: ill have to communicate between 2 controllers (see more on that)
 public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {

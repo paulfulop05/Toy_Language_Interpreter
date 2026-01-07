@@ -2,21 +2,13 @@ package controller.javafx_controller;
 
 import controller.ProgramService;
 import exceptions.ProgramException;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import model.states.MyHeap;
-import model.states.MyMap;
 import model.states.ProgramState;
-import model.values.IntValue;
-import model.values.StringValue;
-import model.values.Value;
-import repo.ArrayListRepository;
-
-import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class MainController {
 
@@ -27,10 +19,19 @@ public class MainController {
     private TableView<Map.Entry<String, String>> FileTableView;
 
     @FXML
+    private TableColumn<Map.Entry<String, String>, String> FiletableBufCol;
+
+    @FXML
+    private TableColumn<Map.Entry<String, String>, String> FiletableNameCol;
+
+    @FXML
     private TableView<Map.Entry<String, String>> HeapTableView;
 
     @FXML
-    private Button OneStepButton;
+    private TableColumn<Map.Entry<String, String>, String> HeapAddressCol;
+
+    @FXML
+    private TableColumn<Map.Entry<String, String>, String> HeapValueCol;
 
     @FXML
     private ListView<String> OutListView;
@@ -44,13 +45,44 @@ public class MainController {
     @FXML
     private TableView<Map.Entry<String, String>> SymTableView;
 
+    @FXML
+    private TableColumn<Map.Entry<String, String>, String> SymtableNameCol;
+
+    @FXML
+    private TableColumn<Map.Entry<String, String>, String> SymtableValueCol;
+
     private List<ProgramService> programServiceList;
     private ProgramService mainProgramService;
     private List<ProgramState> programStates;
+    private int programId;
 
     @FXML
     public void initialize() {
         programServiceList = new ArrayList<ProgramService>();
+
+        FiletableNameCol.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getKey())
+        );
+
+        FiletableBufCol.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getValue())
+        );
+
+        HeapAddressCol.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getKey()));
+
+        HeapValueCol.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getValue()));
+
+        SymtableNameCol.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getKey()));
+
+        SymtableValueCol.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getValue()));
+    }
+
+    public int getNumOfPrograms() {
+        return programStates.size();
     }
 
     public void addProgramService(ProgramService programService) {
@@ -63,17 +95,22 @@ public class MainController {
         mainProgramService = programServiceList.get(pos);
         var repo = mainProgramService.getRepo();
         programStates = repo.getProgramStates();
-        PrgStatesTextField.setText(String.valueOf(repo.getNumOfPrograms()));
-
-        for (var program : repo.getProgramStates()){
-            ProgramIDsListView.getItems().add(program.getProgramId());
-        }
+        PrgStatesTextField.setText(String.valueOf(getNumOfPrograms()));
+        programId = repo.getMainProgram().getProgramId();
+        ProgramIDsListView.getItems().add(programId);
     }
 
     public void onProgramIDListViewClicked() {
-        int programID = ProgramIDsListView.getSelectionModel().getSelectedItem();
-        populateExeStackListView(programID);
-        populateSymTableView(programID);
+        programId = ProgramIDsListView.getSelectionModel().getSelectedItem();
+        populateExeStackListView(programId);
+        populateSymTableView(programId);
+    }
+
+    public void populateProgramIDListView() {
+        ProgramIDsListView.getItems().clear();
+        ProgramIDsListView.getItems().addAll(programStates.stream()
+                .map(ProgramState::getProgramId)
+                .toList());
     }
 
     public void populateExeStackListView(int programID){
@@ -149,6 +186,14 @@ public class MainController {
         mainProgramService.getGarbageCollector().run(allSymbolTables, programStates.getFirst().heapTable());
         mainProgramService.executeOneStepForAllPrograms(programStates);
         programStates = mainProgramService.removeCompletedPrograms(mainProgramService.getRepo().getProgramStates());
+
+        PrgStatesTextField.setText(String.valueOf(getNumOfPrograms()));
+        populateProgramIDListView();
+        populateFileTableView();
+        populateOutListView();
+        populateHeapTableView();
+        populateExeStackListView(programId);
+        populateSymTableView(programId);
     }
 
     public void clearView(){
