@@ -5,11 +5,8 @@ import exceptions.TypecheckException;
 import model.states.*;
 import model.statements.StatementInterface;
 import model.types.Type;
-import model.values.StringValue;
-import model.values.Value;
 import repo.Repository;
 
-import java.io.BufferedReader;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.Callable;
@@ -18,12 +15,12 @@ import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 
-public final class Controller {
+public final class ProgramService {
     private final Repository repo;
     private final GarbageCollector garbageCollector;
     private ExecutorService executor;
 
-    public Controller(Repository repo, GarbageCollector garbageCollector) {
+    public ProgramService(Repository repo, GarbageCollector garbageCollector) {
         this.repo = repo;
         this.garbageCollector = garbageCollector;
     }
@@ -118,7 +115,7 @@ public final class Controller {
     public boolean equals(Object obj) {
         if (obj == this) return true;
         if (obj == null || obj.getClass() != this.getClass()) return false;
-        var that = (Controller) obj;
+        var that = (ProgramService) obj;
         return Objects.equals(this.repo, that.repo) &&
                 Objects.equals(this.garbageCollector, that.garbageCollector) &&
                 Objects.equals(this.executor, that.executor);
@@ -131,7 +128,7 @@ public final class Controller {
 
     @Override
     public String toString() {
-        return "Controller[" +
+        return "ProgramService[" +
                 "repo=" + repo + ", " +
                 "garbageCollector=" + garbageCollector + ", " +
                 "executor=" + executor + ']';

@@ -1,4 +1,4 @@
-import controller.Controller;
+import controller.ProgramService;
 import controller.GarbageCollector;
 import model.expressions.*;
 import model.statements.*;
@@ -14,8 +14,6 @@ import repo.Repository;
 import view.ExitCommand;
 import view.RunProgramCommand;
 import view.TextMenu;
-import javafx.application.Application;
-import javafx.stage.Stage;
 
 void main() {
 
@@ -404,57 +402,57 @@ void main() {
 
 
     Repository repository1 = new ArrayListRepository("src/logs/log1.txt");
-    Controller controller1 = new Controller(repository1, new GarbageCollector());
+    ProgramService controller1 = new ProgramService(repository1, new GarbageCollector());
     controller1.addNewProgram(ex1);
 
     Repository repository2 = new ArrayListRepository("src/logs/log2.txt");
-    Controller controller2 = new Controller(repository2, new GarbageCollector());
+    ProgramService controller2 = new ProgramService(repository2, new GarbageCollector());
     controller2.addNewProgram(ex2);
 
 
     Repository repository3 = new ArrayListRepository("src/logs/log3.txt");
-    Controller controller3 = new Controller(repository3, new GarbageCollector());
+    ProgramService controller3 = new ProgramService(repository3, new GarbageCollector());
     controller3.addNewProgram(ex3);
 
     Repository repository4 = new ArrayListRepository("src/logs/log4.txt");
-    Controller controller4 = new Controller(repository4, new GarbageCollector());
+    ProgramService controller4 = new ProgramService(repository4, new GarbageCollector());
     controller4.addNewProgram(ex4);
 
     Repository repository5 = new ArrayListRepository("src/logs/log5.txt");
-    Controller controller5 = new Controller(repository5, new GarbageCollector());
+    ProgramService controller5 = new ProgramService(repository5, new GarbageCollector());
     controller5.addNewProgram(ex5);
 
     Repository repository6 = new ArrayListRepository("src/logs/log6.txt");
-    Controller controller6 = new Controller(repository6, new GarbageCollector());
+    ProgramService controller6 = new ProgramService(repository6, new GarbageCollector());
     controller6.addNewProgram(ex6);
 
 
     Repository repository7 = new ArrayListRepository("src/logs/log7.txt");
-    Controller controller7 = new Controller(repository7,new GarbageCollector());
+    ProgramService controller7 = new ProgramService(repository7,new GarbageCollector());
     controller7.addNewProgram(ex7);
 
 
     Repository repository8 = new ArrayListRepository("src/logs/log8.txt");
-    Controller controller8 = new Controller(repository8, new GarbageCollector());
+    ProgramService controller8 = new ProgramService(repository8, new GarbageCollector());
     controller8.addNewProgram(ex8);
 
     Repository repository9 = new ArrayListRepository("src/logs/log9.txt");
-    Controller controller9 = new Controller(repository9, new GarbageCollector());
+    ProgramService controller9 = new ProgramService(repository9, new GarbageCollector());
     controller9.addNewProgram(ex9);
 
 
     Repository repository10 = new ArrayListRepository("src/logs/log10.txt");
-    Controller controller10 = new Controller(repository10, new GarbageCollector());
+    ProgramService controller10 = new ProgramService(repository10, new GarbageCollector());
     controller10.addNewProgram(ex10);
 
 
     Repository repository11 = new ArrayListRepository("src/logs/log11.txt");
-    Controller controller11 = new Controller(repository11, new GarbageCollector());
+    ProgramService controller11 = new ProgramService(repository11, new GarbageCollector());
     controller11.addNewProgram(ex11);
 
 
     Repository repository12 = new ArrayListRepository("src/logs/log12.txt");
-    Controller controller12 = new Controller(repository12, new GarbageCollector());
+    ProgramService controller12 = new ProgramService(repository12, new GarbageCollector());
     controller12.addNewProgram(ex12);
 
     TextMenu textMenu = new TextMenu();
