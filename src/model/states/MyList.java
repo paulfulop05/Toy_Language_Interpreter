@@ -37,6 +37,11 @@ public class MyList<T> implements ListInterface<T> {
         return list.isEmpty();
     }
 
+    @Override
+    public List<T> getElements() {
+        return list;
+    }
+
     public String toString() {
         String text = "";
         for (var val  : list) {

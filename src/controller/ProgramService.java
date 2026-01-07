@@ -23,6 +23,15 @@ public final class ProgramService {
     public ProgramService(Repository repo) {
         this.repo = repo;
         this.garbageCollector = new GarbageCollector();
+        this.executor = Executors.newFixedThreadPool(2); // good when using gui
+    }
+
+    public ExecutorService getExecutor() {
+        return executor;
+    }
+
+    public GarbageCollector getGarbageCollector(){
+        return garbageCollector;
     }
 
     public Repository getRepo() {
@@ -71,14 +80,14 @@ public final class ProgramService {
                     } catch (Exception e) {
                         throw new ProgramException(e.getMessage());
                     }
-                }).filter(p -> p != null)
+                }).filter(Objects::nonNull)
                 .toList();
 
         //add the new created threads to the list of existing threads
         programStates.addAll(newProgramStatesList);
 
         //after the execution, print the Program State List into the log file
-        programStates.forEach(repo::logProgramStateExecution);
+        //programStates.forEach(repo::logProgramStateExecution); ignore for when using gui
 
         //Save the current programs in the repository
         repo.setProgramStates(programStates);
@@ -86,7 +95,7 @@ public final class ProgramService {
     }
 
     public void executeMainProgram() throws ProgramException, InterruptedException {
-        executor = Executors.newFixedThreadPool(2);
+        executor = Executors.newFixedThreadPool(2); // good when using the terminal
 
         List<ProgramState> programStates = removeCompletedPrograms(repo.getProgramStates());
         while (!programStates.isEmpty()) {
@@ -108,7 +117,7 @@ public final class ProgramService {
         repo.setProgramStates(programStates);
     }
 
-    List<ProgramState> removeCompletedPrograms(List<ProgramState> programStates) {
+    public List<ProgramState> removeCompletedPrograms(List<ProgramState> programStates) {
 
         return programStates.stream().
                 filter(ProgramState::isNotCompleted)

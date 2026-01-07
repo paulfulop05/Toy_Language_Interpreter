@@ -9,5 +9,6 @@ public interface StackInterface<T> {
     int size();
     void push(T v);
     boolean isEmpty();
+
 }
 
