@@ -28,6 +28,11 @@ import java.util.List;
 public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
+        // get hard-coded data
+        var programServList = programServiceList();
+        var programStrings = programsToString(programServList);
+
+
         // open main window
         FXMLLoader primaryLoader = new FXMLLoader(getClass().getResource("view/javafx_view/MainView.fxml"));
         Scene primaryScene = new Scene(primaryLoader.load(), 600, 400);
