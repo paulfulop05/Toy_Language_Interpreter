@@ -17,6 +17,11 @@ public record BoolValue(boolean val) implements Value {
     }
 
     @Override
+    public Value copy() {
+        return new BoolValue(val);
+    }
+
+    @Override
     public boolean equals(Object another){
         return another instanceof BoolValue;
     }
