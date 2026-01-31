@@ -61,7 +61,7 @@ public final class ProgramService {
 
     public void executeOneStepForAllPrograms(List<ProgramState> programStates) throws InterruptedException, ProgramException {
         // log the execution of a program and also for it's threads
-        //programStates.forEach(repo::logProgramStateExecution);
+        programStates.forEach(repo::logProgramStateExecution);
 
         //RUN concurrently one step for each of the existing PrgStates
         //-----------------------------------------------------------------------
@@ -87,14 +87,14 @@ public final class ProgramService {
         programStates.addAll(newProgramStatesList);
 
         //after the execution, print the Program State List into the log file
-        //programStates.forEach(repo::logProgramStateExecution); ignore for when using gui
+        programStates.forEach(repo::logProgramStateExecution);
 
         //Save the current programs in the repository
         repo.setProgramStates(programStates);
     }
 
     public void executeMainProgram() throws ProgramException, InterruptedException {
-        executor = Executors.newFixedThreadPool(2); // good when using the terminal
+        executor = Executors.newFixedThreadPool(2);
 
         List<ProgramState> programStates = removeCompletedPrograms(repo.getProgramStates());
         while (!programStates.isEmpty()) {

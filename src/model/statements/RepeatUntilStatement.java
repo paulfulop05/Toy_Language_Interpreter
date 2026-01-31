@@ -3,6 +3,7 @@ package model.statements;
 import exceptions.StatementException;
 import exceptions.TypecheckException;
 import model.expressions.Expression;
+import model.expressions.NotExpression;
 import model.states.MyMap;
 import model.states.ProgramState;
 import model.types.BoolType;
@@ -11,7 +12,7 @@ import model.types.Type;
 public record RepeatUntilStatement (StatementInterface statement, Expression expression) implements StatementInterface {
     @Override
     public ProgramState execute(ProgramState state) throws StatementException {
-        state.exeStack().push(new WhileStatement(expression, statement));
+        state.exeStack().push(new WhileStatement(new NotExpression(expression), statement));
         state.exeStack().push(statement);
 
         return null;
@@ -29,5 +30,10 @@ public record RepeatUntilStatement (StatementInterface statement, Expression exp
 
         statement.typecheck(new MyMap<>(typeTable.getMap()));
         return typeTable;
+    }
+
+    @Override
+    public String toString() {
+        return "repeat (" + statement.toString() + ") until (" + expression.toString() + ')';
     }
 }
