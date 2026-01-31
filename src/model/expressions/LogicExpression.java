@@ -17,10 +17,6 @@ public record LogicExpression(String op, Expression e1, Expression e2) implement
         v1 = e1.evaluate(symTable, heapTable);
         v2 = e2.evaluate(symTable, heapTable);
 
-        if (!v1.getType().equals(BoolType.INSTANCE) || !v2.getType().equals(BoolType.INSTANCE)) {
-            throw new ExpressionEvalException("LogicExpression: invalid operation");
-        }
-
         BoolValue b1 = (BoolValue) v1;
         BoolValue b2 = (BoolValue) v2;
         boolean n1, n2;

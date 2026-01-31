@@ -17,10 +17,6 @@ public record RelationalExpression(String op, Expression e1, Expression e2) impl
         v1 = e1.evaluate(symTable, heapTable);
         v2 = e2.evaluate(symTable, heapTable);
 
-        if (!v1.getType().equals(IntType.INSTANCE) || !v2.getType().equals(IntType.INSTANCE)) {
-            throw new ExpressionEvalException("RelationalExpression: invalid operation");
-        }
-
         IntValue i1 = (IntValue) v1;
         IntValue i2 = (IntValue) v2;
         int n1, n2;
