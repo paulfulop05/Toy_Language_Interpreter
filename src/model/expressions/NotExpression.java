@@ -13,7 +13,7 @@ public record NotExpression(Expression expression) implements Expression {
     @Override
     public Value evaluate(MyMap<String, Value> symTable, MyHeap heapTable) throws ExpressionEvalException {
         Value value = expression.evaluate(symTable, heapTable);
-        return value.equals(new BoolValue(true)) ? new BoolValue(false) : new BoolValue(true);
+        return new BoolValue(!((BoolValue) value).val());
     }
 
     @Override

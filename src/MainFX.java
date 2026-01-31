@@ -15,6 +15,7 @@ import model.types.StringType;
 import model.values.BoolValue;
 import model.values.IntValue;
 import model.values.StringValue;
+import model.values.Value;
 import repo.ArrayListRepository;
 import repo.Repository;
 import view.ExitCommand;
@@ -442,6 +443,87 @@ public class MainFX extends Application {
                         )
                 );
 
+//        int v; int x; int y; v=0;
+//        (repeat (fork(print(v);v=v-1);v=v+1) until v==3);
+//        x=1;nop;y=3;nop;
+//        print(v*10)
+
+        //new AssignStatement("v", new ArithmeticExpression("-", new VariableExpression("v"), new ValueExpression(new IntValue(1)))))
+        StatementInterface ex13 =
+                new CompoundStatement(
+                        new VariableDeclarationStatement("v", IntType.INSTANCE),
+                        new CompoundStatement(
+                                new VariableDeclarationStatement("x", IntType.INSTANCE),
+                                new CompoundStatement(
+                                        new VariableDeclarationStatement("y", IntType.INSTANCE),
+                                        new CompoundStatement(
+                                                new AssignStatement(
+                                                        "v",
+                                                        new ValueExpression(new IntValue(0))
+                                                ),
+                                                new CompoundStatement(
+                                                        new RepeatUntilStatement(
+                                                                new CompoundStatement(
+                                                                        new ForkStatement(
+                                                                                new CompoundStatement(
+                                                                                        new PrintStatement(
+                                                                                                new VariableExpression("v")
+                                                                                        ),
+                                                                                        new AssignStatement(
+                                                                                                "v",
+                                                                                                new ArithmeticExpression(
+                                                                                                        "-",
+                                                                                                        new VariableExpression("v"),
+                                                                                                        new ValueExpression(new IntValue(1))
+                                                                                                )
+                                                                                        )
+                                                                                )
+                                                                        ),
+                                                                        new AssignStatement(
+                                                                                "v",
+                                                                                new ArithmeticExpression(
+                                                                                        "+",
+                                                                                        new VariableExpression("v"),
+                                                                                        new ValueExpression(new IntValue(1))
+                                                                                )
+                                                                        )
+                                                                ),
+                                                                new RelationalExpression(
+                                                                        "==",
+                                                                        new VariableExpression("v"),
+                                                                        new ValueExpression(new IntValue(3))
+                                                                )
+                                                        ),
+                                                        new CompoundStatement(
+                                                                new AssignStatement(
+                                                                        "x",
+                                                                        new ValueExpression(new IntValue(1))
+                                                                ),
+                                                                new CompoundStatement(
+                                                                        new NoOperationStatement(),
+                                                                        new CompoundStatement(
+                                                                                new AssignStatement(
+                                                                                        "y",
+                                                                                        new ValueExpression(new IntValue(3))
+                                                                                ),
+                                                                                new CompoundStatement(
+                                                                                        new NoOperationStatement(),
+                                                                                        new PrintStatement(
+                                                                                                new ArithmeticExpression(
+                                                                                                        "*",
+                                                                                                        new ValueExpression(new IntValue(10)),
+                                                                                                        new VariableExpression("v")
+                                                                                                )
+                                                                                        )
+                                                                                )
+                                                                        )
+                                                                )
+                                                        )
+                                                )
+                                        )
+                                )
+                        )
+                );
 
         Repository repository1 = new ArrayListRepository("src/logs/log1.txt");
         ProgramService programServ1 = new ProgramService(repository1);
@@ -519,5 +601,12 @@ public class MainFX extends Application {
         programServ12.addNewProgram(ex12);
         programsController.addProgramTxt(ex12.toString());
         mainController.addProgramService(programServ12);
+
+
+        Repository repository13 = new ArrayListRepository("src/logs/log13.txt");
+        ProgramService programServ13 = new ProgramService(repository13);
+        programServ13.addNewProgram(ex13);
+        programsController.addProgramTxt(ex13.toString());
+        mainController.addProgramService(programServ13);
     }
 }

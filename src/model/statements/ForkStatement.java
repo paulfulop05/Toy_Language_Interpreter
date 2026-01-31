@@ -13,9 +13,14 @@ public record ForkStatement(StatementInterface statement) implements StatementIn
         var executionStack = new MyStack<StatementInterface>();
         executionStack.push(statement);
 
+        var newSymbolTable = new MyMap<String, Value>();
+        for (var elem : state.symTable().getMap().entrySet()) {
+            newSymbolTable.add(elem.getKey(), elem.getValue());
+        }
+
         return new ProgramState(
                 executionStack,
-                new MyMap<String, Value>(state.symTable().getMap()), // -> a copy of it, not reference
+                newSymbolTable, // -> a copy of it, not reference
                 state.out(),
                 state.fileTable(),
                 state.heapTable());
