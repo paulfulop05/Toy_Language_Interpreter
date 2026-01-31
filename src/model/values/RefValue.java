@@ -9,6 +9,11 @@ public record RefValue(int address, Type valueType) implements Value {
         return new RefType(valueType);
     }
 
+    @Override
+    public Value copy() {
+        return new RefValue(address, valueType);
+    }
+
     public int getAddress() {
         return address;
     }

@@ -16,6 +16,11 @@ public record IntValue(int val) implements Value {
     }
 
     @Override
+    public Value copy() {
+        return new IntValue(val);
+    }
+
+    @Override
     public boolean equals(Object another){
         return another instanceof IntValue;
     }

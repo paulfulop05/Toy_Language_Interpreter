@@ -13,7 +13,12 @@ public record StringValue(String val) implements Value {
     public Type getType() {
         return StringType.INSTANCE;
     }
-    
+
+    @Override
+    public Value copy() {
+        return new  StringValue(val);
+    }
+
     @Override
     public boolean equals(Object another){
         return another instanceof StringValue;

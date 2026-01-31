@@ -15,7 +15,7 @@ public record ForkStatement(StatementInterface statement) implements StatementIn
 
         var newSymbolTable = new MyMap<String, Value>();
         for (var elem : state.symTable().getMap().entrySet()) {
-            newSymbolTable.add(elem.getKey(), elem.getValue());
+            newSymbolTable.add(elem.getKey(), elem.getValue().copy());
         }
 
         return new ProgramState(
