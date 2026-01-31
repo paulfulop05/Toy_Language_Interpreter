@@ -210,7 +210,6 @@ public class MainController {
         catch (Exception e){
             IO.print("Unexpected error:\n" + e.getMessage());
         }
-
     }
 
     public void clearView(){
