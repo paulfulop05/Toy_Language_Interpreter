@@ -1,7 +1,8 @@
-package model.statements;
+package model.statements.thread_statements;
 
 import exceptions.StatementException;
 import exceptions.TypecheckException;
+import model.statements.StatementInterface;
 import model.states.*;
 import model.states.map.tables.TypeTable;
 import model.states.stack.ExecutionStack;

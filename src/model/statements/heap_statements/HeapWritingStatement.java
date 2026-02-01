@@ -1,9 +1,10 @@
-package model.statements;
+package model.statements.heap_statements;
 
 import exceptions.ExpressionEvalException;
 import exceptions.StatementException;
 import exceptions.TypecheckException;
 import model.expressions.Expression;
+import model.statements.StatementInterface;
 import model.states.ProgramState;
 import model.states.map.tables.TypeTable;
 import model.types.RefType;

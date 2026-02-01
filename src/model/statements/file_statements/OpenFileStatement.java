@@ -1,18 +1,19 @@
-package model.statements;
+package model.statements.file_statements;
 
 import exceptions.StatementException;
 import exceptions.TypecheckException;
 import model.expressions.Expression;
+import model.statements.StatementInterface;
 import model.states.ProgramState;
 import model.states.map.tables.TypeTable;
 import model.types.StringType;
 import model.types.Type;
 import model.values.StringValue;
 
-import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
-public record CloseFileStatement(Expression expression) implements StatementInterface {
-
+public record OpenFileStatement(Expression expression) implements StatementInterface {
     @Override
     public ProgramState execute(ProgramState state) throws StatementException {
         var symbolTable = state.symTable();
@@ -24,14 +25,16 @@ public record CloseFileStatement(Expression expression) implements StatementInte
             throw new StatementException("Expected a string, got " + exp.getType());
         }
 
-        var bufferedReader = fileTable.lookup((StringValue) exp);
+        var expStr = ((StringValue) exp).val();
+
         try {
-            bufferedReader.close();
-            fileTable.remove((StringValue) exp);
+            var bufferedReader = new BufferedReader(new FileReader(expStr));
+            fileTable.add((StringValue) exp, bufferedReader);
         }
-        catch(IOException e){
+        catch (Exception e) {
             throw new StatementException(e.getMessage());
         }
+
         return null;
     }
 
@@ -42,11 +45,11 @@ public record CloseFileStatement(Expression expression) implements StatementInte
         if (typeExpression instanceof StringType)
             return typeTable;
 
-        throw new TypecheckException("CloseFileStatement: error closing file, type of expression was not correct");
+        throw new TypecheckException("OpenFileStatemen: error opening file, type of expression was not correct");
     }
 
     @Override
     public String toString() {
-        return "close (" + expression.toString() + ')';
+        return "open (" + expression.toString() + ')';
     }
 }

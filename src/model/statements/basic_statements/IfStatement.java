@@ -1,7 +1,8 @@
-package model.statements;
+package model.statements.basic_statements;
 
 import exceptions.StatementException;
 import exceptions.TypecheckException;
+import model.statements.StatementInterface;
 import model.states.ProgramState;
 import model.expressions.Expression;
 import model.states.map.tables.TypeTable;
