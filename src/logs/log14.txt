@@ -11,21 +11,7 @@ FILE TABLE
 
 HEAP TABLE:
 
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-RefType(int) v1
-(RefType(int) v2;(RefType(int) v3;(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))))))
-
-SYMBOL TABLE:
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
+BARRIER TABLE:
 
 
 
@@ -43,6 +29,26 @@ FILE TABLE
 
 HEAP TABLE:
 
+BARRIER TABLE:
+
+
+
+
+ PROGRAM ID: 13
+EXECUTION STACK:
+RefType(int) v1
+(RefType(int) v2;(RefType(int) v3;(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))))))
+
+SYMBOL TABLE:
+
+OUT:
+
+FILE TABLE
+
+HEAP TABLE:
+
+BARRIER TABLE:
+
 
 
 
@@ -59,6 +65,8 @@ FILE TABLE
 
 HEAP TABLE:
 
+BARRIER TABLE:
+
 
 
 
@@ -74,6 +82,8 @@ OUT:
 FILE TABLE
 
 HEAP TABLE:
+
+BARRIER TABLE:
 
 
 
@@ -92,6 +102,8 @@ FILE TABLE
 
 HEAP TABLE:
 
+BARRIER TABLE:
+
 
 
 
@@ -109,22 +121,7 @@ FILE TABLE
 
 HEAP TABLE:
 
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(RefType(int) v3;(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))))))
-
-SYMBOL TABLE:
-v1 --> RefValue(0, int)
-v2 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
+BARRIER TABLE:
 
 
 
@@ -142,6 +139,27 @@ OUT:
 FILE TABLE
 
 HEAP TABLE:
+
+BARRIER TABLE:
+
+
+
+
+ PROGRAM ID: 13
+EXECUTION STACK:
+(RefType(int) v3;(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))))))
+
+SYMBOL TABLE:
+v1 --> RefValue(0, int)
+v2 --> RefValue(0, int)
+
+OUT:
+
+FILE TABLE
+
+HEAP TABLE:
+
+BARRIER TABLE:
 
 
 
@@ -161,6 +179,8 @@ FILE TABLE
 
 HEAP TABLE:
 
+BARRIER TABLE:
+
 
 
 
@@ -179,23 +199,7 @@ FILE TABLE
 
 HEAP TABLE:
 
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))))
-
-SYMBOL TABLE:
-v1 --> RefValue(0, int)
-v2 --> RefValue(0, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
+BARRIER TABLE:
 
 
 
@@ -214,6 +218,28 @@ OUT:
 FILE TABLE
 
 HEAP TABLE:
+
+BARRIER TABLE:
+
+
+
+
+ PROGRAM ID: 13
+EXECUTION STACK:
+(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))))
+
+SYMBOL TABLE:
+v1 --> RefValue(0, int)
+v2 --> RefValue(0, int)
+v3 --> RefValue(0, int)
+
+OUT:
+
+FILE TABLE
+
+HEAP TABLE:
+
+BARRIER TABLE:
 
 
 
@@ -234,6 +260,8 @@ FILE TABLE
 
 HEAP TABLE:
 
+BARRIER TABLE:
+
 
 
 
@@ -253,24 +281,7 @@ FILE TABLE
 
 HEAP TABLE:
 
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(0, int)
-v2 --> RefValue(0, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
+BARRIER TABLE:
 
 
 
@@ -290,6 +301,29 @@ OUT:
 FILE TABLE
 
 HEAP TABLE:
+
+BARRIER TABLE:
+
+
+
+
+ PROGRAM ID: 13
+EXECUTION STACK:
+(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))))
+
+SYMBOL TABLE:
+cnt --> 0
+v1 --> RefValue(0, int)
+v2 --> RefValue(0, int)
+v3 --> RefValue(0, int)
+
+OUT:
+
+FILE TABLE
+
+HEAP TABLE:
+
+BARRIER TABLE:
 
 
 
@@ -311,6 +345,8 @@ FILE TABLE
 
 HEAP TABLE:
 
+BARRIER TABLE:
+
 
 
 
@@ -331,25 +367,7 @@ FILE TABLE
 
 HEAP TABLE:
 
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(1, int)
-v2 --> RefValue(0, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
+BARRIER TABLE:
 
 
 
@@ -370,6 +388,30 @@ FILE TABLE
 
 HEAP TABLE:
 1 --> 2
+
+BARRIER TABLE:
+
+
+
+
+ PROGRAM ID: 13
+EXECUTION STACK:
+(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))
+
+SYMBOL TABLE:
+cnt --> 0
+v1 --> RefValue(1, int)
+v2 --> RefValue(0, int)
+v3 --> RefValue(0, int)
+
+OUT:
+
+FILE TABLE
+
+HEAP TABLE:
+1 --> 2
+
+BARRIER TABLE:
 
 
 
@@ -392,6 +434,8 @@ FILE TABLE
 HEAP TABLE:
 1 --> 2
 
+BARRIER TABLE:
+
 
 
 
@@ -413,26 +457,7 @@ FILE TABLE
 HEAP TABLE:
 1 --> 2
 
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
+BARRIER TABLE:
 
 
 
@@ -454,6 +479,31 @@ FILE TABLE
 HEAP TABLE:
 1 --> 2
 2 --> 3
+
+BARRIER TABLE:
+
+
+
+
+ PROGRAM ID: 13
+EXECUTION STACK:
+(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))
+
+SYMBOL TABLE:
+cnt --> 0
+v1 --> RefValue(1, int)
+v2 --> RefValue(2, int)
+v3 --> RefValue(0, int)
+
+OUT:
+
+FILE TABLE
+
+HEAP TABLE:
+1 --> 2
+2 --> 3
+
+BARRIER TABLE:
 
 
 
@@ -477,6 +527,8 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 
+BARRIER TABLE:
+
 
 
 
@@ -499,27 +551,7 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
+BARRIER TABLE:
 
 
 
@@ -542,6 +574,32 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 3 --> 4
+
+BARRIER TABLE:
+
+
+
+
+ PROGRAM ID: 13
+EXECUTION STACK:
+(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))
+
+SYMBOL TABLE:
+cnt --> 0
+v1 --> RefValue(1, int)
+v2 --> RefValue(2, int)
+v3 --> RefValue(3, int)
+
+OUT:
+
+FILE TABLE
+
+HEAP TABLE:
+1 --> 2
+2 --> 3
+3 --> 4
+
+BARRIER TABLE:
 
 
 
@@ -566,6 +624,8 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+
 
 
 
@@ -589,27 +649,7 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
+BARRIER TABLE:
 
 
 
@@ -632,6 +672,34 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[]
+
+
+
+
+ PROGRAM ID: 13
+EXECUTION STACK:
+(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))
+
+SYMBOL TABLE:
+cnt --> 1
+v1 --> RefValue(1, int)
+v2 --> RefValue(2, int)
+v3 --> RefValue(3, int)
+
+OUT:
+
+FILE TABLE
+
+HEAP TABLE:
+1 --> 2
+2 --> 3
+3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[]
 
 
 
@@ -656,6 +724,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[]
+
 
 
 
@@ -679,49 +750,8 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-(AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1)))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
+BARRIER TABLE:
+1 --> 3=[]
 
 
 
@@ -745,6 +775,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[]
+
 
 
 
@@ -766,6 +799,59 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[]
+
+
+
+
+ PROGRAM ID: 13
+EXECUTION STACK:
+(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))
+
+SYMBOL TABLE:
+cnt --> 1
+v1 --> RefValue(1, int)
+v2 --> RefValue(2, int)
+v3 --> RefValue(3, int)
+
+OUT:
+
+FILE TABLE
+
+HEAP TABLE:
+1 --> 2
+2 --> 3
+3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[]
+
+
+
+
+ PROGRAM ID: 14
+EXECUTION STACK:
+(AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1)))
+
+SYMBOL TABLE:
+cnt --> 1
+v1 --> RefValue(1, int)
+v2 --> RefValue(2, int)
+v3 --> RefValue(3, int)
+
+OUT:
+
+FILE TABLE
+
+HEAP TABLE:
+1 --> 2
+2 --> 3
+3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[]
 
 
 
@@ -790,6 +876,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[]
+
 
 
 
@@ -812,6 +901,9 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[]
 
 
 
@@ -836,6 +928,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[]
+
 
 
 
@@ -858,6 +953,9 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[]
 
 
 
@@ -881,6 +979,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14]
+
 
 
 
@@ -904,6 +1005,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14]
+
 
 
 
@@ -925,6 +1029,9 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[14]
 
 
 
@@ -948,6 +1055,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14]
+
 
 
 
@@ -970,6 +1080,9 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[14]
 
 
 
@@ -993,6 +1106,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14]
+
 
 
 
@@ -1015,6 +1131,9 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[14, 14]
 
 
 
@@ -1039,6 +1158,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14, 14]
+
 
 
 
@@ -1062,6 +1184,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14, 14]
+
 
 
 
@@ -1084,6 +1209,9 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[14, 14]
 
 
 
@@ -1108,6 +1236,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14, 14]
+
 
 
 
@@ -1131,6 +1262,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14, 14]
+
 
 
 
@@ -1153,6 +1287,9 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
 
 
 
@@ -1176,6 +1313,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
+
 
 
 
@@ -1197,6 +1337,9 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
 
 
 
@@ -1221,6 +1364,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
+
 
 
 
@@ -1242,6 +1388,9 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
 
 
 
@@ -1265,6 +1414,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
+
 
 
 
@@ -1286,6 +1438,9 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
 
 
 
@@ -1310,6 +1465,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
+
 
 
 
@@ -1333,6 +1491,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
+
 
 
 
@@ -1354,6 +1515,9 @@ HEAP TABLE:
 1 --> 2
 2 --> 3
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
 
 
 
@@ -1378,6 +1542,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
+
 
 
 
@@ -1401,6 +1568,9 @@ HEAP TABLE:
 2 --> 3
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
+
 
 
 
@@ -1423,51 +1593,8 @@ HEAP TABLE:
 2 --> 30
 3 --> 4
 
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-print(v1)
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-4
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 20
-2 --> 30
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-4
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 20
-2 --> 30
-3 --> 4
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
 
 
 
@@ -1492,6 +1619,9 @@ HEAP TABLE:
 2 --> 30
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
+
 
 
 
@@ -1514,6 +1644,61 @@ HEAP TABLE:
 1 --> 20
 2 --> 30
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
+
+
+
+
+ PROGRAM ID: 14
+EXECUTION STACK:
+print(v1)
+
+SYMBOL TABLE:
+cnt --> 1
+v1 --> RefValue(1, int)
+v2 --> RefValue(2, int)
+v3 --> RefValue(3, int)
+
+OUT:
+4
+
+FILE TABLE
+
+HEAP TABLE:
+1 --> 20
+2 --> 30
+3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
+
+
+
+
+ PROGRAM ID: 15
+EXECUTION STACK:
+(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2))
+
+SYMBOL TABLE:
+cnt --> 1
+v1 --> RefValue(1, int)
+v2 --> RefValue(2, int)
+v3 --> RefValue(3, int)
+
+OUT:
+4
+
+FILE TABLE
+
+HEAP TABLE:
+1 --> 20
+2 --> 30
+3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
 
 
 
@@ -1537,6 +1722,9 @@ HEAP TABLE:
 1 --> 20
 2 --> 30
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
 
 
 
@@ -1563,6 +1751,9 @@ HEAP TABLE:
 2 --> 30
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
+
 
 
 
@@ -1587,6 +1778,9 @@ HEAP TABLE:
 1 --> 20
 2 --> 30
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
 
 
 
@@ -1612,6 +1806,9 @@ HEAP TABLE:
 2 --> 300
 3 --> 4
 
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
+
 
 
 
@@ -1635,6 +1832,9 @@ HEAP TABLE:
 1 --> 20
 2 --> 300
 3 --> 4
+
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
 
 
 
@@ -1660,1669 +1860,8 @@ HEAP TABLE:
 2 --> 300
 3 --> 4
 
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(RefType(int) v1;(RefType(int) v2;(RefType(int) v3;(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))))))))
-
-SYMBOL TABLE:
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-RefType(int) v1
-(RefType(int) v2;(RefType(int) v3;(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))))))
-
-SYMBOL TABLE:
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-RefType(int) v1
-(RefType(int) v2;(RefType(int) v3;(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))))))
-
-SYMBOL TABLE:
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(RefType(int) v2;(RefType(int) v3;(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))))))
-
-SYMBOL TABLE:
-v1 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(RefType(int) v2;(RefType(int) v3;(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))))))
-
-SYMBOL TABLE:
-v1 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-RefType(int) v2
-(RefType(int) v3;(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))))))
-
-SYMBOL TABLE:
-v1 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-RefType(int) v2
-(RefType(int) v3;(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))))))
-
-SYMBOL TABLE:
-v1 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(RefType(int) v3;(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))))))
-
-SYMBOL TABLE:
-v1 --> RefValue(0, int)
-v2 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(RefType(int) v3;(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))))))
-
-SYMBOL TABLE:
-v1 --> RefValue(0, int)
-v2 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-RefType(int) v3
-(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))))
-
-SYMBOL TABLE:
-v1 --> RefValue(0, int)
-v2 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-RefType(int) v3
-(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))))
-
-SYMBOL TABLE:
-v1 --> RefValue(0, int)
-v2 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))))
-
-SYMBOL TABLE:
-v1 --> RefValue(0, int)
-v2 --> RefValue(0, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(int cnt;(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))))
-
-SYMBOL TABLE:
-v1 --> RefValue(0, int)
-v2 --> RefValue(0, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-int cnt
-(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))))
-
-SYMBOL TABLE:
-v1 --> RefValue(0, int)
-v2 --> RefValue(0, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-int cnt
-(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))))
-
-SYMBOL TABLE:
-v1 --> RefValue(0, int)
-v2 --> RefValue(0, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(0, int)
-v2 --> RefValue(0, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(new (v1,2);(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(0, int)
-v2 --> RefValue(0, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-new (v1,2)
-(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(0, int)
-v2 --> RefValue(0, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-new (v1,2)
-(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(0, int)
-v2 --> RefValue(0, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(1, int)
-v2 --> RefValue(0, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(new (v2,3);(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(1, int)
-v2 --> RefValue(0, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-new (v2,3)
-(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(1, int)
-v2 --> RefValue(0, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-new (v2,3)
-(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(1, int)
-v2 --> RefValue(0, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(new (v3,4);(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-new (v3,4)
-(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-new (v3,4)
-(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(0, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(NewBarrierStatement[variableName=cnt, expression=v2];(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-NewBarrierStatement[variableName=cnt, expression=v2]
-(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-NewBarrierStatement[variableName=cnt, expression=v2]
-(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))
-
-SYMBOL TABLE:
-cnt --> 0
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) );(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3))))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) )
-(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))) )
-(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-(AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1)))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) );(AwaitStatement[variableName=cnt];print(v3)))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-(AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1)))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) )
-(AwaitStatement[variableName=cnt];print(v3))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-AwaitStatement[variableName=cnt]
-(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-fork( (AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))) )
-(AwaitStatement[variableName=cnt];print(v3))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-AwaitStatement[variableName=cnt]
-(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(AwaitStatement[variableName=cnt];print(v3))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-AwaitStatement[variableName=cnt]
-(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-(AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2))))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-(AwaitStatement[variableName=cnt];print(v3))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-AwaitStatement[variableName=cnt]
-(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-(AwaitStatement[variableName=cnt];(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2))))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-AwaitStatement[variableName=cnt]
-print(v3)
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-AwaitStatement[variableName=cnt]
-(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-AwaitStatement[variableName=cnt]
-(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-AwaitStatement[variableName=cnt]
-print(v3)
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-AwaitStatement[variableName=cnt]
-(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-AwaitStatement[variableName=cnt]
-(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-AwaitStatement[variableName=cnt]
-print(v3)
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-AwaitStatement[variableName=cnt]
-print(v3)
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-(HeapWritingStatement[name=v1, expression=v1 * 10];print(v1))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-(HeapWritingStatement[name=v2, expression=v2 * 10];(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2)))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-print(v3)
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-HeapWritingStatement[name=v1, expression=v1 * 10]
-print(v1)
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-HeapWritingStatement[name=v2, expression=v2 * 10]
-(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-print(v3)
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-HeapWritingStatement[name=v1, expression=v1 * 10]
-print(v1)
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-HeapWritingStatement[name=v2, expression=v2 * 10]
-(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 2
-2 --> 3
-3 --> 4
-
-
-
-
- PROGRAM ID: 13
-EXECUTION STACK:
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-4
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 20
-2 --> 30
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-print(v1)
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-4
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 20
-2 --> 30
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-4
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 20
-2 --> 30
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-print(v1)
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-4
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 20
-2 --> 30
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-(HeapWritingStatement[name=v2, expression=v2 * 10];print(v2))
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-4
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 20
-2 --> 30
-3 --> 4
-
-
-
-
- PROGRAM ID: 14
-EXECUTION STACK:
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-4
-20
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 20
-2 --> 30
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-HeapWritingStatement[name=v2, expression=v2 * 10]
-print(v2)
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-4
-20
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 20
-2 --> 30
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-HeapWritingStatement[name=v2, expression=v2 * 10]
-print(v2)
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-4
-20
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 20
-2 --> 30
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-print(v2)
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-4
-20
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 20
-2 --> 300
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-print(v2)
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-4
-20
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 20
-2 --> 300
-3 --> 4
-
-
-
-
- PROGRAM ID: 15
-EXECUTION STACK:
-
-SYMBOL TABLE:
-cnt --> 1
-v1 --> RefValue(1, int)
-v2 --> RefValue(2, int)
-v3 --> RefValue(3, int)
-
-OUT:
-4
-20
-300
-
-FILE TABLE
-
-HEAP TABLE:
-1 --> 20
-2 --> 300
-3 --> 4
+BARRIER TABLE:
+1 --> 3=[14, 14, 13]
 
 
 

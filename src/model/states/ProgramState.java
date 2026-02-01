@@ -44,6 +44,7 @@ public final class ProgramState {
                 "\nOUT:\n" + out.toString() +
                 "\nFILE TABLE\n" + fileTable.toString() +
                 "\nHEAP TABLE:\n" + heapTable.toString() +
+                "\nBARRIER TABLE:\n" + barrierTable.toString() +
                 "\n\n";
     }
 
