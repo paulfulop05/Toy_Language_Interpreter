@@ -2,6 +2,7 @@ package controller;
 
 import exceptions.ProgramException;
 import exceptions.TypecheckException;
+import javafx.util.Pair;
 import model.states.*;
 import model.statements.StatementInterface;
 import model.states.list.MyList;
@@ -9,6 +10,7 @@ import model.states.map.MyHeap;
 import model.states.map.MyMap;
 import model.states.stack.MyStack;
 import model.types.Type;
+import model.values.Value;
 import repo.Repository;
 
 import java.util.List;
@@ -55,7 +57,8 @@ public final class ProgramService {
                     new MyMap<>(),
                     new MyList<>(),
                     new MyMap<>(),
-                    new MyHeap()));
+                    new MyHeap<>(),
+                    new MyHeap<>()));
         }
         catch (TypecheckException e){
             IO.print(e.getMessage());

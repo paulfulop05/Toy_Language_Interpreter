@@ -9,7 +9,7 @@ import model.values.Value;
 
 public record VariableExpression(String id) implements Expression {
 
-    public Value evaluate(MyMap<String, Value> symTable, MyHeap heapTable) throws ExpressionEvalException {
+    public Value evaluate(MyMap<String, Value> symTable, MyHeap<Value> heapTable) throws ExpressionEvalException {
         try{
             return symTable.lookup(id);
         }

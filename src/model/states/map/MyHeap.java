@@ -1,8 +1,6 @@
 package model.states.map;
-import model.values.IntValue;
-import model.values.Value;
 
-public class MyHeap extends MyMap<IntValue, Value> {
+public class MyHeap<V> extends MyMap<Integer, V> {
     private int freeLocation;
 
     public MyHeap() {
@@ -10,8 +8,8 @@ public class MyHeap extends MyMap<IntValue, Value> {
         this.freeLocation = 1;
     }
 
-    public int add(Value value) { // returns the address in which the value was added
-        super.add(new IntValue(freeLocation), value);
+    public int add(V value) { // returns the address in which the value was added
+        super.add(freeLocation, value);
         int oldFreeLocation = freeLocation;
         updateFreeLocation();
         return oldFreeLocation;
@@ -20,7 +18,7 @@ public class MyHeap extends MyMap<IntValue, Value> {
     private void updateFreeLocation() {
         int i;
         for (i = 1; i <= map.size(); i++) {
-            if (!isDefined(new IntValue(i))) {
+            if (!isDefined(i)) {
                 freeLocation = i;
                 return;
             }

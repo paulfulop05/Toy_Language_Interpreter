@@ -12,12 +12,12 @@ import model.values.Value;
 
 public record HeapReadingExpression(Expression expression) implements Expression {
     @Override
-    public Value evaluate(MyMap<String, Value> symTable, MyHeap heapTable) throws ExpressionEvalException {
+    public Value evaluate(MyMap<String, Value> symTable, MyHeap<Value> heapTable) throws ExpressionEvalException {
         var expressionValue = expression.evaluate(symTable, heapTable);
         if (!(expressionValue instanceof RefValue)) throw new ExpressionEvalException("The expression value does not match");
 
         int address = ((RefValue) expressionValue).address();
-        return heapTable.lookup(new IntValue(address));
+        return heapTable.lookup(address);
     }
 
     @Override

@@ -21,7 +21,7 @@ public record HeapWritingStatement(String name, Expression expression) implement
         if(!(tableValue.getType() instanceof RefType)) throw new ExpressionEvalException("The type of the value inside the symbol table is not a reference type.");
 
         int address = ((RefValue)tableValue).address();
-        if (!heapTable.isDefined(new IntValue(address))) throw new ExpressionEvalException("The address of the value inside the heap table is not defined.");
+        if (!heapTable.isDefined(address)) throw new ExpressionEvalException("The address of the value inside the heap table is not defined.");
 
         var expressionValue = expression.evaluate(symTable, heapTable);
 
@@ -30,7 +30,7 @@ public record HeapWritingStatement(String name, Expression expression) implement
         }
 
 
-        heapTable.update(new IntValue(address), expressionValue);
+        heapTable.update(address, expressionValue);
         return null;
     }
 

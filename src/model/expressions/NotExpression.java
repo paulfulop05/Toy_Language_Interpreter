@@ -11,7 +11,7 @@ import model.values.Value;
 
 public record NotExpression(Expression expression) implements Expression {
     @Override
-    public Value evaluate(MyMap<String, Value> symTable, MyHeap heapTable) throws ExpressionEvalException {
+    public Value evaluate(MyMap<String, Value> symTable, MyHeap<Value> heapTable) throws ExpressionEvalException {
         Value value = expression.evaluate(symTable, heapTable);
         return new BoolValue(!((BoolValue) value).val());
     }

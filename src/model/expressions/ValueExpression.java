@@ -8,7 +8,7 @@ import model.values.Value;
 
 public record ValueExpression(Value e) implements Expression {
 
-    public Value evaluate(MyMap<String, Value> symTable, MyHeap heapTable) {
+    public Value evaluate(MyMap<String, Value> symTable, MyHeap<Value> heapTable) {
         return e;
     }
 

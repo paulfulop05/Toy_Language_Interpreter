@@ -9,7 +9,7 @@ import model.types.Type;
 import model.values.Value;
 
 public interface Expression {
-    Value evaluate(MyMap<String, Value> symTable, MyHeap heapTable) throws ExpressionEvalException;
+    Value evaluate(MyMap<String, Value> symTable, MyHeap<Value> heapTable) throws ExpressionEvalException;
     Type typecheck(MyMap<String, Type> typeTable) throws TypecheckException;
 }
 

@@ -2,6 +2,7 @@ package model.states;
 
 
 import exceptions.ProgramException;
+import javafx.util.Pair;
 import model.statements.StatementInterface;
 import model.states.list.MyList;
 import model.states.map.MyHeap;
@@ -11,6 +12,7 @@ import model.values.StringValue;
 import model.values.Value;
 
 import java.io.BufferedReader;
+import java.util.List;
 
 public final class ProgramState {
     private static int globalIdCounter = 0;
@@ -19,10 +21,10 @@ public final class ProgramState {
     private final MyMap<String, Value> symTable;
     private final MyList<Value> out;
     private final MyMap<StringValue, BufferedReader> fileTable;
-    private final MyHeap heapTable;
-    private final MyHeap barrierTable;
+    private final MyHeap<Value> heapTable;
+    private final MyHeap<Pair<Integer, List<Integer>>> barrierTable;
 
-    public ProgramState(MyStack<StatementInterface> exeStack, MyMap<String, Value> symTable, MyList<Value> out, MyMap<StringValue, BufferedReader> fileTable, MyHeap heapTable, MyHeap barrierTable) {
+    public ProgramState(MyStack<StatementInterface> exeStack, MyMap<String, Value> symTable, MyList<Value> out, MyMap<StringValue, BufferedReader> fileTable, MyHeap<Value> heapTable, MyHeap<Pair<Integer, List<Integer>>> barrierTable) {
         this.programId = generateId();
         this.exeStack = exeStack;
         this.symTable = symTable;
@@ -79,9 +81,9 @@ public final class ProgramState {
         return fileTable;
     }
 
-    public MyHeap heapTable() {
+    public MyHeap<Value> heapTable() {
         return heapTable;
     }
-    public MyHeap barrierTable() {return barrierTable;}
+    public MyHeap<Pair<Integer, List<Integer>>> barrierTable() {return barrierTable;}
 }
 

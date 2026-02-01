@@ -11,7 +11,7 @@ import model.values.Value;
 
 public record ArithmeticExpression(String op, Expression e1, Expression e2) implements Expression {
 
-    public Value evaluate(MyMap<String, Value> symTable, MyHeap heapTable) throws ExpressionEvalException {
+    public Value evaluate(MyMap<String, Value> symTable, MyHeap<Value> heapTable) throws ExpressionEvalException {
         Value v1, v2;
         v1 = e1.evaluate(symTable, heapTable);
         v2 = e2.evaluate(symTable, heapTable);
