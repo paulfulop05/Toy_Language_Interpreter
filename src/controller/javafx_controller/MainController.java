@@ -51,6 +51,18 @@ public class MainController {
     @FXML
     private TableColumn<Map.Entry<String, String>, String> SymtableValueCol;
 
+    @FXML
+    private TableView<Map.Entry<Map.Entry<String, String>, String>> BarrierTableView;
+
+    @FXML
+    private TableColumn<Map.Entry<Map.Entry<String, String>, String>, String> BarrierTableIndex;
+
+    @FXML
+    private TableColumn<Map.Entry<Map.Entry<String, String>, String>, String> BarrierTableValue;
+
+    @FXML
+    private TableColumn<Map.Entry<Map.Entry<String, String>, String>, String> BarrierTableList;
+
     private List<ProgramService> programServiceList;
     private ProgramService mainProgramService;
     private List<ProgramState> programStates;
@@ -78,6 +90,15 @@ public class MainController {
                 new SimpleStringProperty(cellData.getValue().getKey()));
 
         SymtableValueCol.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getValue()));
+
+        BarrierTableIndex.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getKey().getKey()));
+
+        BarrierTableValue.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getKey().getValue()));
+
+        BarrierTableList.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getValue()));
     }
 
@@ -176,6 +197,20 @@ public class MainController {
         OutListView.getItems().addAll(output.getElements().stream().map(Object::toString).toList());
     }
 
+    public void populateBarrierTableView(){
+        var barrierTable = mainProgramService.getRepo().getMainProgram().barrierTable();
+        BarrierTableView.getItems().clear();
+        BarrierTableView.getItems().addAll(
+                barrierTable.getMap().entrySet().stream()
+                .map(entry -> Map.entry(
+                        Map.entry(entry.getKey().toString(),
+                                entry.getValue().getKey().toString()),
+                        entry.getValue().getValue().toString()
+                ))
+                .toList()
+        );
+    }
+
     // similar to executeMainProgram() but for the gui
     public void clickOneStep() throws ProgramException, InterruptedException {
         try{
@@ -206,6 +241,7 @@ public class MainController {
             populateHeapTableView();
             populateExeStackListView(programId);
             populateSymTableView(programId);
+            populateBarrierTableView();
         }
         catch (Exception e){
             IO.print("Unexpected error:\n" + e.getMessage());
@@ -219,5 +255,6 @@ public class MainController {
         ProgramIDsListView.getItems().clear();
         SymTableView.getItems().clear();
         PrgStatesTextField.clear();
+        BarrierTableView.getItems().clear();
     }
 }

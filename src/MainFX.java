@@ -15,7 +15,9 @@ import model.statements.heap_statements.HeapAllocationStatement;
 import model.statements.heap_statements.HeapWritingStatement;
 import model.statements.loop_statements.RepeatUntilStatement;
 import model.statements.loop_statements.WhileStatement;
+import model.statements.thread_statements.AwaitStatement;
 import model.statements.thread_statements.ForkStatement;
+import model.statements.thread_statements.NewBarrierStatement;
 import model.types.BoolType;
 import model.types.IntType;
 import model.types.RefType;
@@ -451,8 +453,6 @@ public class MainFX extends Application {
 //        (repeat (fork(print(v);v=v-1);v=v+1) until v==3);
 //        x=1;nop;y=3;nop;
 //        print(v*10)
-
-        //new AssignStatement("v", new ArithmeticExpression("-", new VariableExpression("v"), new ValueExpression(new IntValue(1)))))
         StatementInterface ex13 =
                 new CompoundStatement(
                         new VariableDeclarationStatement("v", IntType.INSTANCE),
@@ -528,6 +528,59 @@ public class MainFX extends Application {
                                 )
                         )
                 );
+
+        //Ref int v1; Ref int v2; Ref int v3; int cnt;
+        //new(v1,2);new(v2,3);new(v3,4);newBarrier(cnt,rH(v2));
+        //fork( await(cnt);wh(v1,rh(v1)*10);print(rh(v1)) );
+        //fork( await(cnt);wh(v2,rh(v2)*10);wh(v2,rh(v2)*10);print(rh(v2)) );
+        //await(cnt);
+        //print(rH(v3))
+        StatementInterface ex14 = new  CompoundStatement(
+                new VariableDeclarationStatement("v1", new RefType(IntType.INSTANCE)),
+                new CompoundStatement(new VariableDeclarationStatement("v2", new RefType(IntType.INSTANCE)),
+                        new CompoundStatement(
+                                new VariableDeclarationStatement("v3", new RefType(IntType.INSTANCE)),
+                                new CompoundStatement(new VariableDeclarationStatement("cnt", IntType.INSTANCE),
+                                    new CompoundStatement(
+                                            new HeapAllocationStatement("v1", new ValueExpression(new IntValue(2))),
+                                            new  CompoundStatement(new HeapAllocationStatement("v2", new ValueExpression(new IntValue(3))),
+                                                    new CompoundStatement(new HeapAllocationStatement("v3", new ValueExpression(new IntValue(4))),
+                                                    new CompoundStatement(new NewBarrierStatement("cnt", new HeapReadingExpression(new VariableExpression("v2"))),
+                                        new CompoundStatement(new ForkStatement(new CompoundStatement(
+                                                new AwaitStatement("cnt"),
+                                                new CompoundStatement(
+                                                        new HeapWritingStatement("v1", new ArithmeticExpression("*", new HeapReadingExpression(new VariableExpression("v1")), new ValueExpression(new IntValue(10)))),
+                                                        new PrintStatement(new HeapReadingExpression(new VariableExpression("v1")))
+                                                )
+                                        )),
+                                                new CompoundStatement(new ForkStatement(
+                                                        new CompoundStatement(
+                                                                new AwaitStatement("cnt"),
+                                                                new CompoundStatement(
+                                                                        new HeapWritingStatement("v2", new ArithmeticExpression("*", new HeapReadingExpression(new VariableExpression("v2")), new ValueExpression(new IntValue(10)))),
+                                                                        new CompoundStatement(
+                                                                                new HeapWritingStatement("v2", new ArithmeticExpression("*", new HeapReadingExpression(new VariableExpression("v2")), new ValueExpression(new IntValue(10)))),
+                                                                                new PrintStatement(new HeapReadingExpression(new VariableExpression("v2")))
+                                                                        )
+                                                                )
+                                                        )
+
+                                                ),
+                                                        new CompoundStatement(
+                                                                new AwaitStatement("cnt"),
+                                                                new PrintStatement(new HeapReadingExpression(new VariableExpression("v3")))
+                                                        ))
+                                                )
+                                    )
+                                    )
+
+                                        )
+
+                        )
+
+                        )
+
+        )));
 
         Repository repository1 = new ArrayListRepository("src/logs/log1.txt");
         ProgramService programServ1 = new ProgramService(repository1);
@@ -612,5 +665,12 @@ public class MainFX extends Application {
         programServ13.addNewProgram(ex13);
         programsController.addProgramTxt(ex13.toString());
         mainController.addProgramService(programServ13);
+
+
+        Repository repository14 = new ArrayListRepository("src/logs/log14.txt");
+        ProgramService programServ14 = new ProgramService(repository14);
+        programServ14.addNewProgram(ex14);
+        programsController.addProgramTxt(ex14.toString());
+        mainController.addProgramService(programServ14);
     }
 }
