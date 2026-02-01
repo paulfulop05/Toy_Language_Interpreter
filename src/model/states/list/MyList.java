@@ -3,11 +3,12 @@ package model.states.list;
 import exceptions.EmptyCollectionException;
 import exceptions.InvalidPositionException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class MyList<T> implements ListInterface<T> {
-    private final List<T> list;
+    protected final List<T> list;
 
     public MyList() {
         this.list = new CopyOnWriteArrayList<>();

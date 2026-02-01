@@ -1,7 +1,7 @@
 package model.states.map;
 
 public class MyHeap<V> extends MyMap<Integer, V> {
-    private int freeLocation;
+    protected int freeLocation;
 
     public MyHeap() {
         super();
@@ -15,7 +15,7 @@ public class MyHeap<V> extends MyMap<Integer, V> {
         return oldFreeLocation;
     }
 
-    private void updateFreeLocation() {
+    protected void updateFreeLocation() {
         int i;
         for (i = 1; i <= map.size(); i++) {
             if (!isDefined(i)) {

@@ -29,7 +29,7 @@ public record RepeatUntilStatement (StatementInterface statement, Expression exp
             throw new TypecheckException("RepeatUntilStatement: Until condition must be bool type");
         }
 
-        statement.typecheck(new MyMap<>(typeTable.getMap()));
+        statement.typecheck(typeTable.deepcopy());
         return typeTable;
     }
 

@@ -18,14 +18,14 @@ public record ForkStatement(StatementInterface statement) implements StatementIn
         var executionStack = new ExecutionStack();
         executionStack.push(statement);
 
-        var newSymbolTable = new SymbolTable();
-        for (var elem : state.symTable().getMap().entrySet()) {
-            newSymbolTable.add(elem.getKey(), elem.getValue().copy());
-        }
+//        var newSymbolTable = new SymbolTable();
+//        for (var elem : state.symTable().getMap().entrySet()) {
+//            newSymbolTable.add(elem.getKey(), elem.getValue().copy());
+//        }
 
         return new ProgramState(
                 executionStack,
-                newSymbolTable, // -> a copy of it, not reference
+                state.symTable().deepcopy(), // -> a copy of it, not reference
                 state.out(),
                 state.fileTable(),
                 state.heapTable(),
@@ -40,7 +40,7 @@ public record ForkStatement(StatementInterface statement) implements StatementIn
         //fork(string temp = "hi"); -> creating a child process which creates a new variable inside it
         //                          -> different temp, should be in separate scope
 
-        statement.typecheck(new TypeTable(typeTable.getMap()));
+        statement.typecheck(typeTable.deepcopy());
         return typeTable;
     }
 

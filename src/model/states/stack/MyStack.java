@@ -6,7 +6,7 @@ import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class MyStack<T> implements StackInterface<T> {
-    Stack<T> stack;
+    protected Stack<T> stack;
 
     public MyStack() {this.stack = new Stack<>();}
 

@@ -40,9 +40,7 @@ public record WhileStatement(Expression expression, StatementInterface statement
             throw new TypecheckException("WhileStatement: While condition must be bool type");
         }
 
-//        TypeTable newTypeTable = new TypeTable();
-//        for(var entry : )
-        statement.typecheck(new TypeTable(typeTable.getMap()));
+        statement.typecheck(typeTable.deepcopy());
         return typeTable;
     }
 

@@ -37,8 +37,8 @@ public record IfStatement(Expression expression, StatementInterface thenS, State
 
         Type typeExpression = expression.typecheck(typeTable);
         if (typeExpression.equals(BoolType.INSTANCE)) {
-            thenS.typecheck(new TypeTable(typeTable.getMap()));
-            elseS.typecheck(new TypeTable(typeTable.getMap()));
+            thenS.typecheck(typeTable.deepcopy());
+            elseS.typecheck(typeTable.deepcopy());
             return typeTable;
         }
         else
