@@ -1,10 +1,8 @@
-package model.states;
+package model.states.map;
 
 import exceptions.DefinedIdException;
 import exceptions.UndefinedIdException;
 import exceptions.ValueNotFoundException;
-import model.values.IntValue;
-import model.values.Value;
 
 import java.util.Map;
 

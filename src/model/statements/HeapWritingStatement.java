@@ -4,7 +4,7 @@ import exceptions.ExpressionEvalException;
 import exceptions.StatementException;
 import exceptions.TypecheckException;
 import model.expressions.Expression;
-import model.states.MyMap;
+import model.states.map.MyMap;
 import model.states.ProgramState;
 import model.types.RefType;
 import model.types.Type;

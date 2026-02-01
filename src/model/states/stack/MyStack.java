@@ -1,4 +1,4 @@
-package model.states;
+package model.states.stack;
 
 import exceptions.EmptyCollectionException;
 

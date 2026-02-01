@@ -1,6 +1,5 @@
-package model.states;
+package model.states.stack;
 
-import model.statements.StatementInterface;
 import java.util.EmptyStackException;
 
 public interface StackInterface<T> {

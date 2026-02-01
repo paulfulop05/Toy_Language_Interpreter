@@ -1,8 +1,7 @@
-package model.states;
+package model.states.list;
 
 import exceptions.EmptyCollectionException;
 import exceptions.InvalidPositionException;
-import model.values.Value;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
 package model.expressions;
 
 import exceptions.TypecheckException;
-import model.states.MyHeap;
-import model.states.MyMap;
+import model.states.map.MyHeap;
+import model.states.map.MyMap;
 import model.types.Type;
 import model.values.Value;
 

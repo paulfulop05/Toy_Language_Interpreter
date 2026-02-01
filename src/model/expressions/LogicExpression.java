@@ -2,10 +2,9 @@ package model.expressions;
 
 import exceptions.ExpressionEvalException;
 import exceptions.TypecheckException;
-import model.states.MyHeap;
-import model.states.MyMap;
+import model.states.map.MyHeap;
+import model.states.map.MyMap;
 import model.types.BoolType;
-import model.types.IntType;
 import model.types.Type;
 import model.values.BoolValue;
 import model.values.Value;

@@ -2,15 +2,12 @@ package model.statements;
 
 import exceptions.StatementException;
 import exceptions.TypecheckException;
-import model.states.MyMap;
+import model.states.map.MyMap;
 import model.states.ProgramState;
 import model.expressions.Expression;
-import exceptions.MyException;
 import model.types.BoolType;
 import model.types.Type;
 import model.values.BoolValue;
-
-import java.util.Map;
 
 public record IfStatement(Expression expression, StatementInterface thenS, StatementInterface elseS) implements StatementInterface {
 

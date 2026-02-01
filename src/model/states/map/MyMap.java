@@ -1,4 +1,4 @@
-package model.states;
+package model.states.map;
 
 import exceptions.DefinedIdException;
 import exceptions.UndefinedIdException;

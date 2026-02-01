@@ -3,6 +3,10 @@ package model.states;
 
 import exceptions.ProgramException;
 import model.statements.StatementInterface;
+import model.states.list.MyList;
+import model.states.map.MyHeap;
+import model.states.map.MyMap;
+import model.states.stack.MyStack;
 import model.values.StringValue;
 import model.values.Value;
 
@@ -16,14 +20,16 @@ public final class ProgramState {
     private final MyList<Value> out;
     private final MyMap<StringValue, BufferedReader> fileTable;
     private final MyHeap heapTable;
+    private final MyHeap barrierTable;
 
-    public ProgramState(MyStack<StatementInterface> exeStack, MyMap<String, Value> symTable, MyList<Value> out, MyMap<StringValue, BufferedReader> fileTable, MyHeap heapTable) {
+    public ProgramState(MyStack<StatementInterface> exeStack, MyMap<String, Value> symTable, MyList<Value> out, MyMap<StringValue, BufferedReader> fileTable, MyHeap heapTable, MyHeap barrierTable) {
         this.programId = generateId();
         this.exeStack = exeStack;
         this.symTable = symTable;
         this.out = out;
         this.fileTable = fileTable;
         this.heapTable = heapTable;
+        this.barrierTable = barrierTable;
     }
 
     private static synchronized int generateId() {
@@ -76,5 +82,6 @@ public final class ProgramState {
     public MyHeap heapTable() {
         return heapTable;
     }
+    public MyHeap barrierTable() {return barrierTable;}
 }
 

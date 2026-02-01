@@ -1,7 +1,7 @@
 package controller;
 
-import model.states.MyHeap;
-import model.states.MyMap;
+import model.states.map.MyHeap;
+import model.states.map.MyMap;
 import model.values.IntValue;
 import model.values.RefValue;
 import model.values.Value;

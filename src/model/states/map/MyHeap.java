@@ -1,8 +1,6 @@
-package model.states;
+package model.states.map;
 import model.values.IntValue;
 import model.values.Value;
-
-// TODO see if this works right
 
 public class MyHeap extends MyMap<IntValue, Value> {
     private int freeLocation;

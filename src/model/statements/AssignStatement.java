@@ -2,11 +2,9 @@ package model.statements;
 
 import exceptions.StatementException;
 import exceptions.TypecheckException;
-import model.states.MyMap;
+import model.states.map.MyMap;
 import model.states.ProgramState;
 import model.expressions.Expression;
-import exceptions.MyException;
-import model.values.Value;
 import model.types.Type;
 
 public record AssignStatement(String name, Expression expression) implements StatementInterface {

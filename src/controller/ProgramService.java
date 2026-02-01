@@ -4,6 +4,10 @@ import exceptions.ProgramException;
 import exceptions.TypecheckException;
 import model.states.*;
 import model.statements.StatementInterface;
+import model.states.list.MyList;
+import model.states.map.MyHeap;
+import model.states.map.MyMap;
+import model.states.stack.MyStack;
 import model.types.Type;
 import repo.Repository;
 
