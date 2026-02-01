@@ -1,7 +1,9 @@
 package controller;
 
+import model.states.map.HeapTable;
 import model.states.map.MyHeap;
 import model.states.map.MyMap;
+import model.states.map.SymbolTable;
 import model.values.IntValue;
 import model.values.RefValue;
 import model.values.Value;
@@ -23,7 +25,7 @@ public class GarbageCollector {
     // Same as above, but compute a UNION of the values for all
     // symbol values
 
-    public void run(List<MyMap<String, Value>>allSymbolTables, MyHeap<Value> heapTable) {
+    public void run(List<SymbolTable>allSymbolTables, HeapTable heapTable) {
         Set<Integer> addressesToKeep = new HashSet<>();
 
         for(var symbolTable : allSymbolTables){
@@ -44,14 +46,14 @@ public class GarbageCollector {
         }
     }
 
-    private List<Integer> getAddressesFromSymbolTable(MyMap<String, Value> symTable) {
+    private List<Integer> getAddressesFromSymbolTable(SymbolTable symTable) {
         return symTable.getMap().values().stream()
                 .filter(v -> v instanceof RefValue)
                 .map(v -> {RefValue v1 = (RefValue) v; return v1.getAddress();})
                 .collect(Collectors.toList());
     }
 
-    private Set<Integer> getReachableAddressChain(MyMap<String, Value> symTable, MyHeap<Value> heapTable, int address) {
+    private Set<Integer> getReachableAddressChain(SymbolTable symTable, HeapTable heapTable, int address) {
         if (address == 0) return new HashSet<>(); // null address (maybe throw exception here)
 
         Set<Integer> visited = new HashSet<>();
@@ -67,7 +69,7 @@ public class GarbageCollector {
     }
 
     //check whether the address points to another reference value or not
-    private Boolean isAddressToRef(MyHeap<Value> heapTable, int address) {
+    private Boolean isAddressToRef(HeapTable heapTable, int address) {
         var value = heapTable.getMap().get(address);
         return value instanceof RefValue;
     }

@@ -5,6 +5,7 @@ import exceptions.TypecheckException;
 import model.states.map.MyMap;
 import model.states.ProgramState;
 import model.expressions.Expression;
+import model.states.map.TypeTable;
 import model.types.Type;
 
 public record AssignStatement(String name, Expression expression) implements StatementInterface {
@@ -25,7 +26,7 @@ public record AssignStatement(String name, Expression expression) implements Sta
     }
 
     @Override
-    public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
+    public TypeTable typecheck(TypeTable typeTable) throws TypecheckException {
         Type typeVariable = typeTable.lookup(name);
         Type typeExpression = expression.typecheck(typeTable);
         if (typeVariable.equals(typeExpression))

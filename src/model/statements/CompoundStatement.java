@@ -3,6 +3,7 @@ package model.statements;
 import exceptions.TypecheckException;
 import model.states.map.MyMap;
 import model.states.ProgramState;
+import model.states.map.TypeTable;
 import model.types.Type;
 
 public record CompoundStatement(StatementInterface first, StatementInterface second) implements StatementInterface {
@@ -15,7 +16,7 @@ public record CompoundStatement(StatementInterface first, StatementInterface sec
     }
 
     @Override
-    public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
+    public TypeTable typecheck(TypeTable typeTable) throws TypecheckException {
         return second.typecheck(first.typecheck(typeTable));
     }
 

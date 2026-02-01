@@ -2,14 +2,13 @@ package model.expressions;
 
 import exceptions.ExpressionEvalException;
 import exceptions.TypecheckException;
-import model.states.map.MyHeap;
-import model.states.map.MyMap;
+import model.states.map.*;
 import model.types.Type;
 import model.values.Value;
 
 public record VariableExpression(String id) implements Expression {
 
-    public Value evaluate(MyMap<String, Value> symTable, MyHeap<Value> heapTable) throws ExpressionEvalException {
+    public Value evaluate(SymbolTable symTable, HeapTable heapTable) throws ExpressionEvalException {
         try{
             return symTable.lookup(id);
         }
@@ -19,7 +18,7 @@ public record VariableExpression(String id) implements Expression {
     }
 
     @Override
-    public Type typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
+    public Type typecheck(TypeTable typeTable) throws TypecheckException {
         return typeTable.lookup(id);
     }
 

@@ -6,8 +6,9 @@ import javafx.util.Pair;
 import model.states.*;
 import model.statements.StatementInterface;
 import model.states.list.MyList;
-import model.states.map.MyHeap;
-import model.states.map.MyMap;
+import model.states.list.OutList;
+import model.states.map.*;
+import model.states.stack.ExecutionStack;
 import model.states.stack.MyStack;
 import model.types.Type;
 import model.values.Value;
@@ -47,18 +48,18 @@ public final class ProgramService {
     public void addNewProgram(StatementInterface program) {
         try{
             // typechecking before being able to even run the program / execute thread after fork
-            MyMap<String, Type> initialTypeTable = new MyMap<>();
+            TypeTable initialTypeTable = new TypeTable();
             program.typecheck(initialTypeTable);
 
-            var executionStack = new MyStack<StatementInterface>();
+            var executionStack = new ExecutionStack();
             executionStack.push(program);
             repo.addProgramState(new ProgramState(
                     executionStack,
-                    new MyMap<>(),
-                    new MyList<>(),
-                    new MyMap<>(),
-                    new MyHeap<>(),
-                    new MyHeap<>()));
+                    new SymbolTable(),
+                    new OutList(),
+                    new FileTable(),
+                    new HeapTable(),
+                    new BarrierTable()));
         }
         catch (TypecheckException e){
             IO.print(e.getMessage());

@@ -2,29 +2,24 @@ package model.states;
 
 
 import exceptions.ProgramException;
-import javafx.util.Pair;
 import model.statements.StatementInterface;
-import model.states.list.MyList;
-import model.states.map.MyHeap;
-import model.states.map.MyMap;
-import model.states.stack.MyStack;
-import model.values.StringValue;
-import model.values.Value;
-
-import java.io.BufferedReader;
-import java.util.List;
+import model.states.list.OutList;
+import model.states.map.*;
+import model.states.stack.ExecutionStack;
 
 public final class ProgramState {
     private static int globalIdCounter = 0;
     private final int programId;
-    private final MyStack<StatementInterface> exeStack;
-    private final MyMap<String, Value> symTable;
-    private final MyList<Value> out;
-    private final MyMap<StringValue, BufferedReader> fileTable;
-    private final MyHeap<Value> heapTable;
-    private final MyHeap<Pair<Integer, List<Integer>>> barrierTable;
+    private final ExecutionStack exeStack;
+    private final SymbolTable symTable;
+    private final OutList out;
+    private final FileTable fileTable;
+    private final HeapTable heapTable;
+    private final BarrierTable barrierTable;
 
-    public ProgramState(MyStack<StatementInterface> exeStack, MyMap<String, Value> symTable, MyList<Value> out, MyMap<StringValue, BufferedReader> fileTable, MyHeap<Value> heapTable, MyHeap<Pair<Integer, List<Integer>>> barrierTable) {
+    public ProgramState(ExecutionStack exeStack, SymbolTable symTable,
+                        OutList out, FileTable fileTable,
+                        HeapTable heapTable, BarrierTable barrierTable) {
         this.programId = generateId();
         this.exeStack = exeStack;
         this.symTable = symTable;
@@ -54,7 +49,7 @@ public final class ProgramState {
     }
 
     public ProgramState executeOneStep() throws ProgramException {
-        MyStack<StatementInterface> executionStack = this.exeStack();
+        ExecutionStack executionStack = this.exeStack();
         if (executionStack.isEmpty()) throw new ProgramException("The execution stack of the program is empty");
 
         StatementInterface nextStatement = executionStack.pop();
@@ -65,25 +60,25 @@ public final class ProgramState {
         return programId;
     }
 
-    public MyStack<StatementInterface> exeStack() {
+    public ExecutionStack exeStack() {
         return exeStack;
     }
 
-    public MyMap<String, Value> symTable() {
+    public SymbolTable symTable() {
         return symTable;
     }
 
-    public MyList<Value> out() {
+    public OutList out() {
         return out;
     }
 
-    public MyMap<StringValue, BufferedReader> fileTable() {
+    public FileTable fileTable() {
         return fileTable;
     }
 
-    public MyHeap<Value> heapTable() {
+    public HeapTable heapTable() {
         return heapTable;
     }
-    public MyHeap<Pair<Integer, List<Integer>>> barrierTable() {return barrierTable;}
+    public BarrierTable barrierTable() {return barrierTable;}
 }
 

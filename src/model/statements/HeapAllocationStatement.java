@@ -5,6 +5,7 @@ import exceptions.TypecheckException;
 import model.expressions.Expression;
 import model.states.map.MyMap;
 import model.states.ProgramState;
+import model.states.map.TypeTable;
 import model.types.RefType;
 import model.types.Type;
 import model.values.RefValue;
@@ -33,7 +34,7 @@ public record HeapAllocationStatement(String name, Expression expression) implem
     }
 
     @Override
-    public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
+    public TypeTable typecheck(TypeTable typeTable) throws TypecheckException {
         Type typeVariable = typeTable.lookup(name);
         Type typeExpression = expression.typecheck(typeTable);
         if (typeVariable.equals(new RefType(typeExpression)))

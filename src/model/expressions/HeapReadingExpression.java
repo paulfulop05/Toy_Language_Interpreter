@@ -2,8 +2,7 @@ package model.expressions;
 
 import exceptions.ExpressionEvalException;
 import exceptions.TypecheckException;
-import model.states.map.MyHeap;
-import model.states.map.MyMap;
+import model.states.map.*;
 import model.types.RefType;
 import model.types.Type;
 import model.values.IntValue;
@@ -12,7 +11,7 @@ import model.values.Value;
 
 public record HeapReadingExpression(Expression expression) implements Expression {
     @Override
-    public Value evaluate(MyMap<String, Value> symTable, MyHeap<Value> heapTable) throws ExpressionEvalException {
+    public Value evaluate(SymbolTable symTable, HeapTable heapTable) throws ExpressionEvalException {
         var expressionValue = expression.evaluate(symTable, heapTable);
         if (!(expressionValue instanceof RefValue)) throw new ExpressionEvalException("The expression value does not match");
 
@@ -21,7 +20,7 @@ public record HeapReadingExpression(Expression expression) implements Expression
     }
 
     @Override
-    public Type typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
+    public Type typecheck(TypeTable typeTable) throws TypecheckException {
         Type type = expression.typecheck(typeTable);
         if (type instanceof RefType) {
             return ((RefType) type).getInnerType();

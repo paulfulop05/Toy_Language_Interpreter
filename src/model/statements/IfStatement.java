@@ -5,6 +5,7 @@ import exceptions.TypecheckException;
 import model.states.map.MyMap;
 import model.states.ProgramState;
 import model.expressions.Expression;
+import model.states.map.TypeTable;
 import model.types.BoolType;
 import model.types.Type;
 import model.values.BoolValue;
@@ -25,7 +26,7 @@ public record IfStatement(Expression expression, StatementInterface thenS, State
     }
 
     @Override
-    public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
+    public TypeTable typecheck(TypeTable typeTable) throws TypecheckException {
 
         // WHY DO I NEED TO CLONE THE TYPE TABLE?
         // If thenS or elseS contain variable declarations:
@@ -36,8 +37,8 @@ public record IfStatement(Expression expression, StatementInterface thenS, State
 
         Type typeExpression = expression.typecheck(typeTable);
         if (typeExpression.equals(BoolType.INSTANCE)) {
-            thenS.typecheck(new MyMap<>(typeTable.getMap()));
-            elseS.typecheck(new MyMap<>(typeTable.getMap()));
+            thenS.typecheck(new TypeTable(typeTable.getMap()));
+            elseS.typecheck(new TypeTable(typeTable.getMap()));
             return typeTable;
         }
         else

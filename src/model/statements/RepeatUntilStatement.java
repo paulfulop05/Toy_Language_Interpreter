@@ -6,6 +6,7 @@ import model.expressions.Expression;
 import model.expressions.NotExpression;
 import model.states.map.MyMap;
 import model.states.ProgramState;
+import model.states.map.TypeTable;
 import model.types.BoolType;
 import model.types.Type;
 
@@ -19,7 +20,7 @@ public record RepeatUntilStatement (StatementInterface statement, Expression exp
     }
 
     @Override
-    public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
+    public TypeTable typecheck(TypeTable typeTable) throws TypecheckException {
         // here if I don't clone the type table, the declarations inside the while body will "leak"
         // into the main program
 

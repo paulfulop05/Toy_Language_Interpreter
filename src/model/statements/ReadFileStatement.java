@@ -5,6 +5,7 @@ import exceptions.TypecheckException;
 import model.expressions.Expression;
 import model.states.map.MyMap;
 import model.states.ProgramState;
+import model.states.map.TypeTable;
 import model.types.IntType;
 import model.types.StringType;
 import model.types.Type;
@@ -45,7 +46,7 @@ public record ReadFileStatement(Expression expression, String variableName) impl
     }
 
     @Override
-    public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
+    public TypeTable typecheck(TypeTable typeTable) throws TypecheckException {
         Type typeExpression = expression.typecheck(typeTable);
         Type typeVariable = typeTable.lookup(variableName);
 

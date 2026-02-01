@@ -4,6 +4,7 @@ import exceptions.TypecheckException;
 import model.states.map.MyMap;
 import model.states.ProgramState;
 import model.expressions.Expression;
+import model.states.map.TypeTable;
 import model.types.Type;
 
 public record PrintStatement(Expression expression) implements StatementInterface {
@@ -16,7 +17,7 @@ public record PrintStatement(Expression expression) implements StatementInterfac
     }
 
     @Override
-    public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
+    public TypeTable typecheck(TypeTable typeTable) throws TypecheckException {
         expression.typecheck(typeTable);
         return typeTable;
     }

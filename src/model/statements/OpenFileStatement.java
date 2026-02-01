@@ -5,6 +5,7 @@ import exceptions.TypecheckException;
 import model.expressions.Expression;
 import model.states.map.MyMap;
 import model.states.ProgramState;
+import model.states.map.TypeTable;
 import model.types.StringType;
 import model.types.Type;
 import model.values.StringValue;
@@ -38,7 +39,7 @@ public record OpenFileStatement(Expression expression) implements StatementInter
     }
 
     @Override
-    public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
+    public TypeTable typecheck(TypeTable typeTable) throws TypecheckException {
         Type typeExpression = expression.typecheck(typeTable);
 
         if (typeExpression instanceof StringType)

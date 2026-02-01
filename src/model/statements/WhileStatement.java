@@ -5,6 +5,7 @@ import exceptions.TypecheckException;
 import model.expressions.Expression;
 import model.states.map.MyMap;
 import model.states.ProgramState;
+import model.states.map.TypeTable;
 import model.types.BoolType;
 import model.types.Type;
 import model.values.BoolValue;
@@ -29,7 +30,7 @@ public record WhileStatement(Expression expression, StatementInterface statement
     }
 
     @Override
-    public MyMap<String, Type> typecheck(MyMap<String, Type> typeTable) throws TypecheckException {
+    public TypeTable typecheck(TypeTable typeTable) throws TypecheckException {
 
         // here if I don't clone the type table, the declarations inside the while body will "leak"
         // into the main program
@@ -39,7 +40,9 @@ public record WhileStatement(Expression expression, StatementInterface statement
             throw new TypecheckException("WhileStatement: While condition must be bool type");
         }
 
-        statement.typecheck(new MyMap<>(typeTable.getMap()));
+//        TypeTable newTypeTable = new TypeTable();
+//        for(var entry : )
+        statement.typecheck(new TypeTable(typeTable.getMap()));
         return typeTable;
     }
 
