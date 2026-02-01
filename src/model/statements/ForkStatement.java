@@ -3,13 +3,8 @@ package model.statements;
 import exceptions.StatementException;
 import exceptions.TypecheckException;
 import model.states.*;
-import model.states.map.MyMap;
-import model.states.map.SymbolTable;
-import model.states.map.TypeTable;
+import model.states.map.tables.TypeTable;
 import model.states.stack.ExecutionStack;
-import model.states.stack.MyStack;
-import model.types.Type;
-import model.values.Value;
 
 public record ForkStatement(StatementInterface statement) implements StatementInterface {
 

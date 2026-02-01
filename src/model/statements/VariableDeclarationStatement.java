@@ -1,9 +1,8 @@
 package model.statements;
 
 import exceptions.TypecheckException;
-import model.states.map.MyMap;
 import model.states.ProgramState;
-import model.states.map.TypeTable;
+import model.states.map.tables.TypeTable;
 import model.types.*;
 
 public record VariableDeclarationStatement(String name, Type type) implements StatementInterface {

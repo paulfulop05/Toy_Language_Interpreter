@@ -2,10 +2,11 @@ package model.expressions;
 
 import exceptions.ExpressionEvalException;
 import exceptions.TypecheckException;
-import model.states.map.*;
+import model.states.map.tables.HeapTable;
+import model.states.map.tables.SymbolTable;
+import model.states.map.tables.TypeTable;
 import model.types.RefType;
 import model.types.Type;
-import model.values.IntValue;
 import model.values.RefValue;
 import model.values.Value;
 

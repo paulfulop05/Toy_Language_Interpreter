@@ -2,13 +2,10 @@ package model.statements;
 
 import exceptions.StatementException;
 import exceptions.TypecheckException;
-import exceptions.ValueNotFoundException;
 import javafx.util.Pair;
 import model.expressions.Expression;
 import model.states.ProgramState;
-import model.states.map.MyMap;
-import model.states.map.TypeTable;
-import model.types.Type;
+import model.states.map.tables.TypeTable;
 import model.values.IntValue;
 import java.util.ArrayList;
 

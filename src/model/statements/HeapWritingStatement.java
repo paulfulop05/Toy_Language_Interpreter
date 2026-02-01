@@ -4,12 +4,10 @@ import exceptions.ExpressionEvalException;
 import exceptions.StatementException;
 import exceptions.TypecheckException;
 import model.expressions.Expression;
-import model.states.map.MyMap;
 import model.states.ProgramState;
-import model.states.map.TypeTable;
+import model.states.map.tables.TypeTable;
 import model.types.RefType;
 import model.types.Type;
-import model.values.IntValue;
 import model.values.RefValue;
 
 public record HeapWritingStatement(String name, Expression expression) implements StatementInterface {

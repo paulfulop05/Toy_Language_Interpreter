@@ -4,7 +4,10 @@ package model.states;
 import exceptions.ProgramException;
 import model.statements.StatementInterface;
 import model.states.list.OutList;
-import model.states.map.*;
+import model.states.map.tables.BarrierTable;
+import model.states.map.tables.FileTable;
+import model.states.map.tables.HeapTable;
+import model.states.map.tables.SymbolTable;
 import model.states.stack.ExecutionStack;
 
 public final class ProgramState {

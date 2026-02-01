@@ -4,9 +4,8 @@ import exceptions.StatementException;
 import exceptions.TypecheckException;
 import model.expressions.Expression;
 import model.expressions.NotExpression;
-import model.states.map.MyMap;
 import model.states.ProgramState;
-import model.states.map.TypeTable;
+import model.states.map.tables.TypeTable;
 import model.types.BoolType;
 import model.types.Type;
 

@@ -1,8 +1,9 @@
-package model.states.map;
+package model.states.map.tables;
 
 import exceptions.UndefinedIdException;
 import exceptions.ValueNotFoundException;
 import javafx.util.Pair;
+import model.states.map.MyHeap;
 
 import java.util.List;
 

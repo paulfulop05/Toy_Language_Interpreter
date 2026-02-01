@@ -1,11 +1,9 @@
 package model.statements;
 
 import exceptions.TypecheckException;
-import model.states.map.MyMap;
 import model.states.ProgramState;
 import model.expressions.Expression;
-import model.states.map.TypeTable;
-import model.types.Type;
+import model.states.map.tables.TypeTable;
 
 public record PrintStatement(Expression expression) implements StatementInterface {
 

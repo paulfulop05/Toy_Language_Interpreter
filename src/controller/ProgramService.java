@@ -2,16 +2,11 @@ package controller;
 
 import exceptions.ProgramException;
 import exceptions.TypecheckException;
-import javafx.util.Pair;
 import model.states.*;
 import model.statements.StatementInterface;
-import model.states.list.MyList;
 import model.states.list.OutList;
-import model.states.map.*;
+import model.states.map.tables.*;
 import model.states.stack.ExecutionStack;
-import model.states.stack.MyStack;
-import model.types.Type;
-import model.values.Value;
 import repo.Repository;
 
 import java.util.List;

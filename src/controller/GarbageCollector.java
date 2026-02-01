@@ -1,12 +1,8 @@
 package controller;
 
-import model.states.map.HeapTable;
-import model.states.map.MyHeap;
-import model.states.map.MyMap;
-import model.states.map.SymbolTable;
-import model.values.IntValue;
+import model.states.map.tables.HeapTable;
+import model.states.map.tables.SymbolTable;
 import model.values.RefValue;
-import model.values.Value;
 
 import java.util.*;
 import java.util.stream.Collectors;
