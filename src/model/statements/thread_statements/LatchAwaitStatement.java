@@ -25,7 +25,6 @@ public record LatchAwaitStatement(String variableName) implements StatementInter
             Integer latchTableValue = state.latchTable().lookup(foundIndex);
             if(latchTableValue != 0)
                 state.exeStack().push(this);
-            else throw new StatementException(variableName + " is not mapped on the LatchTable");
         }
 
         return null;

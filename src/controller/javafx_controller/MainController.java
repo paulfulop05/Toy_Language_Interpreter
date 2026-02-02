@@ -72,6 +72,15 @@ public class MainController {
     @FXML
     private TableColumn<Map.Entry<String, String>, String> LockTableValue;
 
+    @FXML
+    private TableView<Map.Entry<String, String>> LatchTableView;
+
+    @FXML
+    private TableColumn<Map.Entry<String, String>, String> LatchLocationTableColumn;
+
+    @FXML
+    private TableColumn<Map.Entry<String, String>, String> LatchValueTableColumn;
+
     private List<ProgramService> programServiceList;
     private ProgramService mainProgramService;
     private List<ProgramState> programStates;
@@ -114,6 +123,12 @@ public class MainController {
                 new SimpleStringProperty(cellData.getValue().getKey()));
 
         LockTableValue.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getValue()));
+
+        LatchLocationTableColumn.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getKey()));
+
+        LatchValueTableColumn.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getValue()));
     }
 
@@ -240,6 +255,21 @@ public class MainController {
         );
     }
 
+    public void populateLatchTableView(){
+        LatchTableView.getItems().clear();
+
+        var latchTable = mainProgramService.getRepo().getMainProgram().latchTable();
+
+        LatchTableView.getItems().addAll(
+                latchTable.getMap().entrySet().stream()
+                        .map(entry -> Map.entry(
+                                entry.getKey().toString(),
+                                entry.getValue().toString()
+                        ))
+                        .toList()
+        );
+    }
+
     // similar to executeMainProgram() but for the gui
     public void clickOneStep() throws ProgramException, InterruptedException {
         try{
@@ -272,6 +302,7 @@ public class MainController {
             populateSymTableView(programId);
             populateBarrierTableView();
             populateLockTableView();
+            populateLatchTableView();
         }
         catch (Exception e){
             IO.print("Unexpected error:\n" + e.getMessage());
@@ -287,5 +318,6 @@ public class MainController {
         PrgStatesTextField.clear();
         BarrierTableView.getItems().clear();
         LockTableView.getItems().clear();
+        LatchTableView.getItems().clear();
     }
 }

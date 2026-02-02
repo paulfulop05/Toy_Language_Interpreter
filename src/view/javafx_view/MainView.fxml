@@ -98,5 +98,16 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
+      <TableView fx:id="LatchTableView" layoutX="568.0" layoutY="640.0" prefHeight="191.0" prefWidth="150.0">
+        <columns>
+          <TableColumn fx:id="LatchLocationTableColumn" prefWidth="75.0" text="Location" />
+          <TableColumn fx:id="LatchValueTableColumn" prefWidth="75.0" text="Value" />
+        </columns>
+      </TableView>
+      <Label alignment="TOP_CENTER" layoutX="536.0" layoutY="611.0" opacity="0.56" prefHeight="17.0" prefWidth="200.0" text="Latch Table" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

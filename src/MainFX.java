@@ -752,6 +752,47 @@ public class MainFX extends Application {
                         )
                 );
 
+        //Ref int v1; Ref int v2; Ref int v3; int cnt;
+        //new(v1,2);new(v2,3);new(v3,4);newLatch(cnt,rH(v2));
+        //fork(wh(v1,rh(v1)*10);print(rh(v1));countDown(cnt);
+        // fork(wh(v2,rh(v2)*10);print(rh(v2));countDown(cnt);
+        // fork(wh(v3,rh(v3)*10);print(rh(v3));countDown(cnt))
+        // )
+        // );
+        //await(cnt);
+        //print(100);
+        //countDown(cnt);
+        //print(100)
+        StatementInterface ex18 =
+                new CompoundStatement(
+                    new VariableDeclarationStatement("v1", new RefType(IntType.INSTANCE)),
+                    new CompoundStatement(new VariableDeclarationStatement("v2", new RefType(IntType.INSTANCE)),
+                    new CompoundStatement(new VariableDeclarationStatement("v3", new RefType(IntType.INSTANCE)),
+                    new CompoundStatement(new VariableDeclarationStatement("cnt", IntType.INSTANCE),
+                    new CompoundStatement(new HeapAllocationStatement("v1", new ValueExpression(new IntValue(2))),
+                    new CompoundStatement(new HeapAllocationStatement("v2", new ValueExpression(new IntValue(3))),
+                    new CompoundStatement(new HeapAllocationStatement("v3", new ValueExpression(new IntValue(4))),
+                    new CompoundStatement(new NewLatchStatement("cnt", new HeapReadingExpression(new VariableExpression("v2"))),
+                    new CompoundStatement(new ForkStatement(
+                         new CompoundStatement(new HeapWritingStatement("v1", new ArithmeticExpression("*", new HeapReadingExpression(new VariableExpression("v1")), new ValueExpression(new IntValue(10)))),
+                         new CompoundStatement(new PrintStatement(new HeapReadingExpression(new VariableExpression("v1"))),
+                         new CompoundStatement(new CountDownStatement("cnt"),
+                                 new ForkStatement(
+                                         new CompoundStatement(new HeapWritingStatement("v2", new ArithmeticExpression("*", new HeapReadingExpression(new VariableExpression("v2")), new ValueExpression(new IntValue(10)))),
+                                         new CompoundStatement(new PrintStatement(new HeapReadingExpression(new VariableExpression("v2"))),
+                                         new CompoundStatement(new CountDownStatement("cnt"),
+                                                 new ForkStatement(
+                                                         new CompoundStatement(new HeapWritingStatement("v3", new ArithmeticExpression("*", new HeapReadingExpression(new VariableExpression("v3")), new ValueExpression(new IntValue(10)))),
+                                                         new CompoundStatement(new PrintStatement(new HeapReadingExpression(new VariableExpression("v3"))),
+                                                                         new CountDownStatement("cnt")
+                                                         ))))))))))
+                    ),
+                    new CompoundStatement(new LatchAwaitStatement("cnt"),
+                    new CompoundStatement(new PrintStatement(new ValueExpression(new IntValue(100))),
+                    new CompoundStatement(new CountDownStatement("cnt"), new PrintStatement(new ValueExpression(new IntValue(100)))
+                    )))))))))))
+                );
+
         Repository repository1 = new ArrayListRepository("src/logs/log1.txt");
         ProgramService programServ1 = new ProgramService(repository1);
         programServ1.addNewProgram(ex1);
@@ -860,5 +901,11 @@ public class MainFX extends Application {
         programServ17.addNewProgram(ex17);
         programsController.addProgramTxt(ex17.toString());
         mainController.addProgramService(programServ17);
+
+        Repository repository18 = new ArrayListRepository("src/logs/log18.txt");
+        ProgramService programServ18 = new ProgramService(repository18);
+        programServ18.addNewProgram(ex18);
+        programsController.addProgramTxt(ex18.toString());
+        mainController.addProgramService(programServ18);
     }
 }
