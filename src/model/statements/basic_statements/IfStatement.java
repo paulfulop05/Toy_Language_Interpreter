@@ -15,8 +15,8 @@ public record IfStatement(Expression expression, StatementInterface thenS, State
     public ProgramState execute(ProgramState state) throws StatementException {
         var exeStack = state.exeStack();
         var cond = expression.evaluate(state.symTable(), state.heapTable());
-        if (cond.getType() == BoolType.INSTANCE) {
-            if (cond.equals(new BoolValue(true)))
+        if (cond instanceof BoolValue(boolean val)) {
+            if (val)
                 exeStack.push(thenS);
             else
                 exeStack.push(elseS);

@@ -31,6 +31,6 @@ public record HeapReadingExpression(Expression expression) implements Expression
 
     @Override
     public String toString() {
-        return expression.toString();
+        return "rh("+expression.toString()+')';
     }
 }

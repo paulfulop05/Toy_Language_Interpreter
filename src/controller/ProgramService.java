@@ -54,7 +54,8 @@ public final class ProgramService {
                     new OutList(),
                     new FileTable(),
                     new HeapTable(),
-                    new BarrierTable()));
+                    new BarrierTable(),
+                    new LockTable()));
         }
         catch (TypecheckException e){
             IO.print(e.getMessage());

@@ -43,4 +43,9 @@ public record HeapWritingStatement(String name, Expression expression) implement
         else
             throw new TypecheckException("HeapWritingStatement: right hand side and left hand side have different types ");
     }
+
+    @Override
+    public String toString() {
+        return "wh (" + name + "," + expression.toString() + ")";
+    }
 }
