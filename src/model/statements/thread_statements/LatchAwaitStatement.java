@@ -5,6 +5,7 @@ import exceptions.TypecheckException;
 import model.statements.StatementInterface;
 import model.states.ProgramState;
 import model.states.map.tables.TypeTable;
+import model.types.IntType;
 import model.values.IntValue;
 
 public record LatchAwaitStatement(String variableName) implements StatementInterface {
@@ -32,6 +33,9 @@ public record LatchAwaitStatement(String variableName) implements StatementInter
 
     @Override
     public TypeTable typecheck(TypeTable typeTable) throws TypecheckException {
+        var variableType = typeTable.lookup(variableName);
+        if(!(variableType instanceof IntType))
+            throw new TypecheckException("Variable " + variableName + " is not of type IntType");
         return typeTable;
     }
 }
