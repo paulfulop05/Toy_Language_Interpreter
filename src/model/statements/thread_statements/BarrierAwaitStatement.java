@@ -9,10 +9,9 @@ import model.types.IntType;
 import model.types.Type;
 import model.values.IntValue;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public record AwaitStatement(String variableName) implements StatementInterface {
+public record BarrierAwaitStatement(String variableName) implements StatementInterface {
     @Override
     public ProgramState execute(ProgramState state) throws StatementException {
             // - foundIndex=lookup(SymTable,var). If var is not in SymTable or has not the int

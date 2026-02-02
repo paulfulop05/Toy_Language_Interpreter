@@ -17,10 +17,12 @@ public final class ProgramState {
     private final HeapTable heapTable;
     private final BarrierTable barrierTable;
     private final LockTable lockTable;
+    private final LatchTable latchTable;
 
     public ProgramState(ExecutionStack exeStack, SymbolTable symTable,
                         OutList out, FileTable fileTable,
-                        HeapTable heapTable, BarrierTable barrierTable, LockTable lockTable) {
+                        HeapTable heapTable, BarrierTable barrierTable,
+                        LockTable lockTable, LatchTable latchTable) {
         this.programId = generateId();
         this.exeStack = exeStack;
         this.symTable = symTable;
@@ -29,6 +31,7 @@ public final class ProgramState {
         this.heapTable = heapTable;
         this.barrierTable = barrierTable;
         this.lockTable = lockTable;
+        this.latchTable = latchTable;
     }
 
     private static synchronized int generateId() {
@@ -81,5 +84,6 @@ public final class ProgramState {
     }
     public BarrierTable barrierTable() {return barrierTable;}
     public LockTable lockTable() {return lockTable;}
+    public LatchTable latchTable() {return latchTable;}
 }
 

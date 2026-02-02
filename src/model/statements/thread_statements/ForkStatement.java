@@ -26,7 +26,8 @@ public record ForkStatement(StatementInterface statement) implements StatementIn
                 state.fileTable(),
                 state.heapTable(),
                 state.barrierTable(),
-                state.lockTable());
+                state.lockTable(),
+                state.latchTable());
     }
 
     @Override

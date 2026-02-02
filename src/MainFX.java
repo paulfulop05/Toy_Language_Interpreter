@@ -546,7 +546,7 @@ public class MainFX extends Application {
                                                     new CompoundStatement(new HeapAllocationStatement("v3", new ValueExpression(new IntValue(4))),
                                                     new CompoundStatement(new NewBarrierStatement("cnt", new HeapReadingExpression(new VariableExpression("v2"))),
                                         new CompoundStatement(new ForkStatement(new CompoundStatement(
-                                                new AwaitStatement("cnt"),
+                                                new BarrierAwaitStatement("cnt"),
                                                 new CompoundStatement(
                                                         new HeapWritingStatement("v1", new ArithmeticExpression("*", new HeapReadingExpression(new VariableExpression("v1")), new ValueExpression(new IntValue(10)))),
                                                         new PrintStatement(new HeapReadingExpression(new VariableExpression("v1")))
@@ -554,7 +554,7 @@ public class MainFX extends Application {
                                         )),
                                                 new CompoundStatement(new ForkStatement(
                                                         new CompoundStatement(
-                                                                new AwaitStatement("cnt"),
+                                                                new BarrierAwaitStatement("cnt"),
                                                                 new CompoundStatement(
                                                                         new HeapWritingStatement("v2", new ArithmeticExpression("*", new HeapReadingExpression(new VariableExpression("v2")), new ValueExpression(new IntValue(10)))),
                                                                         new CompoundStatement(
@@ -566,7 +566,7 @@ public class MainFX extends Application {
 
                                                 ),
                                                         new CompoundStatement(
-                                                                new AwaitStatement("cnt"),
+                                                                new BarrierAwaitStatement("cnt"),
                                                                 new PrintStatement(new HeapReadingExpression(new VariableExpression("v3")))
                                                         ))
                                                 )
