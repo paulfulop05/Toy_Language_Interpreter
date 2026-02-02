@@ -60,6 +60,9 @@ public final class ProgramService {
             IO.print(e.getMessage());
             System.exit(1);
         }
+        catch (Exception e){
+            IO.print("Some other problem occured!\n(" + e.getMessage() + ')');
+        }
     }
 
     public void executeOneStepForAllPrograms(List<ProgramState> programStates) throws InterruptedException, ProgramException {

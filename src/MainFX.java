@@ -13,6 +13,7 @@ import model.statements.file_statements.OpenFileStatement;
 import model.statements.file_statements.ReadFileStatement;
 import model.statements.heap_statements.HeapAllocationStatement;
 import model.statements.heap_statements.HeapWritingStatement;
+import model.statements.loop_statements.ForStatement;
 import model.statements.loop_statements.RepeatUntilStatement;
 import model.statements.loop_statements.WhileStatement;
 import model.statements.thread_statements.AwaitStatement;
@@ -582,6 +583,31 @@ public class MainFX extends Application {
 
         )));
 
+//        Ref int a; new(a,20);
+//        (for(v=0;v<3;v=v+1) fork(print(v);v=v*rh(a)));
+//        print(rh(a))
+        StatementInterface ex15 = new  CompoundStatement(
+                new VariableDeclarationStatement("a", new RefType(IntType.INSTANCE)),
+                        new CompoundStatement(
+                                new HeapAllocationStatement("a", new ValueExpression(new IntValue(20))),
+                                new CompoundStatement(
+                                        new ForStatement("v",
+                                                new ValueExpression(new IntValue(0)),
+                                                new ValueExpression(new IntValue(3)),
+                                                new ArithmeticExpression("+",
+                                                        new VariableExpression("v"),
+                                                        new ValueExpression(new IntValue(1))),
+                                                new ForkStatement(new CompoundStatement(
+                                                        new PrintStatement(new VariableExpression("v")),
+                                                        new AssignStatement("v", new ArithmeticExpression("*",
+                                                                new VariableExpression("v"),
+                                                                new HeapReadingExpression(new VariableExpression("a"))))
+                                                ))),
+                                        new PrintStatement(new HeapReadingExpression(new VariableExpression("a")))
+
+                                        )
+                        ));
+
         Repository repository1 = new ArrayListRepository("src/logs/log1.txt");
         ProgramService programServ1 = new ProgramService(repository1);
         programServ1.addNewProgram(ex1);
@@ -672,5 +698,11 @@ public class MainFX extends Application {
         programServ14.addNewProgram(ex14);
         programsController.addProgramTxt(ex14.toString());
         mainController.addProgramService(programServ14);
+
+        Repository repository15 = new ArrayListRepository("src/logs/log15.txt");
+        ProgramService programServ15 = new ProgramService(repository15);
+        programServ15.addNewProgram(ex15);
+        programsController.addProgramTxt(ex15.toString());
+        mainController.addProgramService(programServ15);
     }
 }
