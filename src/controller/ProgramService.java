@@ -56,7 +56,8 @@ public final class ProgramService {
                     new HeapTable(),
                     new BarrierTable(),
                     new LockTable(),
-                    new LatchTable()));
+                    new LatchTable(),
+                    new SemaphoreTable()));
         }
         catch (TypecheckException e){
             IO.print(e.getMessage());

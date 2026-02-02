@@ -11,7 +11,6 @@ import model.states.map.tables.TypeTable;
 public record SwitchCaseStatement(Expression switchExpression,
                                   Expression expression1,
                                   Expression expression2,
-                                  Expression expression3,
                                   StatementInterface statement1,
                                   StatementInterface statement2,
                                   StatementInterface statement3) implements StatementInterface {
@@ -30,8 +29,15 @@ public record SwitchCaseStatement(Expression switchExpression,
 
     @Override
     public TypeTable typecheck(TypeTable typeTable) throws TypecheckException {
+        statement1.typecheck(typeTable.deepcopy());
+        statement2.typecheck(typeTable.deepcopy());
+        statement3.typecheck(typeTable.deepcopy());
 
-
+        var switchExp = switchExpression.typecheck(typeTable);
+        var exp1Type = expression1.typecheck(typeTable);
+        var exp2Type = expression2.typecheck(typeTable);
+        if(!(switchExp.equals(exp1Type) && switchExp.equals(exp2Type)))
+            throw new TypecheckException("Type mismatch");
         return typeTable;
     }
 

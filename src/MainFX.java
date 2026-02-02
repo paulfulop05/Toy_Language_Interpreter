@@ -793,6 +793,24 @@ public class MainFX extends Application {
                     )))))))))))
                 );
 
+        StatementInterface ex19 =
+                new CompoundStatement(new VariableDeclarationStatement("a", IntType.INSTANCE),
+                new CompoundStatement(new VariableDeclarationStatement("b", IntType.INSTANCE),
+                new CompoundStatement(new VariableDeclarationStatement("c", IntType.INSTANCE),
+                new CompoundStatement(new AssignStatement("a", new ValueExpression(new IntValue(1))),
+                new CompoundStatement(new AssignStatement("b", new ValueExpression(new IntValue(2))),
+                new CompoundStatement(new AssignStatement("c", new ValueExpression(new IntValue(5))),
+                new CompoundStatement(new SwitchCaseStatement(
+                    new ArithmeticExpression("*", new VariableExpression("a"), new ValueExpression(new IntValue(10))),
+                    new ArithmeticExpression("*", new VariableExpression("b"), new VariableExpression("c")),
+                    new ValueExpression(new IntValue(10)),
+                    new CompoundStatement(new PrintStatement(new VariableExpression("a")), new PrintStatement(new VariableExpression("b"))),
+                    new CompoundStatement(new PrintStatement(new ValueExpression(new IntValue(100))), new PrintStatement(new ValueExpression(new IntValue(200)))),
+                    new PrintStatement(new ValueExpression(new IntValue(300)))
+                ),
+                        new PrintStatement(new ValueExpression(new IntValue(300)))
+                )))))));
+
         Repository repository1 = new ArrayListRepository("src/logs/log1.txt");
         ProgramService programServ1 = new ProgramService(repository1);
         programServ1.addNewProgram(ex1);
@@ -907,5 +925,14 @@ public class MainFX extends Application {
         programServ18.addNewProgram(ex18);
         programsController.addProgramTxt(ex18.toString());
         mainController.addProgramService(programServ18);
+
+
+        Repository repository19 = new ArrayListRepository("src/logs/log19.txt");
+        ProgramService programServ19 = new ProgramService(repository19);
+        programServ19.addNewProgram(ex19);
+        programsController.addProgramTxt(ex19.toString());
+        mainController.addProgramService(programServ19);
+
+
     }
 }
