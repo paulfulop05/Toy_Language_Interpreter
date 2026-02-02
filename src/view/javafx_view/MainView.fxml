@@ -109,5 +109,17 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
+      <TableView fx:id="SemTableView" layoutX="767.0" layoutY="640.0" prefHeight="191.0" prefWidth="300.0">
+         <columns>
+            <TableColumn fx:id="SemTableIndex" prefWidth="75.0" text="Index" />
+            <TableColumn fx:id="SemTableValue" prefWidth="75.0" text="Value" />
+            <TableColumn fx:id="SemTableList" prefWidth="149.0" text="List of values" />
+         </columns>
+      </TableView>
+      <Label alignment="TOP_CENTER" layoutX="799.0" layoutY="611.0" opacity="0.56" prefHeight="17.0" prefWidth="200.0" text="Semaphore Table" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

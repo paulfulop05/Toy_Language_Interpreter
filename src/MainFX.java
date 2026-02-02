@@ -811,6 +811,51 @@ public class MainFX extends Application {
                         new PrintStatement(new ValueExpression(new IntValue(300)))
                 )))))));
 
+        //Ref int v1; int cnt;
+        //new(v1,1);createSemaphore(cnt,rH(v1));
+        //fork(acquire(cnt);wh(v1,rh(v1)*10);print(rh(v1));release(cnt));
+        //fork(acquire(cnt);wh(v1,rh(v1)*10);wh(v1,rh(v1)*2);print(rh(v1));release(cnt));
+        //acquire(cnt);
+        //print(rh(v1)-1);
+        //release(cnt)
+        StatementInterface ex20 =
+                new CompoundStatement(new VariableDeclarationStatement("v1", new RefType(IntType.INSTANCE)),
+                new CompoundStatement(new VariableDeclarationStatement("cnt", IntType.INSTANCE),
+                new CompoundStatement(new HeapAllocationStatement("v1", new ValueExpression(new IntValue(1))),
+                new CompoundStatement(new NewSemaphoreStatement("cnt", new HeapReadingExpression(new VariableExpression("v1"))),
+                        new CompoundStatement(new ForkStatement(
+                                new CompoundStatement(new AcquireStatement("cnt"),
+                                        new CompoundStatement(new HeapWritingStatement("v1",
+                                                new ArithmeticExpression("*",
+                                                        new HeapReadingExpression(new VariableExpression("v1")),
+                                                        new ValueExpression(new IntValue(10)))),
+                                                new CompoundStatement(new PrintStatement(new HeapReadingExpression(new VariableExpression("v1"))),
+                                                        new RelaseStatement("cnt")
+                                                )))
+                        ),
+                                new CompoundStatement(new ForkStatement(
+                                        new CompoundStatement(new AcquireStatement("cnt"),
+                                                new CompoundStatement(new HeapWritingStatement("v1",
+                                                        new ArithmeticExpression("*",
+                                                                new HeapReadingExpression(new VariableExpression("v1")),
+                                                                new ValueExpression(new IntValue(10)))),
+                                                        new CompoundStatement(new HeapWritingStatement("v1",
+                                                                new ArithmeticExpression("*",
+                                                                        new HeapReadingExpression(new VariableExpression("v1")),
+                                                                        new ValueExpression(new IntValue(2)))),
+                                                                new CompoundStatement(new PrintStatement(new HeapReadingExpression(new VariableExpression("v1"))),
+                                                                        new RelaseStatement("cnt"))
+                                                        )))
+
+                                ),
+                                        new CompoundStatement(new AcquireStatement("cnt"),
+                                                new CompoundStatement(new PrintStatement(new ArithmeticExpression("-",
+                                                        new HeapReadingExpression(new VariableExpression("v1")), new ValueExpression(new IntValue(1)))),
+                                                        new RelaseStatement("cnt"))
+                )))))));
+
+
+
         Repository repository1 = new ArrayListRepository("src/logs/log1.txt");
         ProgramService programServ1 = new ProgramService(repository1);
         programServ1.addNewProgram(ex1);
@@ -926,12 +971,18 @@ public class MainFX extends Application {
         programsController.addProgramTxt(ex18.toString());
         mainController.addProgramService(programServ18);
 
-
         Repository repository19 = new ArrayListRepository("src/logs/log19.txt");
         ProgramService programServ19 = new ProgramService(repository19);
         programServ19.addNewProgram(ex19);
         programsController.addProgramTxt(ex19.toString());
         mainController.addProgramService(programServ19);
+
+        Repository repository20 = new ArrayListRepository("src/logs/log20.txt");
+        ProgramService programServ20 = new ProgramService(repository20);
+        programServ20.addNewProgram(ex20);
+        programsController.addProgramTxt(ex20.toString());
+        mainController.addProgramService(programServ20);
+
 
 
     }

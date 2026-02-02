@@ -27,13 +27,13 @@ public record RelaseStatement(String variableName) implements StatementInterface
         // - do nothing
         var index = state.symTable().lookup(variableName);
         if(index instanceof IntValue(int foundIndex)){
-            var barrierEntry = state.barrierTable().lookup(foundIndex);
+            var barrierEntry = state.semaphoreTable().lookup(foundIndex);
             List<Integer> L1 = barrierEntry.getValue();
-            int N1 = barrierEntry.getKey();
 
             if (L1.contains(state.getProgramId()))
                 //state.semaphoreTable().lookup(foundIndex).getValue().remove(state.getProgramId());
-                L1.remove(state.getProgramId());
+                L1.remove(Integer.valueOf(state.getProgramId())); // otherwise it removes from
+                                                                    // position since int is primitive
         }
         else
             throw new StatementException("Variable " + variableName + " is not a Int type");

@@ -25,7 +25,7 @@ public record NewSemaphoreStatement(String variableName, Expression expression) 
 
         var num = expression.evaluate(state.symTable(), state.heapTable());
         if(num.getType() instanceof IntType){
-            int location = state.barrierTable().add(new Pair<>(((IntValue) num).val(), new ArrayList<>()));
+            int location = state.semaphoreTable().add(new Pair<>(((IntValue) num).val(), new ArrayList<>()));
 
             var variableValue = state.symTable().lookup(variableName);
             if (variableValue.getType() instanceof IntType) {

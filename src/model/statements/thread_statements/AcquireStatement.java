@@ -32,7 +32,7 @@ public record AcquireStatement(String variableName) implements StatementInterfac
 
         var index = state.symTable().lookup(variableName);
         if(index instanceof IntValue(int foundIndex)){
-            var semaphoreEntry = state.barrierTable().lookup(foundIndex);
+            var semaphoreEntry = state.semaphoreTable().lookup(foundIndex);
             List<Integer> L1 = semaphoreEntry.getValue();
             int NL = L1.size(), N1 = semaphoreEntry.getKey();
 

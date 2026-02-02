@@ -51,8 +51,8 @@ public final class ProgramState {
                 "\nHEAP TABLE:\n" + heapTable.toString() +
                 "\nBARRIER TABLE:\n" + barrierTable.toString() +
                 "\nLOCK TABLE:\n" + lockTable.toString() +
-                "\n LATCH TABLE:\n" + latchTable.toString() +
-                ""+
+                "\nLATCH TABLE:\n" + latchTable.toString() +
+                "\nSEMAPHORE TABLE\n"+ semaphoreTable.toString()+
                 "\n-------------------------------------------------------\n\n";
     }
 

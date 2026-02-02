@@ -81,6 +81,18 @@ public class MainController {
     @FXML
     private TableColumn<Map.Entry<String, String>, String> LatchValueTableColumn;
 
+    @FXML
+    private TableView<Map.Entry<Map.Entry<String, String>, String>> SemTableView;
+
+    @FXML
+    private TableColumn<Map.Entry<Map.Entry<String, String>, String>, String> SemTableIndex;
+
+    @FXML
+    private TableColumn<Map.Entry<Map.Entry<String, String>, String>, String> SemTableValue;
+
+    @FXML
+    private TableColumn<Map.Entry<Map.Entry<String, String>, String>, String> SemTableList;
+
     private List<ProgramService> programServiceList;
     private ProgramService mainProgramService;
     private List<ProgramState> programStates;
@@ -129,6 +141,15 @@ public class MainController {
                 new SimpleStringProperty(cellData.getValue().getKey()));
 
         LatchValueTableColumn.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getValue()));
+
+        SemTableIndex.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getKey().getKey()));
+
+        SemTableValue.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getKey().getValue()));
+
+        SemTableList.setCellValueFactory(cellData ->
                 new SimpleStringProperty(cellData.getValue().getValue()));
     }
 
@@ -270,6 +291,20 @@ public class MainController {
         );
     }
 
+    public void populateSemTableView(){
+        var semTable = mainProgramService.getRepo().getMainProgram().semaphoreTable();
+        SemTableView.getItems().clear();
+        SemTableView.getItems().addAll(
+                semTable.getMap().entrySet().stream()
+                        .map(entry -> Map.entry(
+                                Map.entry(entry.getKey().toString(),
+                                        entry.getValue().getKey().toString()),
+                                entry.getValue().getValue().toString()
+                        ))
+                        .toList()
+        );
+    }
+
     // similar to executeMainProgram() but for the gui
     public void clickOneStep() throws ProgramException, InterruptedException {
         try{
@@ -303,6 +338,7 @@ public class MainController {
             populateBarrierTableView();
             populateLockTableView();
             populateLatchTableView();
+            populateSemTableView();
         }
         catch (Exception e){
             IO.print("Unexpected error:\n" + e.getMessage());
@@ -319,5 +355,6 @@ public class MainController {
         BarrierTableView.getItems().clear();
         LockTableView.getItems().clear();
         LatchTableView.getItems().clear();
+        SemTableView.getItems().clear();
     }
 }
